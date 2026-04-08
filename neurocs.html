@@ -2,8 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes,viewport-fit=cover">
-<meta name="theme-color" content="#050810">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
 <title>NeuroCAPTER · Profils INDIGO</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -12,8 +11,8 @@
   --C:#e8701a;--A:#2e9e48;--P:#cc2838;--T:#1e6ed8;--E:#0d4fa3;--R:#d89020;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{width:100%;height:100%;background:var(--bg);color:#fff;font-family:Rajdhani,sans-serif;overflow-x:hidden;}
-body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:var(--bg);padding:16px;position:relative;}
+html,body{width:100%;height:100%;background:var(--bg);color:#fff;font-family:Rajdhani,sans-serif;overflow-x:hidden;overflow-y:auto;}
+body{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:100vh;background:var(--bg);padding:16px;}
 
 /* ── CANVAS BG ── */
 canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
@@ -21,71 +20,67 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 /* ── INTRO SCREEN ── */
 #introScreen{
   position:relative;z-index:100;
-  background:rgba(5,8,16,0.92);
+  background:rgba(5,8,16,0.95);
   backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-radius:24px;
-  padding:24px 20px;
+  border-radius:20px;
+  padding:20px;
   width:100%;
-  max-width:1200px;
+  max-width:100%;
   margin:0 auto;
   box-shadow:0 20px 60px rgba(0,0,0,0.5);
   border:1px solid rgba(240,168,32,0.2);
 }
 
-/* Logo Octogo en haut au centre */
+/* Logo Octogo */
 .logo-container{
   text-align:center;
-  margin-bottom:24px;
+  margin-bottom:20px;
   position:relative;
   z-index:10;
 }
 .octogo-logo{
-  height:50px;
+  height:40px;
   width:auto;
   object-fit:contain;
   transition:transform 0.3s ease, filter 0.3s ease;
   filter:drop-shadow(0 0 10px rgba(240,168,32,0.3));
 }
-.octogo-logo:active{
-  transform:scale(0.98);
-}
 
 .intro-eyebrow{
   font-family:"Share Tech Mono",monospace;
-  font-size:11px;
-  letter-spacing:.2em;
+  font-size:10px;
+  letter-spacing:.15em;
   color:rgba(255,255,255,.35);
   text-transform:uppercase;
-  margin-bottom:16px;
+  margin-bottom:15px;
   text-align:center;
-  word-break:keep-all;
+  word-wrap:break-word;
 }
 .intro-title{
   font-family:"Barlow Condensed",sans-serif;
-  font-size:clamp(28px,6vw,48px);
+  font-size:clamp(24px,6vw,42px);
   font-weight:900;
   text-transform:uppercase;
-  letter-spacing:.02em;
+  letter-spacing:.03em;
   line-height:1.2;
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:25px;
 }
 .intro-title span{color:var(--ac)}
 
-/* Layout principal */
+/* Layout principal responsive */
 .intro-main-layout{
   display:flex;
-  justify-content:center;
+  flex-direction:column;
   align-items:center;
-  gap:15px;
-  margin-bottom:35px;
-  flex-wrap:wrap;
+  gap:20px;
+  margin-bottom:30px;
 }
 
-/* LEFT TEXT */
+/* LEFT TEXT - version mobile d'abord */
 .intro-side{
-  width:200px;
+  width:100%;
+  max-width:300px;
   display:flex;
   flex-direction:column;
   gap:10px;
@@ -94,9 +89,10 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   font-family:"Barlow Condensed",sans-serif;
   font-size:13px;
   font-weight:900;
-  letter-spacing:.1em;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  margin-bottom:6px;
+  margin-bottom:5px;
+  text-align:center;
 }
 .intro-side-before .intro-side-title{color:#607d8b}
 .intro-side-after .intro-side-title{color:var(--ac)}
@@ -112,11 +108,11 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 .intro-side-before .intro-side-item{color:rgba(150,175,185,.9)}
 .intro-side-after .intro-side-item{color:rgba(240,200,100,.9)}
 .intro-side-dot{
-  width:5px;
-  height:5px;
+  width:6px;
+  height:6px;
   border-radius:50%;
   flex-shrink:0;
-  margin-top:5px;
+  margin-top:4px;
 }
 .intro-side-before .intro-side-dot{background:#607d8b}
 .intro-side-after .intro-side-dot{background:var(--ac)}
@@ -124,14 +120,14 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 /* CARDS */
 .intro-card{
   position:relative;
-  border-radius:14px;
+  border-radius:16px;
   overflow:hidden;
-  width:200px;
+  width:100%;
+  max-width:280px;
   transition:transform 0.3s ease;
-  cursor:pointer;
 }
-.intro-card:active{
-  transform:scale(0.98);
+.intro-card:hover{
+  transform:translateY(-3px);
 }
 .intro-card img{
   width:100%;
@@ -149,10 +145,9 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   font-family:"Barlow Condensed",sans-serif;
   font-size:12px;
   font-weight:900;
-  letter-spacing:.06em;
+  letter-spacing:.08em;
   text-transform:uppercase;
   backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
   text-align:center;
 }
 .intro-card-before .intro-card-label{
@@ -168,51 +163,54 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 }
 .intro-card-after{
   border:2px solid rgba(240,168,32,.4);
-  box-shadow:0 0 20px rgba(240,168,32,.1);
+  box-shadow:0 0 20px rgba(240,168,32,.15);
 }
 
 /* Flèche */
 .intro-arrow{
-  font-size:32px;
+  font-size:30px;
   color:rgba(255,255,255,.3);
   text-align:center;
-  width:45px;
+  width:100%;
+  transform:rotate(90deg);
 }
 
-/* NUMEROS */
+/* NUMEROS - VERSION MOBILE OPTIMISEE */
 .numbers-row{
   display:flex;
+  flex-direction:column;
   align-items:center;
-  justify-content:center;
-  gap:25px;
-  margin-bottom:35px;
-  flex-wrap:wrap;
+  gap:15px;
+  margin-bottom:25px;
 }
 .number-group{
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:15px;
   background:rgba(255,255,255,.05);
-  padding:12px 20px;
-  border-radius:18px;
+  padding:12px 15px;
+  border-radius:15px;
   backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  width:100%;
+  max-width:350px;
 }
 .number-item{
   text-align:center;
-  min-width:100px;
+  flex:1;
 }
 .number-label{
   font-family:"Share Tech Mono",monospace;
-  font-size:9px;
+  font-size:8px;
   letter-spacing:.1em;
   color:rgba(255,255,255,.5);
   text-transform:uppercase;
-  margin-bottom:6px;
+  margin-bottom:5px;
+  line-height:1.2;
 }
 .number-value{
   font-family:"Barlow Condensed",sans-serif;
-  font-size:42px;
+  font-size:32px;
   font-weight:900;
   line-height:1;
   transition:all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -221,27 +219,27 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 .number-item.before .number-value{color:#cc2838;}
 .number-item.after .number-value{color:#2e9e48;}
 .number-arrow{
-  font-size:28px;
+  font-size:24px;
   color:rgba(255,255,255,.3);
   animation:pulse 2s infinite;
 }
 @keyframes pulse{
   0%,100%{opacity:0.3;transform:translateX(0);}
-  50%{opacity:1;transform:translateX(5px);}
+  50%{opacity:1;transform:translateX(3px);}
 }
 
 /* BOUTON */
 .discover-btn{
   font-family:"Barlow Condensed",sans-serif;
-  font-size:20px;
+  font-size:18px;
   font-weight:900;
-  letter-spacing:.08em;
+  letter-spacing:.1em;
   text-transform:uppercase;
   background:var(--ac);
   color:#000;
   border:none;
-  border-radius:14px;
-  padding:16px 32px;
+  border-radius:16px;
+  padding:15px 30px;
   cursor:pointer;
   transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width:100%;
@@ -250,27 +248,9 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   display:block;
   position:relative;
   overflow:hidden;
-  touch-action:manipulation;
 }
 .discover-btn:active{
-  transform:scale(0.97);
-  box-shadow:0 0 30px rgba(240,168,32,.4);
-}
-.discover-btn::before{
-  content:'';
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:0;
-  height:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.3);
-  transform:translate(-50%,-50%);
-  transition:width 0.6s, height 0.6s;
-}
-.discover-btn:active::before{
-  width:300px;
-  height:300px;
+  transform:scale(0.98);
 }
 
 /* Animation pour les numéros */
@@ -284,7 +264,7 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   }
   50%{
     opacity:0.5;
-    transform:translateY(5px) scale(1.1);
+    transform:translateY(3px) scale(1.1);
   }
   100%{
     opacity:1;
@@ -292,118 +272,72 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   }
 }
 
-/* Responsive */
-@media (max-width: 1000px){
-  .intro-side, .intro-card{
-    width:180px;
-  }
-  .intro-arrow{
-    width:35px;
-    font-size:28px;
-  }
-  .number-value{
-    font-size:36px;
-  }
-  .number-item{
-    min-width:85px;
-  }
-}
-
-@media (max-width: 850px){
-  .intro-main-layout{
-    gap:12px;
-  }
-  .intro-side, .intro-card{
-    width:160px;
-  }
-  .intro-side-item{
-    font-size:11px;
-  }
-  .intro-side-title{
-    font-size:12px;
-  }
-  .number-group{
-    gap:12px;
-    padding:10px 15px;
-  }
-}
-
-@media (max-width: 768px){
-  body{
-    padding:12px;
-  }
+/* Tablettes et petits écrans */
+@media (min-width: 768px){
+  body{padding:20px;}
   #introScreen{
-    padding:20px 16px;
+    padding:30px;
+    max-width:900px;
   }
   .intro-main-layout{
-    flex-direction:column;
-    gap:20px;
-  }
-  .intro-side, .intro-card{
-    width:280px;
-  }
-  .intro-arrow{
-    transform:rotate(90deg);
-    width:auto;
-  }
-  .numbers-row{
-    flex-direction:column;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
     gap:15px;
   }
+  .intro-side, .intro-card{
+    width:220px;
+    max-width:220px;
+  }
+  .intro-arrow{
+    width:auto;
+    transform:rotate(0deg);
+    font-size:36px;
+  }
+  .numbers-row{
+    flex-direction:row;
+    justify-content:center;
+    gap:20px;
+  }
   .number-group{
-    flex-direction:column;
-    gap:12px;
-    width:100%;
-    max-width:280px;
-  }
-  .number-arrow{
-    transform:rotate(90deg);
-  }
-  .octogo-logo{
-    height:40px;
-  }
-  .intro-eyebrow{
-    font-size:9px;
-    letter-spacing:.15em;
-  }
-  .intro-title{
-    margin-bottom:25px;
+    flex-direction:row;
+    width:auto;
+    min-width:250px;
   }
   .number-value{
-    font-size:32px;
-  }
-  .number-item{
-    min-width:100px;
+    font-size:40px;
   }
   .discover-btn{
-    font-size:18px;
-    padding:14px 28px;
-  }
-}
-
-@media (max-width: 480px){
-  .intro-side, .intro-card{
-    width:260px;
-  }
-  .number-item{
-    min-width:90px;
-  }
-  .number-value{
-    font-size:28px;
+    font-size:20px;
+    max-width:400px;
   }
   .octogo-logo{
-    height:35px;
-  }
-  .intro-card-label{
-    font-size:11px;
-    padding:8px;
+    height:50px;
   }
 }
 
-/* Éviter les débordements */
-img{
-  max-width:100%;
-  height:auto;
+@media (min-width: 1024px){
+  #introScreen{
+    max-width:1200px;
+  }
+  .intro-side, .intro-card{
+    width:250px;
+  }
+  .number-value{
+    font-size:48px;
+  }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px){
+  body{padding:12px;}
+  #introScreen{padding:15px;}
+  .intro-title{font-size:22px;margin-bottom:20px;}
+  .intro-side-item{font-size:11px;}
+  .number-group{padding:10px 12px;}
+  .number-value{font-size:28px;}
+  .number-label{font-size:7px;}
+  .discover-btn{font-size:16px;padding:12px 20px;}
 }
 </style>
 </head>
@@ -413,17 +347,17 @@ img{
 
 <!-- ══ INTRO SCREEN ══ -->
 <div id="introScreen">
-  <!-- Logo Octogo en haut au centre -->
+  <!-- Logo Octogo -->
   <div class="logo-container">
-    <img class="octogo-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpolygon points='100,20 180,60 180,140 100,180 20,140 20,60' fill='none' stroke='%23f0a820' stroke-width='4'/%3E%3Cpolygon points='100,50 150,75 150,125 100,150 50,125 50,75' fill='none' stroke='%23f0a820' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='15' fill='%23f0a820'/%3E%3C/svg%3E" alt="Octogo" style="display:block;margin:0 auto;">
+    <img class="octogo-logo" src="octogo.png" alt="Octogo" onerror="this.style.display='none'">
   </div>
   
   <div class="intro-eyebrow">NeuroCAPTER · INDIGO Tunisie · Programme de Transformation</div>
   <div class="intro-title">Le Conseiller <span>AVANT</span> et <span>APRÈS</span></div>
   
-  <!-- Layout avec largeurs égales -->
+  <!-- Layout responsive -->
   <div class="intro-main-layout">
-    <!-- LEFT TEXT: Avant Formation -->
+    <!-- Avant Formation -->
     <div class="intro-side intro-side-before">
       <div class="intro-side-title">⬡ Avant Formation</div>
       <div class="intro-side-item"><div class="intro-side-dot"></div>Script unique pour tous</div>
@@ -435,18 +369,18 @@ img{
     </div>
 
     <div class="intro-card intro-card-before">
-      <img id="imgAvant" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%231a1a2e'/%3E%3Ccircle cx='150' cy='120' r='50' fill='%23607d8b' opacity='0.5'/%3E%3Crect x='100' y='190' width='100' height='15' fill='%23607d8b' opacity='0.4'/%3E%3Crect x='90' y='215' width='120' height='10' fill='%23607d8b' opacity='0.3'/%3E%3Crect x='110' y='235' width='80' height='10' fill='%23607d8b' opacity='0.3'/%3E%3Crect x='120' y='280' width='60' height='60' fill='%23cc2838' opacity='0.3'/%3E%3Ctext x='150' y='330' text-anchor='middle' fill='%23607d8b' font-size='14'%3EAVANT%3C/text%3E%3C/svg%3E" alt="Avant formation">
+      <img id="imgAvant" src="" alt="">
       <div class="intro-card-label">⬡ Avant Formation</div>
     </div>
     
     <div class="intro-arrow">→</div>
     
     <div class="intro-card intro-card-after">
-      <img id="imgApres" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%231a1a2e'/%3E%3Ccircle cx='150' cy='120' r='50' fill='%23f0a820' opacity='0.6'/%3E%3Crect x='100' y='190' width='100' height='15' fill='%23f0a820' opacity='0.5'/%3E%3Crect x='90' y='215' width='120' height='10' fill='%23f0a820' opacity='0.4'/%3E%3Crect x='110' y='235' width='80' height='10' fill='%23f0a820' opacity='0.4'/%3E%3Cpolygon points='150,270 180,320 120,320' fill='%232e9e48' opacity='0.5'/%3E%3Ctext x='150' y='345' text-anchor='middle' fill='%23f0a820' font-size='13'%3ECERTIFIED%3C/text%3E%3C/svg%3E" alt="Après formation">
+      <img id="imgApres" src="" alt="">
       <div class="intro-card-label">✦ CAPTER Certified</div>
     </div>
 
-    <!-- RIGHT TEXT: CAPTER Certified -->
+    <!-- Après Formation -->
     <div class="intro-side intro-side-after">
       <div class="intro-side-title">✦ CAPTER Certified</div>
       <div class="intro-side-item"><div class="intro-side-dot"></div>18 profils maîtrisés</div>
@@ -458,7 +392,7 @@ img{
     </div>
   </div>
 
-  <!-- NUMEROS SUR LA MEME LIGNE -->
+  <!-- NUMEROS -->
   <div class="numbers-row">
     <div class="number-group">
       <div class="number-item before">
@@ -497,11 +431,15 @@ img{
     </div>
   </div>
 
-  <!-- BOUTON DECOUVRIR -->
+  <!-- BOUTON -->
   <button class="discover-btn" onclick="enterApp()">Découvrir l'application ›</button>
 </div>
 
 <script>
+// Configuration des images
+const IMG_AVANT = "3.png";
+const IMG_APRES = "4.png";
+
 // Fonction pour animer les changements de nombres
 function animateNumber(element, newValue, isFirstLoad = false) {
   if(!element) return;
@@ -570,31 +508,20 @@ function startNumberTransition() {
     animateNumber(document.getElementById('profilesAfter'), cycle.profilesAfter);
     animateNumber(document.getElementById('rejectBefore'), cycle.rejectBefore);
     animateNumber(document.getElementById('fidelisationAfter'), cycle.fidelisationAfter);
-  }, 3500);
+  }, 3000);
 }
 
-// Fonction pour naviguer (simulation car neurocapter.html n'existe pas)
+// Fonction pour naviguer
 function enterApp() {
-  // Arrêter l'animation cyclique
   if(cycleInterval) clearInterval(cycleInterval);
   
-  // Ajouter une animation de sortie
   const introScreen = document.getElementById('introScreen');
   introScreen.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   introScreen.style.opacity = '0';
   introScreen.style.transform = 'scale(0.95)';
   
-  // Simuler la redirection ou afficher un message
   setTimeout(() => {
-    // Redirection vers neurocapter.html si le fichier existe
-    // Sinon, on simule avec une alerte (à remplacer par votre logique)
-    if(document.querySelector('a[href="neurocapter.html"]')) {
-      window.location.href = 'neurocapter.html';
-    } else {
-      // Message pour le développement - à remplacer par votre redirection réelle
-      alert("Redirection vers l'application NeuroCAPTER\n(Le fichier neurocapter.html sera chargé)");
-      // window.location.href = 'neurocapter.html';
-    }
+    window.location.href = 'neurocapter.html';
   }, 500);
 }
 
@@ -608,33 +535,26 @@ function resizeCanvas() {
   canvas.height = window.innerHeight;
 }
 resizeCanvas();
-window.addEventListener('resize', () => {
-  resizeCanvas();
-  // Re-créer les particules pour la nouvelle taille
-  particles = [];
-  for(let i = 0; i < 100; i++) {
-    particles.push(new Particle());
-  }
-});
+window.addEventListener('resize', resizeCanvas);
 
 class Particle {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
     this.size = Math.random() * 2 + 1;
-    this.speedX = (Math.random() - 0.5) * 0.3;
-    this.speedY = (Math.random() - 0.5) * 0.3;
-    this.opacity = Math.random() * 0.25 + 0.05;
+    this.speedX = Math.random() * 0.5 - 0.25;
+    this.speedY = Math.random() * 0.5 - 0.25;
+    this.opacity = Math.random() * 0.3 + 0.1;
   }
   
   update() {
     this.x += this.speedX;
     this.y += this.speedY;
     
-    if(this.x < -10) this.x = canvas.width + 10;
-    if(this.x > canvas.width + 10) this.x = -10;
-    if(this.y < -10) this.y = canvas.height + 10;
-    if(this.y > canvas.height + 10) this.y = -10;
+    if(this.x < 0) this.x = canvas.width;
+    if(this.x > canvas.width) this.x = 0;
+    if(this.y < 0) this.y = canvas.height;
+    if(this.y > canvas.height) this.y = 0;
   }
   
   draw() {
@@ -643,7 +563,9 @@ class Particle {
   }
 }
 
-for(let i = 0; i < 100; i++) {
+// Initialiser les particules (moins pour mobile)
+let particleCount = window.innerWidth < 768 ? 60 : 100;
+for(let i = 0; i < particleCount; i++) {
   particles.push(new Particle());
 }
 
@@ -662,15 +584,21 @@ animateBackground();
 
 // Initialisation
 (function(){
+  // Set images
+  const av = document.getElementById('imgAvant');
+  const ap = document.getElementById('imgApres');
+  if(av && IMG_AVANT) av.src = IMG_AVANT;
+  if(ap && IMG_APRES) ap.src = IMG_APRES;
+  
   // Gestion du logo
   const logo = document.querySelector('.octogo-logo');
   if(logo) {
     logo.onerror = function() {
-      console.log('Logo chargé avec succès');
+      this.style.display = 'none';
     };
   }
   
-  // Animation initiale des numéros
+  // Animation initiale
   setTimeout(() => {
     animateNumber(document.getElementById('errorsBefore'), '3+', true);
     animateNumber(document.getElementById('errorsAfter'), '0', true);
@@ -679,21 +607,20 @@ animateBackground();
     animateNumber(document.getElementById('rejectBefore'), '-47%', true);
     animateNumber(document.getElementById('fidelisationAfter'), '+82%', true);
     
-    // Démarrer les transitions cycliques
     startNumberTransition();
   }, 500);
-  
-  // Amélioration du touch sur mobile
-  const buttons = document.querySelectorAll('.discover-btn, .intro-card');
-  buttons.forEach(btn => {
-    btn.addEventListener('touchstart', function(e) {
-      this.style.transform = 'scale(0.98)';
-    }, {passive: true});
-    btn.addEventListener('touchend', function(e) {
-      this.style.transform = '';
-    });
-  });
 })();
+
+// Recalculer les particules au resize
+window.addEventListener('resize', function() {
+  let newCount = window.innerWidth < 768 ? 60 : 100;
+  if(particles.length !== newCount) {
+    particles = [];
+    for(let i = 0; i < newCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+});
 </script>
 
 </body>
