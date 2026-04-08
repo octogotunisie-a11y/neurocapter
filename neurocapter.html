@@ -5039,10 +5039,7 @@
         document.getElementById("profilRight").innerHTML =
           `<div class="capter-lbl">Protocole CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="cp-item"><div class="cp-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div><div class="cp-time">${PHASE_TIMES[ph]}</div><div class="cp-name" style="color:${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]}</div><div class="cp-script">${p.dc?.[ph] || "—"}</div></div></div>`).join("")}<div class="block-lbl" style="margin-top:6px">Mécanisme</div><div class="mech-box"><div class="mech-txt">${p.mechanism || "-"}</div></div><div class="block-lbl" style="margin-top:6px">Trafic estimé</div><div class="traffic-box"><div class="traffic-val" style="color:${ac.color}">${p.traffic || "—"}</div><div class="traffic-lbl">du trafic mall</div></div>`;
       }
-      function profilNav(dir) {
-        const next = (profilCurrent + dir + PROFILES.length) % PROFILES.length;
-        profilGoTo(next);
-      }
+      
       function profilGoTo(idx) {
         if (idx === profilCurrent) return;
         profilCurrent = idx;
@@ -5200,6 +5197,148 @@
         renderSelect();
         activateTerrain();
       }
+      // ===== PROFIL SCREEN - VERSION CORRECTE =====
+let profilCurrentIndex = 0;
+let profilTouchStartX = 0;
+
+function goProfil() {
+  profilCurrentIndex = 0;
+  renderProfilScreen();
+  showScreen("s-profil");
+  bnActive("bnProfil");
+  setPhase("#d89020");
+}
+
+function renderProfilScreen() {
+  const prof = PROFILES[profilCurrentIndex];
+  if (!prof) return;
+
+  const ac = ARCH_DATA[prof.arch] || { color: "#f0a820", icon: "⚡", name: "Efficace" };
+  const siteColor = SITE_COLORS[prof.site] || "#f0a820";
+
+  setPhase(ac.color);
+
+  // Mise à jour compteur
+  document.getElementById("profilCurr").textContent = String(profilCurrentIndex + 1).padStart(2, "0");
+
+  // Image
+  const imgEl = document.getElementById("profilImg");
+  if (imgEl) {
+    imgEl.classList.remove("visible");
+    setTimeout(() => {
+      imgEl.src = PROFILE_IMAGES[prof.id] || "";
+      imgEl.onload = () => imgEl.classList.add("visible");
+      if (imgEl.complete && imgEl.naturalWidth > 0) imgEl.classList.add("visible");
+    }, 30);
+  }
+
+  // Nom dans la navigation
+  const navName = document.getElementById("profilNavName");
+  if (navName) navName.textContent = prof.name;
+
+  // Colonne gauche
+  const leftCol = document.getElementById("profilLeft");
+  if (leftCol) {
+    leftCol.innerHTML = `
+      <div class="site-badge" style="border-color: ${siteColor}50; color: ${siteColor}">
+        ${SITE_LABELS[prof.site] || prof.site}
+      </div>
+      <div class="arch-badge" style="border-color: ${ac.color}60; color: ${ac.color}; background: ${ac.color}12">
+        ${ac.icon} ${ac.name}
+      </div>
+      <div class="prof-num">#${String(prof.id).padStart(2, "0")}</div>
+      <div class="prof-name">${prof.name}</div>
+      <div class="profil-tagline" style="border-left-color: ${ac.color}">${prof.tagline || ""}</div>
+      <div class="block-lbl">🧠 Neurotype</div>
+      <div class="neurotype">${prof.neurotype || "—"}</div>
+      <div class="block-lbl">👁 Signaux en 3 secondes</div>
+      ${(prof.signals || []).map(s => `
+        <div class="signal-item">
+          <div class="signal-dot" style="background: ${ac.color}"></div>
+          ${s}
+        </div>
+      `).join("")}
+      <div class="erreur-box">
+        <div class="erreur-lbl">⚠ Erreur fatale</div>
+        <div class="erreur-txt">${prof.error || "—"}</div>
+      </div>
+    `;
+  }
+
+  // Colonne droite
+  const rightCol = document.getElementById("profilRight");
+  if (rightCol) {
+    rightCol.innerHTML = `
+      <div class="capter-lbl">◈ Protocole CAPTER</div>
+      ${PHASE_ORDER.map(ph => `
+        <div class="cp-item">
+          <div class="cp-letter" style="color: ${PHASE_COLORS[ph]}">${ph}</div>
+          <div>
+            <div class="cp-time">${PHASE_TIMES[ph]}</div>
+            <div class="cp-name" style="color: ${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]}</div>
+            <div class="cp-script">${prof.dc?.[ph] || "—"}</div>
+          </div>
+        </div>
+      `).join("")}
+      <div class="block-lbl" style="margin-top: 8px">📊 Mécanisme dominant</div>
+      <div class="mech-box">
+        <div class="mech-txt">${prof.mechanism || "—"}</div>
+      </div>
+      <div class="block-lbl" style="margin-top: 8px">📈 Trafic estimé</div>
+      <div class="traffic-box">
+        <div class="traffic-val" style="color: ${ac.color}">${prof.traffic || "—"}</div>
+        <div class="traffic-lbl">du trafic mall</div>
+      </div>
+    `;
+  }
+
+  // Dots de navigation
+  const dotsContainer = document.getElementById("profilDots");
+  if (dotsContainer) {
+    dotsContainer.innerHTML = PROFILES.map((_, i) => `
+      <div class="profil-dot ${i === profilCurrentIndex ? "active" : ""}" 
+           onclick="profilGoTo(${i})"></div>
+    `).join("");
+  }
+}
+
+function profilNav(direction) {
+  let newIndex = profilCurrentIndex + direction;
+  if (newIndex < 0) newIndex = PROFILES.length - 1;
+  if (newIndex >= PROFILES.length) newIndex = 0;
+  profilGoTo(newIndex);
+}
+
+function profilGoTo(index) {
+  if (index === profilCurrentIndex) return;
+  profilCurrentIndex = index;
+  renderProfilScreen();
+}
+
+// Swipe pour mobile
+function initProfilSwipe() {
+  const profilScreen = document.getElementById("s-profil");
+  if (!profilScreen) return;
+
+  profilScreen.addEventListener("touchstart", (e) => {
+    profilTouchStartX = e.touches[0].clientX;
+  });
+
+  profilScreen.addEventListener("touchend", (e) => {
+    if (!profilTouchStartX) return;
+    const diffX = e.changedTouches[0].clientX - profilTouchStartX;
+    if (Math.abs(diffX) > 50) {
+      if (diffX < 0) profilNav(1);
+      else profilNav(-1);
+    }
+    profilTouchStartX = 0;
+  });
+}
+
+// Initialisation
+setTimeout(() => {
+  initProfilSwipe();
+}, 100);
       let ficheProfileId = null;
       function openFiche(profId) {
         var prof = PROFILES.find((p) => p.id === profId);
@@ -5292,146 +5431,7 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeFiche();
       });
-       // ===== PROFIL SCREEN VARIABLES =====
-let profilCurrentIndex = 0;
-let profilTouchStartX = 0;
-let profilTouchStartY = 0;
 
-// ===== PROFIL SCREEN FUNCTIONS =====
-function goProfil() {
-  profilCurrentIndex = 0;
-  renderProfilScreen();
-  showScreen("s-profil");
-  bnActive("bnProfil");
-  setPhase("#d89020");
-}
-
-function renderProfilScreen() {
-  const prof = PROFILES[profilCurrentIndex];
-  if (!prof) return;
-
-  const ac = ARCH_DATA[prof.arch] || { color: "#f0a820", icon: "⚡", name: "Efficace" };
-  const siteColor = SITE_COLORS[prof.site] || "#f0a820";
-
-  setPhase(ac.color);
-
-  // Mise à jour compteur
-  document.getElementById("profilCurr").textContent = String(profilCurrentIndex + 1).padStart(2, "0");
-
-  // Image
-  const imgEl = document.getElementById("profilImg");
-  if (imgEl) {
-    imgEl.classList.remove("visible");
-    setTimeout(() => {
-      imgEl.src = PROFILE_IMAGES[prof.id] || "";
-      imgEl.onload = () => imgEl.classList.add("visible");
-      if (imgEl.complete && imgEl.naturalWidth > 0) imgEl.classList.add("visible");
-    }, 30);
-  }
-
-  // Nom dans la navigation
-  const navName = document.getElementById("profilNavName");
-  if (navName) navName.textContent = prof.name;
-
-  // Construction colonne gauche
-  const leftCol = document.getElementById("profilLeft");
-  if (leftCol) {
-    leftCol.innerHTML = `
-      <div class="site-badge" style="border-color: ${siteColor}50; color: ${siteColor}">
-        ${SITE_LABELS[prof.site] || prof.site}
-      </div>
-      <div class="arch-badge" style="border-color: ${ac.color}60; color: ${ac.color}; background: ${ac.color}12">
-        ${ac.icon} ${ac.name}
-      </div>
-      <div class="prof-num">#${String(prof.id).padStart(2, "0")}</div>
-      <div class="prof-name">${prof.name}</div>
-      <div class="profil-tagline" style="border-left-color: ${ac.color}">${prof.tagline || ""}</div>
-      <div class="block-lbl">🧠 Neurotype</div>
-      <div class="neurotype">${prof.neurotype || "—"}</div>
-      <div class="block-lbl">👁 Signaux en 3 secondes</div>
-      ${(prof.signals || []).map(s => `
-        <div class="signal-item">
-          <div class="signal-dot" style="background: ${ac.color}"></div>
-          ${s}
-        </div>
-      `).join("")}
-      <div class="erreur-box">
-        <div class="erreur-lbl">⚠ Erreur fatale</div>
-        <div class="erreur-txt">${prof.error || "—"}</div>
-      </div>
-    `;
-  }
-
-  // Construction colonne droite (CAPTER)
-  const rightCol = document.getElementById("profilRight");
-  if (rightCol) {
-    rightCol.innerHTML = `
-      <div class="capter-lbl">◈ Protocole CAPTER</div>
-      ${PHASE_ORDER.map(ph => `
-        <div class="cp-item">
-          <div class="cp-letter" style="color: ${PHASE_COLORS[ph]}">${ph}</div>
-          <div>
-            <div class="cp-time">${PHASE_TIMES[ph]}</div>
-            <div class="cp-name" style="color: ${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]}</div>
-            <div class="cp-script">${prof.dc?.[ph] || "—"}</div>
-          </div>
-        </div>
-      `).join("")}
-      <div class="block-lbl" style="margin-top: 8px">📊 Mécanisme dominant</div>
-      <div class="mech-box">
-        <div class="mech-txt">${prof.mechanism || "—"}</div>
-      </div>
-      <div class="block-lbl" style="margin-top: 8px">📈 Trafic estimé</div>
-      <div class="traffic-box">
-        <div class="traffic-val" style="color: ${ac.color}">${prof.traffic || "—"}</div>
-        <div class="traffic-lbl">du trafic mall</div>
-      </div>
-    `;
-  }
-
-  // Dots de navigation
-  const dotsContainer = document.getElementById("profilDots");
-  if (dotsContainer) {
-    dotsContainer.innerHTML = PROFILES.map((_, i) => `
-      <div class="profil-dot ${i === profilCurrentIndex ? "active" : ""}" 
-           onclick="profilGoTo(${i})"></div>
-    `).join("");
-  }
-}
-
-function profilNav(direction) {
-  let newIndex = profilCurrentIndex + direction;
-  if (newIndex < 0) newIndex = PROFILES.length - 1;
-  if (newIndex >= PROFILES.length) newIndex = 0;
-  profilGoTo(newIndex);
-}
-
-function profilGoTo(index) {
-  if (index === profilCurrentIndex) return;
-  profilCurrentIndex = index;
-  renderProfilScreen();
-}
-
-// Swipe pour mobile
-function initProfilSwipe() {
-  const profilScreen = document.getElementById("s-profil");
-  if (!profilScreen) return;
-
-  profilScreen.addEventListener("touchstart", (e) => {
-    profilTouchStartX = e.touches[0].clientX;
-    profilTouchStartY = e.touches[0].clientY;
-  });
-
-  profilScreen.addEventListener("touchend", (e) => {
-    if (!profilTouchStartX) return;
-    const diffX = e.changedTouches[0].clientX - profilTouchStartX;
-    const diffY = e.changedTouches[0].clientY - profilTouchStartY;
-    if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
-      if (diffX < 0) profilNav(1);
-      else profilNav(-1);
-    }
-  });
-}
 
 // Initialisation au chargement
 setTimeout(() => {
