@@ -1715,585 +1715,779 @@
         height: 100%;
       }
       /* ===== PROFIL SCREEN FIXES ===== */
-#s-profil {
-  background: #050810;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 0 !important;
-}
-
-.profil-stage {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  background: #050810;
-}
-
-.profil-top-bar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(5, 8, 16, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Layout 3 colonnes responsive */
-.profil-3col {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 8px;
-  padding: 16px 12px;
-  min-height: 60vh;
-}
-
-/* Colonne gauche */
-.profil-left {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  padding: 12px 10px;
-  overflow-y: auto;
-  max-height: 55vh;
-}
-
-/* Colonne centre (image) */
-.profil-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  overflow: hidden;
-  min-height: 280px;
-}
-
-.profil-img {
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
-  object-fit: cover;
-  object-position: top 20%;
-  transition: opacity 0.25s ease;
-  opacity: 0;
-}
-
-.profil-img.visible {
-  opacity: 1;
-}
-
-/* Colonne droite */
-.profil-right {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  padding: 12px 10px;
-  overflow-y: auto;
-  max-height: 55vh;
-}
-
-/* Éléments dans les colonnes */
-.site-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: "Share Tech Mono", monospace;
-  font-size: 8px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  width: fit-content;
-  margin-bottom: 12px;
-}
-
-.arch-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: "Share Tech Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 20px;
-  border: 1px solid;
-  width: fit-content;
-  margin-bottom: 12px;
-}
-
-.prof-num {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 4px;
-}
-
-.prof-name {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 1.2;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.profil-tagline {
-  font-family: Rajdhani, sans-serif;
-  font-size: 11px;
-  font-style: italic;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  border-left: 2px solid var(--gold);
-  padding-left: 8px;
-  margin: 10px 0;
-}
-
-.block-lbl {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 7px;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.35);
-  text-transform: uppercase;
-  margin: 12px 0 6px 0;
-}
-
-.neurotype {
-  font-family: Rajdhani, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.4;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 8px 10px;
-  border-radius: 8px;
-}
-
-.signal-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-family: Rajdhani, sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.65);
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.signal-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 5px;
-}
-
-.erreur-box {
-  background: rgba(204, 40, 56, 0.08);
-  border: 1px solid rgba(204, 40, 56, 0.2);
-  border-left: 3px solid #cc2838;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 8px 0;
-}
-
-.erreur-lbl {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 7px;
-  letter-spacing: 0.12em;
-  color: #cc2838;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.erreur-txt {
-  font-family: Rajdhani, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 100, 100, 0.8);
-  line-height: 1.35;
-}
-
-.capter-lbl {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.cp-item {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  padding: 8px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  margin-bottom: 6px;
-}
-
-.cp-letter {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  min-width: 22px;
-  line-height: 1;
-}
-
-.cp-time {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 6px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-}
-
-.cp-name {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.cp-script {
-  font-family: Rajdhani, sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.3;
-  margin-top: 3px;
-}
-
-.mech-box {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.mech-txt {
-  font-family: Rajdhani, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.4;
-}
-
-.traffic-box {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  flex-wrap: wrap;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  padding: 10px;
-}
-
-.traffic-val {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 20px;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.traffic-lbl {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 7px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-}
-
-/* Navigation */
-.profil-nav {
-  position: sticky;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 16px 20px;
-  background: rgba(5, 8, 16, 0.96);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.profil-nav-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 28px;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: 0.15s;
-}
-
-.profil-nav-btn:active {
-  transform: scale(0.94);
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-}
-
-.profil-nav-dots {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 6px;
-}
-
-.profil-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  cursor: pointer;
-  transition: 0.15s;
-}
-
-.profil-dot.active {
-  background: var(--gold);
-  transform: scale(1.3);
-}
-
-.profil-nav-name {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Scrollbars */
-.profil-left::-webkit-scrollbar,
-.profil-right::-webkit-scrollbar {
-  width: 2px;
-}
-
-.profil-left::-webkit-scrollbar-track,
-.profil-right::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.profil-left::-webkit-scrollbar-thumb,
-.profil-right::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-/* ===== MASTERCLASS MOBILE FIXES ===== */
-#s-masterclass .masterclass-scroll {
-  overflow-y: auto;
-  flex: 1;
-  padding-bottom: 90px;
-}
-
-.masterclass-image-container {
-  padding: 0 12px;
-  margin-bottom: 8px;
-}
-
-.masterclass-image {
-  width: 100%;
-  border-radius: 12px;
-  display: block;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.masterclass-content {
-  padding: 0 16px;
-}
-
-.masterclass-hero {
-  border-left: 3px solid #cc2838;
-  padding: 14px 14px;
-  background: rgba(204, 40, 56, 0.08);
-  border-radius: 0 10px 10px 0;
-  margin-bottom: 16px;
-}
-
-.masterclass-hero-eyebrow {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 8px;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.masterclass-hero-title {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--gold);
-  line-height: 1.2;
-}
-
-.masterclass-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 14px;
-}
-
-.masterclass-box-title {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-
-.masterclass-box-text {
-  font-family: Rajdhani, sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.masterclass-section {
-  margin-bottom: 16px;
-}
-
-.masterclass-section-header {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--gold);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.masterclass-num-badge {
-  background: var(--gold);
-  color: #000;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 900;
-  flex-shrink: 0;
-}
-
-.masterclass-items {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-left: 32px;
-}
-
-.masterclass-item {
-  font-family: Rajdhani, sans-serif;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.45;
-  padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  border-left: 2px solid rgba(240, 168, 32, 0.4);
-}
-
-.masterclass-item strong {
-  color: #fff;
-}
-
-.masterclass-conclusion {
-  background: linear-gradient(135deg, rgba(240, 168, 32, 0.15), rgba(204, 40, 56, 0.1));
-  border: 1px solid rgba(240, 168, 32, 0.35);
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 18px;
-  text-align: center;
-}
-
-.masterclass-conclusion-eyebrow {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.masterclass-conclusion-text {
-  font-family: Rajdhani, sans-serif;
-  font-size: 13px;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-}
-
-.masterclass-conclusion-signature {
-  margin-top: 10px;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--gold);
-}
-
-.masterclass-image-bottom {
-  padding: 0 16px 20px;
-}
-
-.masterclass-image-bottom img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-.masterclass-caption {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 7px;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.35);
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 6px;
-}
-
-/* Suppression des anciens styles problématiques */
-#s-masterclass .form-header {
-  display: none;
-}
-/* Responsive */
-@media (max-width: 600px) {
-  .profil-3col {
-    grid-template-columns: 1fr 1.1fr 1fr;
-    gap: 6px;
-    padding: 12px 10px;
-  }
-  
-  .profil-left, .profil-right {
-    padding: 8px 6px;
-  }
-  
-  .prof-name {
-    font-size: 14px;
-  }
-  
-  .cp-letter {
-    font-size: 14px;
-    min-width: 18px;
-  }
-}
+      #s-profil {
+        background: #050810;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0 !important;
+      }
+
+      .profil-stage {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        background: #050810;
+      }
+
+      .profil-top-bar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(5, 8, 16, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Layout 3 colonnes responsive */
+      .profil-3col {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 1fr;
+        gap: 8px;
+        padding: 16px 12px;
+        min-height: 60vh;
+      }
+
+      /* Colonne gauche */
+      .profil-left {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 16px;
+        padding: 12px 10px;
+        overflow-y: auto;
+        max-height: 55vh;
+      }
+
+      /* Colonne centre (image) */
+      .profil-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 16px;
+        overflow: hidden;
+        min-height: 280px;
+      }
+
+      .profil-img {
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        object-fit: cover;
+        object-position: top 20%;
+        transition: opacity 0.25s ease;
+        opacity: 0;
+      }
+
+      .profil-img.visible {
+        opacity: 1;
+      }
+
+      /* Colonne droite */
+      .profil-right {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 16px;
+        padding: 12px 10px;
+        overflow-y: auto;
+        max-height: 55vh;
+      }
+
+      /* Éléments dans les colonnes */
+      .site-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: "Share Tech Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        width: fit-content;
+        margin-bottom: 12px;
+      }
+
+      .arch-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: "Share Tech Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid;
+        width: fit-content;
+        margin-bottom: 12px;
+      }
+
+      .prof-num {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.35);
+        margin-bottom: 4px;
+      }
+
+      .prof-name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        color: #fff;
+      }
+
+      .profil-tagline {
+        font-family: Rajdhani, sans-serif;
+        font-size: 11px;
+        font-style: italic;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        border-left: 2px solid var(--gold);
+        padding-left: 8px;
+        margin: 10px 0;
+      }
+
+      .block-lbl {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+        margin: 12px 0 6px 0;
+      }
+
+      .neurotype {
+        font-family: Rajdhani, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.4;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 8px 10px;
+        border-radius: 8px;
+      }
+
+      .signal-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-family: Rajdhani, sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.65);
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .signal-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 5px;
+      }
+
+      .erreur-box {
+        background: rgba(204, 40, 56, 0.08);
+        border: 1px solid rgba(204, 40, 56, 0.2);
+        border-left: 3px solid #cc2838;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 8px 0;
+      }
+
+      .erreur-lbl {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.12em;
+        color: #cc2838;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+
+      .erreur-txt {
+        font-family: Rajdhani, sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 100, 100, 0.8);
+        line-height: 1.35;
+      }
+
+      .capter-lbl {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .cp-item {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 8px;
+        padding: 8px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        margin-bottom: 6px;
+      }
+
+      .cp-letter {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 18px;
+        font-weight: 900;
+        min-width: 22px;
+        line-height: 1;
+      }
+
+      .cp-time {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 6px;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+      }
+
+      .cp-name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .cp-script {
+        font-family: Rajdhani, sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.3;
+        margin-top: 3px;
+      }
+
+      .mech-box {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .mech-txt {
+        font-family: Rajdhani, sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.4;
+      }
+
+      .traffic-box {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        flex-wrap: wrap;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      .traffic-val {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .traffic-lbl {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+      }
+
+      /* Navigation */
+      .profil-nav {
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px 20px;
+        background: rgba(5, 8, 16, 0.96);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .profil-nav-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 28px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: 0.15s;
+      }
+
+      .profil-nav-btn:active {
+        transform: scale(0.94);
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+
+      .profil-nav-dots {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 6px;
+      }
+
+      .profil-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        transition: 0.15s;
+      }
+
+      .profil-dot.active {
+        background: var(--gold);
+        transform: scale(1.3);
+      }
+
+      .profil-nav-name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      /* ===== MASTERCLASS MOBILE FIXES ===== */
+      #s-masterclass .masterclass-scroll {
+        overflow-y: auto;
+        flex: 1;
+        padding-bottom: 90px;
+      }
+
+      .masterclass-image-container {
+        padding: 0 12px;
+        margin-bottom: 8px;
+      }
+
+      .masterclass-image {
+        width: 100%;
+        border-radius: 12px;
+        display: block;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .masterclass-content {
+        padding: 0 16px;
+      }
+
+      .masterclass-hero {
+        border-left: 3px solid #cc2838;
+        padding: 14px 14px;
+        background: rgba(204, 40, 56, 0.08);
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 16px;
+      }
+
+      .masterclass-hero-eyebrow {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.18em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .masterclass-hero-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--gold);
+        line-height: 1.2;
+      }
+
+      .masterclass-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 14px;
+      }
+
+      .masterclass-box-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+      }
+
+      .masterclass-box-text {
+        font-family: Rajdhani, sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .masterclass-section {
+        margin-bottom: 16px;
+      }
+
+      .masterclass-section-header {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .masterclass-num-badge {
+        background: var(--gold);
+        color: #000;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 900;
+        flex-shrink: 0;
+      }
+
+      .masterclass-items {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-left: 32px;
+      }
+
+      .masterclass-item {
+        font-family: Rajdhani, sans-serif;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.45;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 8px;
+        border-left: 2px solid rgba(240, 168, 32, 0.4);
+      }
+
+      .masterclass-item strong {
+        color: #fff;
+      }
+
+      .masterclass-conclusion {
+        background: linear-gradient(
+          135deg,
+          rgba(240, 168, 32, 0.15),
+          rgba(204, 40, 56, 0.1)
+        );
+        border: 1px solid rgba(240, 168, 32, 0.35);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      .masterclass-conclusion-eyebrow {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .masterclass-conclusion-text {
+        font-family: Rajdhani, sans-serif;
+        font-size: 13px;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.5;
+      }
+
+      .masterclass-conclusion-signature {
+        margin-top: 10px;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+      }
+
+      .masterclass-image-bottom {
+        padding: 0 16px 20px;
+      }
+
+      .masterclass-image-bottom img {
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .masterclass-caption {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.18em;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 6px;
+      }
+
+      /* IMPORTANT - Garder le form-header pour tous les écrans */
+      #s-masterclass .form-header {
+        display: none;
+      }
+      /* Scrollbars */
+      .profil-left::-webkit-scrollbar,
+      .profil-right::-webkit-scrollbar {
+        width: 2px;
+      }
+
+      .profil-left::-webkit-scrollbar-track,
+      .profil-right::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .profil-left::-webkit-scrollbar-thumb,
+      .profil-right::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+      }
+      /* ===== MASTERCLASS MOBILE FIXES ===== */
+      #s-masterclass .masterclass-scroll {
+        overflow-y: auto;
+        flex: 1;
+        padding-bottom: 90px;
+      }
+
+      .masterclass-image-container {
+        padding: 0 12px;
+        margin-bottom: 8px;
+      }
+
+      .masterclass-image {
+        width: 100%;
+        border-radius: 12px;
+        display: block;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .masterclass-content {
+        padding: 0 16px;
+      }
+
+      .masterclass-hero {
+        border-left: 3px solid #cc2838;
+        padding: 14px 14px;
+        background: rgba(204, 40, 56, 0.08);
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 16px;
+      }
+
+      .masterclass-hero-eyebrow {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.18em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .masterclass-hero-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--gold);
+        line-height: 1.2;
+      }
+
+      .masterclass-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 14px;
+      }
+
+      .masterclass-box-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+      }
+
+      .masterclass-box-text {
+        font-family: Rajdhani, sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .masterclass-section {
+        margin-bottom: 16px;
+      }
+
+      .masterclass-section-header {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .masterclass-num-badge {
+        background: var(--gold);
+        color: #000;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 900;
+        flex-shrink: 0;
+      }
+
+      .masterclass-items {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-left: 32px;
+      }
+
+      .masterclass-item {
+        font-family: Rajdhani, sans-serif;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.45;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 8px;
+        border-left: 2px solid rgba(240, 168, 32, 0.4);
+      }
+
+      .masterclass-item strong {
+        color: #fff;
+      }
+
+      .masterclass-conclusion {
+        background: linear-gradient(
+          135deg,
+          rgba(240, 168, 32, 0.15),
+          rgba(204, 40, 56, 0.1)
+        );
+        border: 1px solid rgba(240, 168, 32, 0.35);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      .masterclass-conclusion-eyebrow {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .masterclass-conclusion-text {
+        font-family: Rajdhani, sans-serif;
+        font-size: 13px;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.5;
+      }
+
+      .masterclass-conclusion-signature {
+        margin-top: 10px;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+      }
+
+      .masterclass-image-bottom {
+        padding: 0 16px 20px;
+      }
+
+      .masterclass-image-bottom img {
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .masterclass-caption {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.18em;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 6px;
+      }
+
+      /* Suppression des anciens styles problématiques */
+      #s-masterclass .form-header {
+        display: none;
+      }
+      /* Responsive */
+      @media (max-width: 600px) {
+        .profil-3col {
+          grid-template-columns: 1fr 1.1fr 1fr;
+          gap: 6px;
+          padding: 12px 10px;
+        }
+
+        .profil-left,
+        .profil-right {
+          padding: 8px 6px;
+        }
+
+        .prof-name {
+          font-size: 14px;
+        }
+
+        .cp-letter {
+          font-size: 14px;
+          min-width: 18px;
+        }
+      }
       #s-profil {
         background: #050810;
         padding: 0;
@@ -3153,490 +3347,204 @@
     </div>
 
     <!-- ===== MASTERCLASS ===== -->
-    <div class="screen form-screen" id="s-masterclass">
-      <div class="form-header">
-        <div class="form-eyebrow">
-          NeuroCAPTER · <span style="color: #00aaff">INDIGO Tunisie</span>
-        </div>
-        <div class="form-title" style="color: var(--gold)">
-          Master<em style="color: #fff">class</em>
-        </div>
-      </div>
-      <div style="overflow-y: auto; padding: 0 0 90px; flex: 1">
-        <div style="padding: 0 16px 4px">
+    <div class="screen" id="s-masterclass">
+      <div
+        style="
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        "
+      >
+        <!-- Header compact -->
+        <div style="flex-shrink: 0; padding: 12px 16px 4px">
           <div
             style="
-              overflow-x: auto;
-              border-radius: 12px;
-              box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+              font-family: &quot;Share Tech Mono&quot;, monospace;
+              font-size: 8px;
+              letter-spacing: 0.2em;
+              color: rgba(255, 255, 255, 0.35);
+              text-transform: uppercase;
             "
           >
+            NeuroCAPTER · <span style="color: #00aaff">INDIGO Tunisie</span>
+          </div>
+          <div
+            style="
+              font-family: &quot;Barlow Condensed&quot;, sans-serif;
+              font-size: 28px;
+              font-weight: 900;
+              text-transform: uppercase;
+              color: var(--gold);
+            "
+          >
+            Master<span style="color: #fff">class</span>
+          </div>
+        </div>
+
+        <!-- Contenu scrollable -->
+        <div class="masterclass-scroll">
+          <!-- Image 1 -->
+          <div class="masterclass-image-container">
             <img
               src="2.png"
               alt="Infographie Masterclass"
-              style="
-                width: 100%;
-                min-width: 480px;
-                display: block;
-                border-radius: 12px;
-              "
+              class="masterclass-image"
             />
           </div>
-        </div>
-        <div style="padding: 20px 16px 0">
-          <div
-            style="
-              border-left: 3px solid #cc2838;
-              padding: 12px 14px;
-              background: rgba(204, 40, 56, 0.08);
-              border-radius: 0 10px 10px 0;
-              margin-bottom: 16px;
-            "
-          >
-            <div
-              style="
-                font-family:
-                  Share Tech Mono,
-                  monospace;
-                font-size: 8px;
-                letter-spacing: 0.18em;
-                color: rgba(255, 255, 255, 0.4);
-                text-transform: uppercase;
-                margin-bottom: 6px;
-              "
-            >
-              MASTERCLASS · NEURO-DYNAMIQUE DE LA VENTE
-            </div>
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 20px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.04em;
-                color: var(--gold);
-                margin-bottom: 4px;
-              "
-            >
-              Maîtriser le Tiers de Seconde : Levier de Performance Indigo
-            </div>
-          </div>
-          <div
-            style="
-              background: rgba(255, 255, 255, 0.05);
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 12px;
-              padding: 14px 16px;
-              margin-bottom: 14px;
-            "
-          >
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 15px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: #cc2838;
-                margin-bottom: 8px;
-              "
-            >
-              ⚡ L'ENJEU : HACKER LE SYSTÈME PRÉDICTIF
-            </div>
-            <div
-              style="
-                font-family: Rajdhani, sans-serif;
-                font-size: 13.5px;
-                line-height: 1.55;
-                color: rgba(255, 255, 255, 0.75);
-              "
-            >
-              La vente n'est pas une simple discussion, c'est une
-              <strong style="color: #fff"
-                >collision entre deux systèmes neuro-biologiques</strong
-              >. Chez Indigo, nous ne formons plus à l'argumentaire classique,
-              mais à la maîtrise des
-              <strong style="color: var(--gold)">signaux faibles</strong> qui
-              déclenchent ou bloquent l'achat en un éclair.
-            </div>
-          </div>
-          <div style="margin-bottom: 12px">
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 14px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--gold);
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-              "
-            >
-              <span
-                style="
-                  background: var(--gold);
-                  color: #000;
-                  border-radius: 50%;
-                  width: 22px;
-                  height: 22px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 11px;
-                  flex-shrink: 0;
-                "
-                >1</span
-              >Le Diagnostic : Le Temps Fantôme
-            </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                padding-left: 30px;
-              "
-            >
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(240, 168, 32, 0.4);
-                "
-              >
-                <span style="color: var(--gold); font-weight: 700"
-                  >Le Concept : </span
-                >L'inconscient traite les informations avec
-                <strong style="color: #fff">1/3 de seconde d'avance</strong> sur
-                la pensée consciente.
+
+          <!-- Hero -->
+          <div class="masterclass-content">
+            <div class="masterclass-hero">
+              <div class="masterclass-hero-eyebrow">
+                MASTERCLASS · NEURO-DYNAMIQUE DE LA VENTE
               </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(240, 168, 32, 0.4);
-                "
-              >
-                <span style="color: var(--gold); font-weight: 700"
-                  >Le Choc : </span
-                >Ce « pilotage automatique » représente
-                <strong style="color: #fff">4 heures par jour</strong>, soit
-                <strong style="color: #cc2838">1 an et 8 mois</strong> de
-                décisions invisibles tous les 10 ans.
-              </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(240, 168, 32, 0.4);
-                "
-              >
-                <span style="color: var(--gold); font-weight: 700"
-                  >L'Impact : </span
-                >C'est dans cette zone que se scelle la
-                <strong style="color: #fff">confiance du client</strong> avant
-                même qu'il ne formule son besoin.
+              <div class="masterclass-hero-title">
+                Maîtriser le Tiers de Seconde : Levier de Performance Indigo
               </div>
             </div>
-          </div>
-          <div style="margin-bottom: 12px">
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 14px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--gold);
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-              "
-            >
-              <span
-                style="
-                  background: var(--gold);
-                  color: #000;
-                  border-radius: 50%;
-                  width: 22px;
-                  height: 22px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 11px;
-                  flex-shrink: 0;
-                "
-                >2</span
-              >L'Outil : Les 18 Systèmes Prédictifs (NeuroCAPTER)
-            </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                padding-left: 30px;
-              "
-            >
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(46, 158, 72, 0.5);
-                "
-              >
-                <span style="color: #2e9e48; font-weight: 700"
-                  >La Cartographie : </span
-                >Fruit de plus de
-                <strong style="color: #fff">3 200 observations réelles</strong>
-                sur le terrain tunisien (2024-2025), nous avons identifié 18
-                archétypes comportementaux.
+
+            <!-- Enjeu -->
+            <div class="masterclass-box">
+              <div class="masterclass-box-title" style="color: #cc2838">
+                ⚡ L'ENJEU : HACKER LE SYSTÈME PRÉDICTIF
               </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(46, 158, 72, 0.5);
-                "
-              >
-                <span style="color: #2e9e48; font-weight: 700"
-                  >Anticipation du Véto : </span
-                >Dès le seuil (0-10s), le vendeur identifie le « système
-                d'exploitation » du client (ex : <em>L'Exécutif Pressé</em> ou
-                <em>Le Jeune Tendance</em>) pour éviter le
-                <strong style="color: #cc2838">Véto Neurologique</strong>.
-              </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(46, 158, 72, 0.5);
-                "
-              >
-                <span style="color: #2e9e48; font-weight: 700"
-                  >La Fenêtre Vicary : </span
-                >En identifiant le profil, le vendeur synchronise son approche
-                avec la
+              <div class="masterclass-box-text">
+                La vente n'est pas une simple discussion, c'est une
                 <strong style="color: #fff"
-                  >fenêtre de décision ultra-rapide</strong
-                >
-                de l'inconscient.
+                  >collision entre deux systèmes neuro-biologiques</strong
+                >. Chez Indigo, nous ne formons plus à l'argumentaire classique,
+                mais à la maîtrise des
+                <strong style="color: var(--gold)">signaux faibles</strong> qui
+                déclenchent ou bloquent l'achat en un éclair.
               </div>
             </div>
-          </div>
-          <div style="margin-bottom: 16px">
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 14px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--gold);
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-              "
-            >
-              <span
-                style="
-                  background: var(--gold);
-                  color: #000;
-                  border-radius: 50%;
-                  width: 22px;
-                  height: 22px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 11px;
-                  flex-shrink: 0;
-                "
-                >3</span
-              >La Méthode : La Collision Biométrique (Pareto²)
+
+            <!-- Section 1 -->
+            <div class="masterclass-section">
+              <div class="masterclass-section-header">
+                <span class="masterclass-num-badge">1</span>Le Diagnostic : Le
+                Temps Fantôme
+              </div>
+              <div class="masterclass-items">
+                <div class="masterclass-item">
+                  <span style="color: var(--gold); font-weight: 700"
+                    >Le Concept :</span
+                  >
+                  L'inconscient traite les informations avec
+                  <strong>1/3 de seconde d'avance</strong> sur la pensée
+                  consciente.
+                </div>
+                <div class="masterclass-item">
+                  <span style="color: var(--gold); font-weight: 700"
+                    >Le Choc :</span
+                  >
+                  Ce « pilotage automatique » représente
+                  <strong>4 heures par jour</strong>, soit
+                  <strong style="color: #cc2838">1 an et 8 mois</strong> de
+                  décisions invisibles tous les 10 ans.
+                </div>
+                <div class="masterclass-item">
+                  <span style="color: var(--gold); font-weight: 700"
+                    >L'Impact :</span
+                  >
+                  C'est dans cette zone que se scelle la
+                  <strong>confiance du client</strong> avant même qu'il ne
+                  formule son besoin.
+                </div>
+              </div>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                padding-left: 30px;
-              "
-            >
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(30, 110, 216, 0.5);
-                "
-              >
-                <span style="color: #1e6ed8; font-weight: 700"
-                  >La Loi de Pareto² : </span
-                >Les
-                <strong style="color: #fff"
-                  >20% d'état interne du vendeur</strong
-                >
-                (sa neuro-signature) dictent
+
+            <!-- Section 2 -->
+            <div class="masterclass-section">
+              <div class="masterclass-section-header">
+                <span class="masterclass-num-badge">2</span>L'Outil : Les 18
+                Systèmes Prédictifs
+              </div>
+              <div class="masterclass-items">
+                <div class="masterclass-item">
+                  <span style="color: #2e9e48; font-weight: 700"
+                    >La Cartographie :</span
+                  >
+                  Fruit de plus de
+                  <strong>3 200 observations réelles</strong> sur le terrain
+                  tunisien (2024-2025), nous avons identifié 18 archétypes
+                  comportementaux.
+                </div>
+                <div class="masterclass-item">
+                  <span style="color: #2e9e48; font-weight: 700"
+                    >Anticipation du Véto :</span
+                  >
+                  Dès le seuil (0-10s), le vendeur identifie le « système
+                  d'exploitation » du client pour éviter le
+                  <strong style="color: #cc2838">Véto Neurologique</strong>.
+                </div>
+                <div class="masterclass-item">
+                  <span style="color: #2e9e48; font-weight: 700"
+                    >La Fenêtre Vicary :</span
+                  >
+                  En identifiant le profil, le vendeur synchronise son approche
+                  avec la <strong>fenêtre de décision ultra-rapide</strong> de
+                  l'inconscient.
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="masterclass-section">
+              <div class="masterclass-section-header">
+                <span class="masterclass-num-badge">3</span>La Méthode : La
+                Collision Biométrique
+              </div>
+              <div class="masterclass-items">
+                <div class="masterclass-item">
+                  <span style="color: #1e6ed8; font-weight: 700"
+                    >La Loi de Pareto² :</span
+                  >
+                  Les <strong>20% d'état interne du vendeur</strong> dictent
+                  <strong style="color: var(--gold)"
+                    >80% du climat de la vente</strong
+                  >.
+                </div>
+                <div class="masterclass-item">
+                  <span style="color: #1e6ed8; font-weight: 700"
+                    >La Solution Opérationnelle :</span
+                  >
+                  Le <strong>RESET Manager Kit</strong> stabilise l'état
+                  émotionnel du vendeur, tandis que l'application
+                  <strong style="color: var(--gold)">NeuroCAPTER V2</strong>
+                  permet une synchronisation chirurgicale.
+                </div>
+              </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="masterclass-conclusion">
+              <div class="masterclass-conclusion-eyebrow">
+                — CONCLUSION SIGNATURE —
+              </div>
+              <div class="masterclass-conclusion-text">
+                « Messieurs, un vendeur qui ne maîtrise pas les
                 <strong style="color: var(--gold)"
-                  >80% du climat de la vente</strong
-                >.
+                  >18 systèmes prédictifs</strong
+                >
+                de ses clients <em>subit</em> la vente. Celui qui les décode
+                <strong style="color: #fff"
+                  >possède les clés du tiers de seconde</strong
+                >. »
               </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(30, 110, 216, 0.5);
-                "
-              >
-                <span style="color: #1e6ed8; font-weight: 700"
-                  >La Solution Opérationnelle : </span
-                >Le
-                <strong style="color: #fff">RESET Manager Kit</strong> stabilise
-                l'état émotionnel du vendeur, tandis que l'application
-                <strong style="color: var(--gold)">NeuroCAPTER V2</strong>
-                permet une synchronisation chirurgicale selon le site (Tunis,
-                Sfax, Sousse) et la marque.
+              <div class="masterclass-conclusion-signature">
+                Bienvenue dans l'ère du Neuro-Management Indigo.
               </div>
             </div>
           </div>
-          <div
-            style="
-              background: linear-gradient(
-                135deg,
-                rgba(240, 168, 32, 0.15),
-                rgba(204, 40, 56, 0.1)
-              );
-              border: 1px solid rgba(240, 168, 32, 0.35);
-              border-radius: 14px;
-              padding: 16px;
-              margin-bottom: 18px;
-              text-align: center;
-            "
-          >
-            <div
-              style="
-                font-family:
-                  Share Tech Mono,
-                  monospace;
-                font-size: 8px;
-                letter-spacing: 0.2em;
-                color: rgba(255, 255, 255, 0.4);
-                text-transform: uppercase;
-                margin-bottom: 10px;
-              "
-            >
-              — CONCLUSION SIGNATURE —
+
+          <!-- Image 2 -->
+          <div class="masterclass-image-bottom">
+            <img src="2.png" alt="Infographie Masterclass" />
+            <div class="masterclass-caption">
+              Infographie · Neuro-Dynamique de la Vente
             </div>
-            <div
-              style="
-                font-family: Rajdhani, sans-serif;
-                font-size: 14px;
-                font-style: italic;
-                color: rgba(255, 255, 255, 0.9);
-                line-height: 1.6;
-              "
-            >
-              « Messieurs, un vendeur qui ne maîtrise pas les
-              <strong style="color: var(--gold)">18 systèmes prédictifs</strong>
-              de ses clients <em>subit</em> la vente. Celui qui les décode
-              <strong style="color: #fff"
-                >possède les clés du tiers de seconde</strong
-              >. »
-            </div>
-            <div
-              style="
-                margin-top: 10px;
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 13px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                color: var(--gold);
-              "
-            >
-              Bienvenue dans l'ère du Neuro-Management Indigo.
-            </div>
-          </div>
-        </div>
-        <div style="padding: 0 16px 4px">
-          <img
-            src="2.png"
-            alt="Infographie Masterclass"
-            style="
-              width: 100%;
-              min-width: 480px;
-              display: block;
-              border-radius: 12px;
-            "
-          />
-          <div
-            style="
-              font-family:
-                Share Tech Mono,
-                monospace;
-              font-size: 8px;
-              letter-spacing: 0.18em;
-              color: rgba(255, 255, 255, 0.35);
-              text-transform: uppercase;
-              margin-bottom: 10px;
-              text-align: center;
-            "
-          >
-            Infographie · Neuro-Dynamique de la Vente
           </div>
         </div>
       </div>
@@ -4788,24 +4696,24 @@
           : "→ " + PHASE_ORDER[ST.phaseIdx + 1];
       }
       function nextPhase() {
-  console.log("Phase actuelle:", ST.phaseIdx, "Phase name:", ph());
-  
-  if (ST.phaseIdx === 3) {
-    console.log("Ouverture décision");
-    openDecision();
-    return;
-  }
-  
-  if (ST.phaseIdx >= 5) {
-    console.log("Completion du protocole");
-    completeProtocol();
-    return;
-  }
-  
-  console.log("Passage à la phase suivante");
-  ST.phaseIdx++;
-  renderTerrain();
-}
+        console.log("Phase actuelle:", ST.phaseIdx, "Phase name:", ph());
+
+        if (ST.phaseIdx === 3) {
+          console.log("Ouverture décision");
+          openDecision();
+          return;
+        }
+
+        if (ST.phaseIdx >= 5) {
+          console.log("Completion du protocole");
+          completeProtocol();
+          return;
+        }
+
+        console.log("Passage à la phase suivante");
+        ST.phaseIdx++;
+        renderTerrain();
+      }
       function exitTerrain() {
         ST.phaseIdx = 0;
         renderSelect();
@@ -4896,10 +4804,10 @@
           `<div class="cb"><div class="cb-lbl">Neurotype</div><div class="cb-text">${prof.neurotype || "-"}</div></div><div class="cb"><div class="cb-lbl">Mécanisme dominant</div><div class="cb-text">${prof.mechanism || "-"}</div></div><div class="cb"><div class="cb-lbl">Signaux terrain</div>${(prof.signals || []).map((s) => `<div class="pf-sig" style="--phase:${c}">${s}</div>`).join("")}</div><div class="cb"><div class="cb-lbl">Erreur fatale</div><div class="pf-err">${prof.error || "-"}</div></div><div class="cb"><div class="cb-lbl">Protocole CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="pf-capter-row"><div class="pf-c-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div class="pf-c-text">${prof.dc?.[ph] || "-"}</div></div>`).join("")}</div>`;
       }
       function bnAct(id) {
-  document.querySelectorAll(".bn").forEach((b) => {
-    b.classList.toggle("on", b.id === id);
-  });
-}
+        document.querySelectorAll(".bn").forEach((b) => {
+          b.classList.toggle("on", b.id === id);
+        });
+      }
       function buildArchGrid(id) {
         const el = document.getElementById(id);
         if (!el) return;
@@ -5224,7 +5132,7 @@
         document.getElementById("profilRight").innerHTML =
           `<div class="capter-lbl">Protocole CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="cp-item"><div class="cp-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div><div class="cp-time">${PHASE_TIMES[ph]}</div><div class="cp-name" style="color:${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]}</div><div class="cp-script">${p.dc?.[ph] || "—"}</div></div></div>`).join("")}<div class="block-lbl" style="margin-top:6px">Mécanisme</div><div class="mech-box"><div class="mech-txt">${p.mechanism || "-"}</div></div><div class="block-lbl" style="margin-top:6px">Trafic estimé</div><div class="traffic-box"><div class="traffic-val" style="color:${ac.color}">${p.traffic || "—"}</div><div class="traffic-lbl">du trafic mall</div></div>`;
       }
-      
+
       function profilGoTo(idx) {
         if (idx === profilCurrent) return;
         profilCurrent = idx;
@@ -5383,48 +5291,55 @@
         activateTerrain();
       }
       // ===== PROFIL SCREEN - VERSION CORRECTE =====
-let profilCurrentIndex = 0;
-let profilTouchStartX = 0;
+      let profilCurrentIndex = 0;
+      let profilTouchStartX = 0;
 
-function goProfil() {
-  profilCurrentIndex = 0;
-  renderProfilScreen();
-  showScreen("s-profil");
-  bnActive("bnProfil");
-  setPhase("#d89020");
-}
+      function goProfil() {
+        profilCurrentIndex = 0;
+        renderProfilScreen();
+        showScreen("s-profil");
+        bnActive("bnProfil");
+        setPhase("#d89020");
+      }
 
-function renderProfilScreen() {
-  const prof = PROFILES[profilCurrentIndex];
-  if (!prof) return;
+      function renderProfilScreen() {
+        const prof = PROFILES[profilCurrentIndex];
+        if (!prof) return;
 
-  const ac = ARCH_DATA[prof.arch] || { color: "#f0a820", icon: "⚡", name: "Efficace" };
-  const siteColor = SITE_COLORS[prof.site] || "#f0a820";
+        const ac = ARCH_DATA[prof.arch] || {
+          color: "#f0a820",
+          icon: "⚡",
+          name: "Efficace",
+        };
+        const siteColor = SITE_COLORS[prof.site] || "#f0a820";
 
-  setPhase(ac.color);
+        setPhase(ac.color);
 
-  // Mise à jour compteur
-  document.getElementById("profilCurr").textContent = String(profilCurrentIndex + 1).padStart(2, "0");
+        // Mise à jour compteur
+        document.getElementById("profilCurr").textContent = String(
+          profilCurrentIndex + 1,
+        ).padStart(2, "0");
 
-  // Image
-  const imgEl = document.getElementById("profilImg");
-  if (imgEl) {
-    imgEl.classList.remove("visible");
-    setTimeout(() => {
-      imgEl.src = PROFILE_IMAGES[prof.id] || "";
-      imgEl.onload = () => imgEl.classList.add("visible");
-      if (imgEl.complete && imgEl.naturalWidth > 0) imgEl.classList.add("visible");
-    }, 30);
-  }
+        // Image
+        const imgEl = document.getElementById("profilImg");
+        if (imgEl) {
+          imgEl.classList.remove("visible");
+          setTimeout(() => {
+            imgEl.src = PROFILE_IMAGES[prof.id] || "";
+            imgEl.onload = () => imgEl.classList.add("visible");
+            if (imgEl.complete && imgEl.naturalWidth > 0)
+              imgEl.classList.add("visible");
+          }, 30);
+        }
 
-  // Nom dans la navigation
-  const navName = document.getElementById("profilNavName");
-  if (navName) navName.textContent = prof.name;
+        // Nom dans la navigation
+        const navName = document.getElementById("profilNavName");
+        if (navName) navName.textContent = prof.name;
 
-  // Colonne gauche
-  const leftCol = document.getElementById("profilLeft");
-  if (leftCol) {
-    leftCol.innerHTML = `
+        // Colonne gauche
+        const leftCol = document.getElementById("profilLeft");
+        if (leftCol) {
+          leftCol.innerHTML = `
       <div class="site-badge" style="border-color: ${siteColor}50; color: ${siteColor}">
         ${SITE_LABELS[prof.site] || prof.site}
       </div>
@@ -5437,25 +5352,30 @@ function renderProfilScreen() {
       <div class="block-lbl">🧠 Neurotype</div>
       <div class="neurotype">${prof.neurotype || "—"}</div>
       <div class="block-lbl">👁 Signaux en 3 secondes</div>
-      ${(prof.signals || []).map(s => `
+      ${(prof.signals || [])
+        .map(
+          (s) => `
         <div class="signal-item">
           <div class="signal-dot" style="background: ${ac.color}"></div>
           ${s}
         </div>
-      `).join("")}
+      `,
+        )
+        .join("")}
       <div class="erreur-box">
         <div class="erreur-lbl">⚠ Erreur fatale</div>
         <div class="erreur-txt">${prof.error || "—"}</div>
       </div>
     `;
-  }
+        }
 
-  // Colonne droite
-  const rightCol = document.getElementById("profilRight");
-  if (rightCol) {
-    rightCol.innerHTML = `
+        // Colonne droite
+        const rightCol = document.getElementById("profilRight");
+        if (rightCol) {
+          rightCol.innerHTML = `
       <div class="capter-lbl">◈ Protocole CAPTER</div>
-      ${PHASE_ORDER.map(ph => `
+      ${PHASE_ORDER.map(
+        (ph) => `
         <div class="cp-item">
           <div class="cp-letter" style="color: ${PHASE_COLORS[ph]}">${ph}</div>
           <div>
@@ -5464,7 +5384,8 @@ function renderProfilScreen() {
             <div class="cp-script">${prof.dc?.[ph] || "—"}</div>
           </div>
         </div>
-      `).join("")}
+      `,
+      ).join("")}
       <div class="block-lbl" style="margin-top: 8px">📊 Mécanisme dominant</div>
       <div class="mech-box">
         <div class="mech-txt">${prof.mechanism || "—"}</div>
@@ -5475,55 +5396,57 @@ function renderProfilScreen() {
         <div class="traffic-lbl">du trafic mall</div>
       </div>
     `;
-  }
+        }
 
-  // Dots de navigation
-  const dotsContainer = document.getElementById("profilDots");
-  if (dotsContainer) {
-    dotsContainer.innerHTML = PROFILES.map((_, i) => `
+        // Dots de navigation
+        const dotsContainer = document.getElementById("profilDots");
+        if (dotsContainer) {
+          dotsContainer.innerHTML = PROFILES.map(
+            (_, i) => `
       <div class="profil-dot ${i === profilCurrentIndex ? "active" : ""}" 
            onclick="profilGoTo(${i})"></div>
-    `).join("");
-  }
-}
+    `,
+          ).join("");
+        }
+      }
 
-function profilNav(direction) {
-  let newIndex = profilCurrentIndex + direction;
-  if (newIndex < 0) newIndex = PROFILES.length - 1;
-  if (newIndex >= PROFILES.length) newIndex = 0;
-  profilGoTo(newIndex);
-}
+      function profilNav(direction) {
+        let newIndex = profilCurrentIndex + direction;
+        if (newIndex < 0) newIndex = PROFILES.length - 1;
+        if (newIndex >= PROFILES.length) newIndex = 0;
+        profilGoTo(newIndex);
+      }
 
-function profilGoTo(index) {
-  if (index === profilCurrentIndex) return;
-  profilCurrentIndex = index;
-  renderProfilScreen();
-}
+      function profilGoTo(index) {
+        if (index === profilCurrentIndex) return;
+        profilCurrentIndex = index;
+        renderProfilScreen();
+      }
 
-// Swipe pour mobile
-function initProfilSwipe() {
-  const profilScreen = document.getElementById("s-profil");
-  if (!profilScreen) return;
+      // Swipe pour mobile
+      function initProfilSwipe() {
+        const profilScreen = document.getElementById("s-profil");
+        if (!profilScreen) return;
 
-  profilScreen.addEventListener("touchstart", (e) => {
-    profilTouchStartX = e.touches[0].clientX;
-  });
+        profilScreen.addEventListener("touchstart", (e) => {
+          profilTouchStartX = e.touches[0].clientX;
+        });
 
-  profilScreen.addEventListener("touchend", (e) => {
-    if (!profilTouchStartX) return;
-    const diffX = e.changedTouches[0].clientX - profilTouchStartX;
-    if (Math.abs(diffX) > 50) {
-      if (diffX < 0) profilNav(1);
-      else profilNav(-1);
-    }
-    profilTouchStartX = 0;
-  });
-}
+        profilScreen.addEventListener("touchend", (e) => {
+          if (!profilTouchStartX) return;
+          const diffX = e.changedTouches[0].clientX - profilTouchStartX;
+          if (Math.abs(diffX) > 50) {
+            if (diffX < 0) profilNav(1);
+            else profilNav(-1);
+          }
+          profilTouchStartX = 0;
+        });
+      }
 
-// Initialisation
-setTimeout(() => {
-  initProfilSwipe();
-}, 100);
+      // Initialisation
+      setTimeout(() => {
+        initProfilSwipe();
+      }, 100);
       let ficheProfileId = null;
       function openFiche(profId) {
         var prof = PROFILES.find((p) => p.id === profId);
@@ -5617,11 +5540,10 @@ setTimeout(() => {
         if (e.key === "Escape") closeFiche();
       });
 
-
-// Initialisation au chargement
-setTimeout(() => {
-  initProfilSwipe();
-}, 100);
+      // Initialisation au chargement
+      setTimeout(() => {
+        initProfilSwipe();
+      }, 100);
       (function () {
         initSetup();
         buildArchGrid("vend-archs");
