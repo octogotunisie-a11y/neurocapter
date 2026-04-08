@@ -45,8 +45,6 @@
         overflow: hidden;
         user-select: none;
       }
-
-      /* SCREENS */
       .screen {
         position: fixed;
         inset: 0;
@@ -66,8 +64,6 @@
         pointer-events: all;
         transform: none;
       }
-
-      /* PHASE BG */
       #phaseBg {
         position: fixed;
         inset: 0;
@@ -75,8 +71,6 @@
         transition: background 0.5s;
         pointer-events: none;
       }
-
-      /* BOTTOM NAV */
       #bottomBar {
         position: fixed;
         bottom: 0;
@@ -117,8 +111,6 @@
         text-transform: uppercase;
         white-space: nowrap;
       }
-
-      /* Logo en haut */
       .global-header {
         position: fixed;
         top: 0;
@@ -128,27 +120,48 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 8px 16px;
+        padding: 6px 16px;
         background: rgba(5, 8, 16, 0.7);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        height: 44px;
       }
       .global-header img {
-        height: 32px;
+        height: 28px;
         width: auto;
       }
       .global-header span {
         font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
-        letter-spacing: 0.12em;
-        color: rgba(255, 255, 255, 0.4);
+        font-size: 8px;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.45);
         text-transform: uppercase;
       }
       .screen {
         padding-top: 48px;
       }
-
-      /* ===== HOME SCREEN ===== */
+      .back-btn-header {
+        position: fixed;
+        top: 52px;
+        right: 12px;
+        z-index: 160;
+        background: rgba(5, 8, 16, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-family: "Share Tech Mono", monospace;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        gap: 6px;
+      }
+      .back-btn-header:active {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(0.96);
+      }
       #s-home {
         padding: max(env(safe-area-inset-top, 0px), 20px) 20px 80px;
       }
@@ -260,8 +273,6 @@
         font-size: 18px;
         flex-shrink: 0;
       }
-
-      /* ===== SETUP SCREEN ===== */
       #s-setup {
         padding: max(env(safe-area-inset-top, 0px), 32px) 22px 80px;
         align-items: flex-start;
@@ -396,7 +407,6 @@
         width: 100%;
         cursor: pointer;
         margin-bottom: 12px;
-        transition: 0.2s;
       }
       .btn-confirm-setup {
         font-family: "Barlow Condensed", sans-serif;
@@ -411,17 +421,11 @@
         padding: 16px;
         width: 100%;
         cursor: pointer;
-        transition: 0.15s;
         display: none;
       }
       .btn-confirm-setup.vis {
         display: block;
       }
-      .btn-confirm-setup:active {
-        transform: scale(0.98);
-      }
-
-      /* ===== SELECT SCREEN ===== */
       #s-select {
         background: #050810;
       }
@@ -523,7 +527,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: 0.18s;
       }
       .snb:active {
         color: #fff;
@@ -605,7 +608,6 @@
         padding: 15px;
         width: 100%;
         cursor: pointer;
-        transition: 0.15s;
       }
       .btn-activate:active {
         transform: scale(0.98);
@@ -619,8 +621,6 @@
         margin-top: 8px;
         text-transform: uppercase;
       }
-
-      /* ===== TERRAIN SCREEN ===== */
       #s-terrain {
         padding-top: max(env(safe-area-inset-top, 0px), 14px);
       }
@@ -774,7 +774,6 @@
         padding: 16px;
         width: 100%;
         cursor: pointer;
-        transition: 0.15s;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -800,8 +799,6 @@
         justify-content: center;
         gap: 5px;
       }
-
-      /* ===== DECISION SCREEN ===== */
       #s-decision {
         padding: max(env(safe-area-inset-top, 0px), 44px) 24px 80px;
         justify-content: flex-start;
@@ -883,8 +880,6 @@
         padding: 10px;
         text-align: center;
       }
-
-      /* ===== COMPLETE SCREEN ===== */
       #s-complete {
         align-items: center;
         justify-content: center;
@@ -944,7 +939,6 @@
         border-radius: 12px;
         padding: 16px 40px;
         cursor: pointer;
-        transition: 0.15s;
         width: 100%;
         max-width: 280px;
       }
@@ -963,8 +957,6 @@
         padding: 10px;
         margin-top: 6px;
       }
-
-      /* ===== FORMATION SCREENS ===== */
       .form-screen {
         background: #050810;
         overflow-y: auto;
@@ -1437,8 +1429,6 @@
       .prof-filter::-webkit-scrollbar {
         display: none;
       }
-
-      /* SHEETS */
       .backdrop {
         position: fixed;
         inset: 0;
@@ -1535,14 +1525,6 @@
         font-weight: 600;
         line-height: 1.3;
       }
-      .form-grid-sh {
-        display: flex;
-        flex-direction: column;
-        gap: 9px;
-        max-height: 55vh;
-        overflow-y: auto;
-      }
-
       #ficheOverlay.open {
         opacity: 1 !important;
         pointer-events: all !important;
@@ -1732,8 +1714,6 @@
         flex-direction: column;
         height: 100%;
       }
-
-      /* PROFILS SCREEN (nouvel onglet) */
       #s-profil {
         background: #050810;
         padding: 0;
@@ -1926,8 +1906,33 @@
         src="octogo.png"
         alt="Octogo"
         onerror="this.style.display = 'none'"
-      />
-      <span>INDIGO TUNISIE · NEUROCAPTER</span>
+      /><span>INDIGO TUNISIE · NEUROCAPTER</span>
+    </div>
+    <div
+      class="back-btn-header"
+      id="backBtnHeader"
+      onclick="goBackFromScreen()"
+      style="
+        position: fixed;
+        top: 52px;
+        right: 12px;
+        left: auto;
+        z-index: 160;
+        background: rgba(5, 8, 16, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-family: &quot;Share Tech Mono&quot;, monospace;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        gap: 6px;
+      "
+    >
+      Retour →
     </div>
 
     <!-- ===== HOME ===== -->
@@ -2081,7 +2086,6 @@
           </div>
         </div>
       </div>
-
       <div class="home-ctx" onclick="goSetup()">
         <div>
           <div class="home-ctx-lbl">Contexte actuel</div>
@@ -2258,9 +2262,8 @@
         <div class="setup-h">Votre <span>enseigne</span></div>
         <div class="brand-grid" id="brandGrid"></div>
         <button class="btn-see-all" onclick="selectAllBrands()">
-          Voir tous les profils du mall →
-        </button>
-        <button
+          Voir tous les profils du mall →</button
+        ><button
           class="btn-confirm-setup"
           id="btnConfirm"
           onclick="confirmSetup()"
@@ -2279,7 +2282,7 @@
         "
         style="cursor: pointer"
       >
-        <img id="selImg" src="" alt="" />
+        <img id="selImg" src="" />
         <div class="sel-vig"></div>
       </div>
       <div class="sel-top">
@@ -2292,8 +2295,8 @@
         </div>
       </div>
       <div class="sel-nav">
-        <button class="snb" onclick="selNav(-1)">‹</button>
-        <button class="snb" onclick="selNav(1)">›</button>
+        <button class="snb" onclick="selNav(-1)">‹</button
+        ><button class="snb" onclick="selNav(1)">›</button>
       </div>
       <div class="sel-arch-strip" id="archStrip"></div>
       <div class="sel-bot">
@@ -2345,7 +2348,7 @@
             if (typeof openFiche !== 'undefined' && p && p()) openFiche(p().id);
           "
         >
-          <img id="tThumb" src="" alt="" />
+          <img id="tThumb" src="" />
         </div>
         <div class="t-id">
           <div class="t-name" id="tName">—</div>
@@ -2365,12 +2368,11 @@
       </div>
       <div class="t-bottom">
         <button class="btn-next" id="btnNext" onclick="nextPhase()">
-          <span id="btnNextTxt">Phase suivante</span>
-          <span id="btnNextPrev" style="opacity: 0.55; font-size: 13px"
+          <span id="btnNextTxt">Phase suivante</span
+          ><span id="btnNextPrev" style="opacity: 0.55; font-size: 13px"
             >→ A</span
-          >
-        </button>
-        <button class="btn-erreur" onclick="openSheet('shErr')">
+          ></button
+        ><button class="btn-erreur" onclick="openSheet('shErr')">
           ⚠ Erreur fatale
         </button>
       </div>
@@ -2396,8 +2398,8 @@
       <div class="cmp-title">Protocole Complété</div>
       <div class="cmp-text" id="cmpText">—</div>
       <div class="cmp-reinforce" id="cmpReinforce">—</div>
-      <button class="btn-new" onclick="newClient()">Nouveau Client →</button>
-      <button class="btn-fiche" onclick="openSheet('shFiche')">
+      <button class="btn-new" onclick="newClient()">Nouveau Client →</button
+      ><button class="btn-fiche" onclick="openSheet('shFiche')">
         ⊕ Profil complet
       </button>
     </div>
@@ -2414,19 +2416,15 @@
       </div>
       <div class="tabs">
         <button class="tab on" onclick="switchTab('vend', 0, this)">
-          CAPTER
-        </button>
-        <button class="tab" onclick="switchTab('vend', 1, this)">
-          18 Profils
-        </button>
-        <button class="tab" onclick="switchTab('vend', 2, this)">Quiz</button>
-        <button class="tab" onclick="switchTab('vend', 3, this)">
+          CAPTER</button
+        ><button class="tab" onclick="switchTab('vend', 1, this)">
+          18 Profils</button
+        ><button class="tab" onclick="switchTab('vend', 2, this)">Quiz</button
+        ><button class="tab" onclick="switchTab('vend', 3, this)">
           Archétypes
         </button>
       </div>
-      <div class="tab-panel on" data-g="vend">
-        <div id="capter-list"></div>
-      </div>
+      <div class="tab-panel on" data-g="vend"><div id="capter-list"></div></div>
       <div class="tab-panel" data-g="vend">
         <div class="prof-filter" id="profFilter">
           <button
@@ -2434,23 +2432,18 @@
             onclick="filterProf('all', this)"
             style="background: var(--gold); color: #000"
           >
-            Tous
-          </button>
-          <button class="arch-tab" onclick="filterProf('sousse', this)">
-            🌊 Sousse
-          </button>
-          <button class="arch-tab" onclick="filterProf('sfax', this)">
-            ⚙️ Sfax
-          </button>
-          <button class="arch-tab" onclick="filterProf('tunis', this)">
+            Tous</button
+          ><button class="arch-tab" onclick="filterProf('sousse', this)">
+            🌊 Sousse</button
+          ><button class="arch-tab" onclick="filterProf('sfax', this)">
+            ⚙️ Sfax</button
+          ><button class="arch-tab" onclick="filterProf('tunis', this)">
             🏙️ Tunis
           </button>
         </div>
         <div id="prof-list"></div>
       </div>
-      <div class="tab-panel" data-g="vend">
-        <div id="quiz-list"></div>
-      </div>
+      <div class="tab-panel" data-g="vend"><div id="quiz-list"></div></div>
       <div class="tab-panel" data-g="vend">
         <div class="arch-grid" id="vend-archs"></div>
         <div class="cb" style="border-left: 3px solid var(--A)">
@@ -2479,13 +2472,11 @@
       </div>
       <div class="tabs">
         <button class="tab on" onclick="switchTab('cad', 0, this)">
-          Rôle cadre
-        </button>
-        <button class="tab" onclick="switchTab('cad', 1, this)">
-          Observation
-        </button>
-        <button class="tab" onclick="switchTab('cad', 2, this)">RELAA</button>
-        <button class="tab" onclick="switchTab('cad', 3, this)">KPIs</button>
+          Rôle cadre</button
+        ><button class="tab" onclick="switchTab('cad', 1, this)">
+          Observation</button
+        ><button class="tab" onclick="switchTab('cad', 2, this)">RELAA</button
+        ><button class="tab" onclick="switchTab('cad', 3, this)">KPIs</button>
       </div>
       <div class="tab-panel on" data-g="cad">
         <div class="cb" style="border-left: 3px solid var(--T)">
@@ -2634,7 +2625,7 @@
                 margin-bottom: 6px;
               "
             >
-              MASTERCLASS &middot; NEURO-DYNAMIQUE DE LA VENTE
+              MASTERCLASS · NEURO-DYNAMIQUE DE LA VENTE
             </div>
             <div
               style="
@@ -2649,8 +2640,7 @@
                 margin-bottom: 4px;
               "
             >
-              Ma&icirc;triser le Tiers de Seconde&nbsp;: Levier de Performance
-              Indigo
+              Maîtriser le Tiers de Seconde : Levier de Performance Indigo
             </div>
           </div>
           <div
@@ -2675,8 +2665,7 @@
                 margin-bottom: 8px;
               "
             >
-              &#9889; L&apos;ENJEU&nbsp;: HACKER LE SYST&Egrave;ME
-              PR&Eacute;DICTIF
+              ⚡ L'ENJEU : HACKER LE SYSTÈME PRÉDICTIF
             </div>
             <div
               style="
@@ -2686,13 +2675,13 @@
                 color: rgba(255, 255, 255, 0.75);
               "
             >
-              La vente n&apos;est pas une simple discussion, c&apos;est une
+              La vente n'est pas une simple discussion, c'est une
               <strong style="color: #fff"
-                >collision entre deux syst&egrave;mes neuro-biologiques</strong
-              >. Chez Indigo, nous ne formons plus &agrave; l&apos;argumentaire
-              classique, mais &agrave; la ma&icirc;trise des
+                >collision entre deux systèmes neuro-biologiques</strong
+              >. Chez Indigo, nous ne formons plus à l'argumentaire classique,
+              mais à la maîtrise des
               <strong style="color: var(--gold)">signaux faibles</strong> qui
-              d&eacute;clenchent ou bloquent l&apos;achat en un &eacute;clair.
+              déclenchent ou bloquent l'achat en un éclair.
             </div>
           </div>
           <div style="margin-bottom: 12px">
@@ -2726,7 +2715,7 @@
                   flex-shrink: 0;
                 "
                 >1</span
-              >Le Diagnostic&nbsp;: Le Temps Fant&ocirc;me
+              >Le Diagnostic : Le Temps Fantôme
             </div>
             <div
               style="
@@ -2749,12 +2738,10 @@
                 "
               >
                 <span style="color: var(--gold); font-weight: 700"
-                  >Le Concept&nbsp;: </span
-                >L&apos;inconscient traite les informations avec
-                <strong style="color: #fff"
-                  >1/3 de seconde d&apos;avance</strong
-                >
-                sur la pens&eacute;e consciente.
+                  >Le Concept : </span
+                >L'inconscient traite les informations avec
+                <strong style="color: #fff">1/3 de seconde d'avance</strong> sur
+                la pensée consciente.
               </div>
               <div
                 style="
@@ -2769,12 +2756,11 @@
                 "
               >
                 <span style="color: var(--gold); font-weight: 700"
-                  >Le Choc&nbsp;: </span
-                >Ce &laquo;&nbsp;pilotage automatique&nbsp;&raquo;
-                repr&eacute;sente
+                  >Le Choc : </span
+                >Ce « pilotage automatique » représente
                 <strong style="color: #fff">4 heures par jour</strong>, soit
                 <strong style="color: #cc2838">1 an et 8 mois</strong> de
-                d&eacute;cisions invisibles tous les 10 ans.
+                décisions invisibles tous les 10 ans.
               </div>
               <div
                 style="
@@ -2789,10 +2775,10 @@
                 "
               >
                 <span style="color: var(--gold); font-weight: 700"
-                  >L&apos;Impact&nbsp;: </span
-                >C&apos;est dans cette zone que se scelle la
+                  >L'Impact : </span
+                >C'est dans cette zone que se scelle la
                 <strong style="color: #fff">confiance du client</strong> avant
-                m&ecirc;me qu&apos;il ne formule son besoin.
+                même qu'il ne formule son besoin.
               </div>
             </div>
           </div>
@@ -2827,8 +2813,7 @@
                   flex-shrink: 0;
                 "
                 >2</span
-              >L&apos;Outil&nbsp;: Les 18 Syst&egrave;mes Pr&eacute;dictifs
-              (NeuroCAPTER)
+              >L'Outil : Les 18 Systèmes Prédictifs (NeuroCAPTER)
             </div>
             <div
               style="
@@ -2851,13 +2836,11 @@
                 "
               >
                 <span style="color: #2e9e48; font-weight: 700"
-                  >La Cartographie&nbsp;: </span
+                  >La Cartographie : </span
                 >Fruit de plus de
-                <strong style="color: #fff"
-                  >3&nbsp;200 observations r&eacute;elles</strong
-                >
-                sur le terrain tunisien (2024-2025), nous avons identifi&eacute;
-                18 arch&eacute;types comportementaux.
+                <strong style="color: #fff">3 200 observations réelles</strong>
+                sur le terrain tunisien (2024-2025), nous avons identifié 18
+                archétypes comportementaux.
               </div>
               <div
                 style="
@@ -2872,14 +2855,11 @@
                 "
               >
                 <span style="color: #2e9e48; font-weight: 700"
-                  >Anticipation du V&eacute;to&nbsp;: </span
-                >D&egrave;s le seuil (0-10s), le vendeur identifie le
-                &laquo;&nbsp;syst&egrave;me d&apos;exploitation&nbsp;&raquo; du
-                client (ex&nbsp;:
-                <em>L&apos;Ex&eacute;cutif Press&eacute;</em> ou
-                <em>Le Jeune Tendance</em>) pour &eacute;viter le
-                <strong style="color: #cc2838">V&eacute;to Neurologique</strong
-                >.
+                  >Anticipation du Véto : </span
+                >Dès le seuil (0-10s), le vendeur identifie le « système
+                d'exploitation » du client (ex : <em>L'Exécutif Pressé</em> ou
+                <em>Le Jeune Tendance</em>) pour éviter le
+                <strong style="color: #cc2838">Véto Neurologique</strong>.
               </div>
               <div
                 style="
@@ -2894,13 +2874,13 @@
                 "
               >
                 <span style="color: #2e9e48; font-weight: 700"
-                  >La Fen&ecirc;tre Vicary&nbsp;: </span
+                  >La Fenêtre Vicary : </span
                 >En identifiant le profil, le vendeur synchronise son approche
                 avec la
                 <strong style="color: #fff"
-                  >fen&ecirc;tre de d&eacute;cision ultra-rapide</strong
+                  >fenêtre de décision ultra-rapide</strong
                 >
-                de l&apos;inconscient.
+                de l'inconscient.
               </div>
             </div>
           </div>
@@ -2935,8 +2915,7 @@
                   flex-shrink: 0;
                 "
                 >3</span
-              >La M&eacute;thode&nbsp;: La Collision Biom&eacute;trique
-              (Pareto&sup2;)
+              >La Méthode : La Collision Biométrique (Pareto²)
             </div>
             <div
               style="
@@ -2959,10 +2938,10 @@
                 "
               >
                 <span style="color: #1e6ed8; font-weight: 700"
-                  >La Loi de Pareto&sup2;&nbsp;: </span
+                  >La Loi de Pareto² : </span
                 >Les
                 <strong style="color: #fff"
-                  >20% d&apos;&eacute;tat interne du vendeur</strong
+                  >20% d'état interne du vendeur</strong
                 >
                 (sa neuro-signature) dictent
                 <strong style="color: var(--gold)"
@@ -2982,11 +2961,10 @@
                 "
               >
                 <span style="color: #1e6ed8; font-weight: 700"
-                  >La Solution Op&eacute;rationnelle&nbsp;: </span
+                  >La Solution Opérationnelle : </span
                 >Le
                 <strong style="color: #fff">RESET Manager Kit</strong> stabilise
-                l&apos;&eacute;tat &eacute;motionnel du vendeur, tandis que
-                l&apos;application
+                l'état émotionnel du vendeur, tandis que l'application
                 <strong style="color: var(--gold)">NeuroCAPTER V2</strong>
                 permet une synchronisation chirurgicale selon le site (Tunis,
                 Sfax, Sousse) et la marque.
@@ -3019,7 +2997,7 @@
                 margin-bottom: 10px;
               "
             >
-              &mdash; CONCLUSION SIGNATURE &mdash;
+              — CONCLUSION SIGNATURE —
             </div>
             <div
               style="
@@ -3030,15 +3008,12 @@
                 line-height: 1.6;
               "
             >
-              &laquo;&nbsp;Messieurs, un vendeur qui ne ma&icirc;trise pas les
-              <strong style="color: var(--gold)"
-                >18 syst&egrave;mes pr&eacute;dictifs</strong
-              >
-              de ses clients <em>subit</em> la vente. Celui qui les
-              d&eacute;code
+              « Messieurs, un vendeur qui ne maîtrise pas les
+              <strong style="color: var(--gold)">18 systèmes prédictifs</strong>
+              de ses clients <em>subit</em> la vente. Celui qui les décode
               <strong style="color: #fff"
-                >poss&egrave;de les cl&eacute;s du tiers de seconde</strong
-              >.&nbsp;&raquo;
+                >possède les clés du tiers de seconde</strong
+              >. »
             </div>
             <div
               style="
@@ -3053,7 +3028,7 @@
                 color: var(--gold);
               "
             >
-              Bienvenue dans l&apos;&egrave;re du Neuro-Management Indigo.
+              Bienvenue dans l'ère du Neuro-Management Indigo.
             </div>
           </div>
         </div>
@@ -3081,13 +3056,13 @@
               text-align: center;
             "
           >
-            Infographie &middot; Neuro-Dynamique de la Vente
+            Infographie · Neuro-Dynamique de la Vente
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ===== PROFIL SCREEN (nouvel onglet) ===== -->
+    <!-- ===== PROFIL SCREEN ===== -->
     <div class="screen" id="s-profil">
       <div class="profil-stage">
         <div class="profil-top-bar">
@@ -3101,7 +3076,7 @@
         <div class="profil-3col">
           <div class="profil-left" id="profilLeft"></div>
           <div class="profil-center" id="profilCenter">
-            <img id="profilImg" class="profil-img" src="" alt="" />
+            <img id="profilImg" class="profil-img" src="" />
           </div>
           <div class="profil-right" id="profilRight"></div>
         </div>
@@ -3127,25 +3102,20 @@
         "
       >
         <div class="bn-icon">⌂</div>
-        <div class="bn-lbl">Accueil</div>
-      </button>
-      <button class="bn" id="bnVend" onclick="goVendeurs()">
+        <div class="bn-lbl">Accueil</div></button
+      ><button class="bn" id="bnVend" onclick="goVendeurs()">
         <div class="bn-icon">▣</div>
-        <div class="bn-lbl">Formation</div>
-      </button>
-      <button class="bn" id="bnTerrain" onclick="toTerrain()">
+        <div class="bn-lbl">Formation</div></button
+      ><button class="bn" id="bnTerrain" onclick="toTerrain()">
         <div class="bn-icon">◈</div>
-        <div class="bn-lbl">Terrain</div>
-      </button>
-      <button class="bn" id="bnCad" onclick="goCadres()">
+        <div class="bn-lbl">Terrain</div></button
+      ><button class="bn" id="bnCad" onclick="goCadres()">
         <div class="bn-icon">◉</div>
-        <div class="bn-lbl">Cadres</div>
-      </button>
-      <button class="bn" id="bnMC" onclick="goMasterclass()">
+        <div class="bn-lbl">Cadres</div></button
+      ><button class="bn" id="bnMC" onclick="goMasterclass()">
         <div class="bn-icon">★</div>
-        <div class="bn-lbl">MasterClass</div>
-      </button>
-      <button class="bn" id="bnProfil" onclick="goProfil()">
+        <div class="bn-lbl">MasterClass</div></button
+      ><button class="bn" id="bnProfil" onclick="goProfil()">
         <div class="bn-icon">👤</div>
         <div class="bn-lbl">Profils</div>
       </button>
@@ -3186,7 +3156,6 @@
           <img
             id="ficheHeroImg"
             src=""
-            alt=""
             style="
               width: 100%;
               height: 100%;
@@ -3362,7 +3331,6 @@
     </div>
 
     <script>
-      // ========== DONNÉES (18 PROFILS) ==========
       const PROFILE_IMAGES = {
         1: "pi/p1.png",
         2: "pi/p2.png",
@@ -3383,9 +3351,8 @@
         17: "pi/p17.png",
         18: "pi/p18.png",
       };
-      const IMG_AVANT = "3.png";
-      const IMG_APRES = "4.png";
-
+      const IMG_AVANT = "3.png",
+        IMG_APRES = "4.png";
       const PROFILES = [
         {
           id: 1,
@@ -3869,7 +3836,6 @@
           },
         },
       ];
-
       const ARCH_DATA = {
         efficace: { icon: "⚡", name: "L'Efficace", color: "#e8701a" },
         social: { icon: "👥", name: "Le Social", color: "#cc2838" },
@@ -3914,7 +3880,6 @@
         R: "#d89020",
       };
 
-      // ========== ÉTAT ==========
       const ST = {
         site: localStorage.getItem("nc_site") || "",
         brand: localStorage.getItem("nc_brand") || "",
@@ -3937,19 +3902,17 @@
         document
           .querySelectorAll(".screen")
           .forEach((s) => s.classList.toggle("active", s.id === id));
+        const backBtn = document.getElementById("backBtnHeader");
+        if (backBtn) {
+          if (id === "s-home") backBtn.style.display = "none";
+          else backBtn.style.display = "flex";
+        }
       }
       function bnActive(id) {
         document
           .querySelectorAll(".bn")
           .forEach((b) => b.classList.toggle("on", b.id === id));
       }
-      function goTo(screenId, bnId, phaseColor) {
-        showScreen(screenId);
-        if (bnId) bnActive(bnId);
-        if (phaseColor) setPhase(phaseColor);
-      }
-
-      // ========== NAVIGATION ==========
       function goHome() {
         showScreen("s-home");
         bnActive("bnHome");
@@ -3975,7 +3938,9 @@
         document.getElementById("ss1").style.display = "flex";
         document.getElementById("ss1").style.flexDirection = "column";
         document.getElementById("ss2").style.display = "none";
-        goTo("s-setup", "bnHome", "#e8701a");
+        showScreen("s-setup");
+        bnActive("bnHome");
+        setPhase("#e8701a");
       }
       function toTerrain() {
         if (!ST.site) {
@@ -3986,23 +3951,66 @@
           buildFilteredProfiles();
         }
         renderSelect();
-        goTo("s-select", "bnTerrain", null);
+        showScreen("s-select");
+        bnActive("bnTerrain");
       }
       function goVendeurs() {
-        goTo("s-vendeurs", "bnVend", PHASE_COLORS.C);
+        showScreen("s-vendeurs");
+        bnActive("bnVend");
+        setPhase(PHASE_COLORS.C);
       }
       function goCadres() {
-        goTo("s-cadres", "bnCad", PHASE_COLORS.T);
+        showScreen("s-cadres");
+        bnActive("bnCad");
+        setPhase(PHASE_COLORS.T);
       }
       function goMasterclass() {
-        goTo("s-masterclass", "bnMC", PHASE_COLORS.R);
+        showScreen("s-masterclass");
+        bnActive("bnMC");
+        setPhase(PHASE_COLORS.R);
       }
       function goProfil() {
         renderProfilScreen();
-        goTo("s-profil", "bnProfil", "#d89020");
+        showScreen("s-profil");
+        bnActive("bnProfil");
+        setPhase("#d89020");
+      }
+      function goBackFromScreen() {
+        const cur = document.querySelector(".screen.active")?.id;
+        if (cur === "s-terrain") exitTerrain();
+        else if (cur === "s-select") goSetup();
+        else if (cur === "s-setup") goHome();
+        else if (cur === "s-decision") showScreen("s-terrain");
+        else if (cur === "s-complete") goHome();
+        else if (
+          cur === "s-vendeurs" ||
+          cur === "s-cadres" ||
+          cur === "s-masterclass" ||
+          cur === "s-profil"
+        )
+          goHome();
+        else goHome();
       }
 
-      // ========== SETUP ==========
+      const BRANDS = [
+        { id: "zara", name: "Zara", profIds: [1, 2, 5, 13, 15, 16, 17] },
+        { id: "bershka", name: "Bershka", profIds: [2, 8, 16, 18] },
+        { id: "pull_bear", name: "Pull & Bear", profIds: [2, 8, 16, 17, 18] },
+        {
+          id: "massimo",
+          name: "Massimo Dutti",
+          profIds: [7, 10, 12, 13, 14, 15],
+        },
+        { id: "mango", name: "Mango", profIds: [1, 12, 15] },
+        { id: "lefties", name: "Lefties", profIds: [6, 18] },
+        { id: "stradivarius", name: "Stradivarius", profIds: [12, 15, 16] },
+        { id: "jennyfer", name: "Jennyfer", profIds: [2, 8, 16] },
+        { id: "celio", name: "Celio", profIds: [7, 10] },
+        { id: "oysho", name: "Oysho", profIds: [12, 15] },
+        { id: "lc_waikiki", name: "LC Waikiki", profIds: [3, 9] },
+        { id: "zara_home", name: "Zara Home", profIds: [5, 13, 14] },
+      ];
+
       function initSetup() {
         buildSetupProfilesGrid();
         const counts = {
@@ -4070,7 +4078,8 @@
         localStorage.setItem("nc_brand", ST.brand);
         buildFilteredProfiles();
         renderSelect();
-        goTo("s-select", "bnTerrain", null);
+        showScreen("s-select");
+        bnActive("bnTerrain");
       }
       function buildFilteredProfiles() {
         let profs = PROFILES.filter((p) => p.site === ST.site);
@@ -4117,7 +4126,8 @@
         const sn =
           { sousse: "Sousse", sfax: "Sfax", tunis: "Tunis" }[ST.site] || "—";
         document.getElementById("ctxLbl").textContent = sn + " · " + bn;
-        document.getElementById("shErrTxt").textContent = prof.error || "—";
+        const errEl = document.getElementById("shErrTxt");
+        if (errEl) errEl.textContent = prof.error || "—";
         buildArchStrip();
       }
       function buildArchStrip() {
@@ -4144,12 +4154,19 @@
         ST.profileIdx = (ST.profileIdx + dir + l) % l;
         renderSelect();
       }
-
-      // ========== TERRAIN ==========
       function activateTerrain() {
+        if (!ST.filteredProfiles.length) {
+          if (ST.site) {
+            buildFilteredProfiles();
+          } else {
+            goSetup();
+            return;
+          }
+        }
         ST.phaseIdx = 0;
         renderTerrain();
-        goTo("s-terrain", "bnTerrain", null);
+        showScreen("s-terrain");
+        bnActive("bnTerrain");
       }
       function renderTerrain() {
         const prof = p();
@@ -4191,21 +4208,29 @@
           : "→ " + PHASE_ORDER[ST.phaseIdx + 1];
       }
       function nextPhase() {
-        if (ST.phaseIdx === 3) {
-          openDecision();
-          return;
-        }
-        if (ST.phaseIdx >= 5) {
-          completeProtocol();
-          return;
-        }
-        ST.phaseIdx++;
-        renderTerrain();
-      }
+  console.log("Phase actuelle:", ST.phaseIdx, "Phase name:", ph());
+  
+  if (ST.phaseIdx === 3) {
+    console.log("Ouverture décision");
+    openDecision();
+    return;
+  }
+  
+  if (ST.phaseIdx >= 5) {
+    console.log("Completion du protocole");
+    completeProtocol();
+    return;
+  }
+  
+  console.log("Passage à la phase suivante");
+  ST.phaseIdx++;
+  renderTerrain();
+}
       function exitTerrain() {
         ST.phaseIdx = 0;
         renderSelect();
-        goTo("s-select", "bnTerrain", null);
+        showScreen("s-select");
+        bnActive("bnTerrain");
       }
       function openDecision() {
         const prof = p();
@@ -4239,12 +4264,12 @@
               `<button class="dec-opt" onclick="selDecOpt(${i})">${o.label}<small>${o.hint}</small></button>`,
           )
           .join("");
-        goTo("s-decision", "bnTerrain", null);
+        showScreen("s-decision");
       }
       function selDecOpt(i) {
         ST.phaseIdx = 4;
         renderTerrain();
-        goTo("s-terrain", "bnTerrain", null);
+        showScreen("s-terrain");
       }
       function completeProtocol() {
         const prof = p();
@@ -4262,16 +4287,16 @@
             explorateur:
               "La première expérience positive crée la carte mentale.",
           }[prof.arch] || "La relation est construite.";
-        buildFicheSheet();
-        goTo("s-complete", "bnTerrain", PHASE_COLORS.R);
+        showScreen("s-complete");
+        bnActive("bnTerrain");
+        setPhase(PHASE_COLORS.R);
       }
       function newClient() {
         ST.phaseIdx = 0;
         renderSelect();
-        goTo("s-select", "bnTerrain", null);
+        showScreen("s-select");
+        bnActive("bnTerrain");
       }
-
-      // ========== SHEETS ==========
       function openSheet(id) {
         if (id === "shFiche") buildFicheSheet();
         document.getElementById("bd").classList.add("open");
@@ -4290,8 +4315,11 @@
         document.getElementById("shFicheContent").innerHTML =
           `<div class="cb"><div class="cb-lbl">Neurotype</div><div class="cb-text">${prof.neurotype || "-"}</div></div><div class="cb"><div class="cb-lbl">Mécanisme dominant</div><div class="cb-text">${prof.mechanism || "-"}</div></div><div class="cb"><div class="cb-lbl">Signaux terrain</div>${(prof.signals || []).map((s) => `<div class="pf-sig" style="--phase:${c}">${s}</div>`).join("")}</div><div class="cb"><div class="cb-lbl">Erreur fatale</div><div class="pf-err">${prof.error || "-"}</div></div><div class="cb"><div class="cb-lbl">Protocole CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="pf-capter-row"><div class="pf-c-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div class="pf-c-text">${prof.dc?.[ph] || "-"}</div></div>`).join("")}</div>`;
       }
-
-      // ========== FORMATION CONTENT ==========
+      function bnAct(id) {
+  document.querySelectorAll(".bn").forEach((b) => {
+    b.classList.toggle("on", b.id === id);
+  });
+}
       function buildArchGrid(id) {
         const el = document.getElementById(id);
         if (!el) return;
@@ -4556,19 +4584,31 @@
         }
       }
       function switchTab(group, idx, el) {
-        document
-          .querySelectorAll('[data-g="' + group + '"]')
-          .forEach((p, i) => p.classList.toggle("on", i === idx));
-        document
-          .querySelectorAll(
-            "#s-" +
-              { vend: "vendeurs", cad: "cadres", mc: "masterclass" }[group] +
-              " .tab",
-          )
-          .forEach((t, i) => t.classList.toggle("on", i === idx));
+        if (group === "vend") {
+          const tabs = document.querySelectorAll("#s-vendeurs .tab");
+          const panels = document.querySelectorAll("#s-vendeurs .tab-panel");
+          tabs.forEach((tab, i) => {
+            if (i === idx) tab.classList.add("on");
+            else tab.classList.remove("on");
+          });
+          panels.forEach((panel, i) => {
+            if (i === idx) panel.classList.add("on");
+            else panel.classList.remove("on");
+          });
+        } else if (group === "cad") {
+          const tabs = document.querySelectorAll("#s-cadres .tab");
+          const panels = document.querySelectorAll("#s-cadres .tab-panel");
+          tabs.forEach((tab, i) => {
+            if (i === idx) tab.classList.add("on");
+            else tab.classList.remove("on");
+          });
+          panels.forEach((panel, i) => {
+            if (i === idx) panel.classList.add("on");
+            else panel.classList.remove("on");
+          });
+        }
       }
 
-      // ========== PROFIL SCREEN ==========
       let profilCurrent = 0;
       function renderProfilScreen() {
         const p = PROFILES[profilCurrent];
@@ -4614,7 +4654,6 @@
         renderProfilScreen();
       }
 
-      // ========== GESTURES ==========
       let tx = 0,
         ty = 0,
         tt = 0;
@@ -4665,8 +4704,7 @@
         }
       });
 
-      // ========== EXTRA ==========
-      var voirTousMode = false;
+      let voirTousMode = false;
       function toggleVoirTous() {
         var btn = document.getElementById("voirTousBtn"),
           txt = document.getElementById("voirTousTxt");
@@ -4697,7 +4735,7 @@
           if (txt) txt.textContent = "Voir les 18 profils";
         }
       }
-      var selectedSetupProfId = null;
+      let selectedSetupProfId = null;
       function buildSetupProfilesGrid() {
         var grid = document.getElementById("setupProfilesGrid");
         if (!grid) return;
@@ -4767,7 +4805,7 @@
         renderSelect();
         activateTerrain();
       }
-      var ficheProfileId = null;
+      let ficheProfileId = null;
       function openFiche(profId) {
         var prof = PROFILES.find((p) => p.id === profId);
         if (!prof) return;
@@ -4860,27 +4898,6 @@
         if (e.key === "Escape") closeFiche();
       });
 
-      // ========== BRANDS ==========
-      const BRANDS = [
-        { id: "zara", name: "Zara", profIds: [1, 2, 5, 13, 15, 16, 17] },
-        { id: "bershka", name: "Bershka", profIds: [2, 8, 16, 18] },
-        { id: "pull_bear", name: "Pull & Bear", profIds: [2, 8, 16, 17, 18] },
-        {
-          id: "massimo",
-          name: "Massimo Dutti",
-          profIds: [7, 10, 12, 13, 14, 15],
-        },
-        { id: "mango", name: "Mango", profIds: [1, 12, 15] },
-        { id: "lefties", name: "Lefties", profIds: [6, 18] },
-        { id: "stradivarius", name: "Stradivarius", profIds: [12, 15, 16] },
-        { id: "jennyfer", name: "Jennyfer", profIds: [2, 8, 16] },
-        { id: "celio", name: "Celio", profIds: [7, 10] },
-        { id: "oysho", name: "Oysho", profIds: [12, 15] },
-        { id: "lc_waikiki", name: "LC Waikiki", profIds: [3, 9] },
-        { id: "zara_home", name: "Zara Home", profIds: [5, 13, 14] },
-      ];
-
-      // ========== INIT ==========
       (function () {
         initSetup();
         buildArchGrid("vend-archs");
@@ -4896,6 +4913,14 @@
         if (av) av.src = IMG_AVANT;
         if (ap) ap.src = IMG_APRES;
         goHome();
+        setTimeout(() => {
+          const firstTab = document.querySelector("#s-vendeurs .tab");
+          const firstPanel = document.querySelector("#s-vendeurs .tab-panel");
+          if (firstTab && !firstTab.classList.contains("on"))
+            firstTab.classList.add("on");
+          if (firstPanel && !firstPanel.classList.contains("on"))
+            firstPanel.classList.add("on");
+        }, 100);
       })();
     </script>
   </body>
