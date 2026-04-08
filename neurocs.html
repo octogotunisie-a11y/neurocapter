@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes,viewport-fit=cover">
+<meta name="theme-color" content="#050810">
 <title>NeuroCAPTER · Profils INDIGO</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -11,8 +12,8 @@
   --C:#e8701a;--A:#2e9e48;--P:#cc2838;--T:#1e6ed8;--E:#0d4fa3;--R:#d89020;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{width:100%;height:100%;background:var(--bg);color:#fff;font-family:Rajdhani,sans-serif;overflow-x:hidden;overflow-y:auto;}
-body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:var(--bg);padding:20px;}
+html,body{width:100%;height:100%;background:var(--bg);color:#fff;font-family:Rajdhani,sans-serif;overflow-x:hidden;}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:var(--bg);padding:16px;position:relative;}
 
 /* ── CANVAS BG ── */
 canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
@@ -20,12 +21,13 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 /* ── INTRO SCREEN ── */
 #introScreen{
   position:relative;z-index:100;
-  background:rgba(5,8,16,0.95);
+  background:rgba(5,8,16,0.92);
   backdrop-filter:blur(10px);
-  border-radius:30px;
-  padding:40px;
+  -webkit-backdrop-filter:blur(10px);
+  border-radius:24px;
+  padding:24px 20px;
   width:100%;
-  max-width:1400px;
+  max-width:1200px;
   margin:0 auto;
   box-shadow:0 20px 60px rgba(0,0,0,0.5);
   border:1px solid rgba(240,168,32,0.2);
@@ -34,50 +36,67 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 /* Logo Octogo en haut au centre */
 .logo-container{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:24px;
   position:relative;
   z-index:10;
 }
 .octogo-logo{
-  height:60px;
+  height:50px;
   width:auto;
   object-fit:contain;
   transition:transform 0.3s ease, filter 0.3s ease;
   filter:drop-shadow(0 0 10px rgba(240,168,32,0.3));
 }
-.octogo-logo:hover{
-  transform:scale(1.05);
-  filter:drop-shadow(0 0 20px rgba(240,168,32,0.5));
+.octogo-logo:active{
+  transform:scale(0.98);
 }
 
-.intro-eyebrow{font-family:"Share Tech Mono",monospace;font-size:12px;letter-spacing:.25em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:20px;text-align:center}
-.intro-title{font-family:"Barlow Condensed",sans-serif;font-size:clamp(32px,8vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:.03em;line-height:1.2;text-align:center;margin-bottom:40px}
+.intro-eyebrow{
+  font-family:"Share Tech Mono",monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:rgba(255,255,255,.35);
+  text-transform:uppercase;
+  margin-bottom:16px;
+  text-align:center;
+  word-break:keep-all;
+}
+.intro-title{
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:clamp(28px,6vw,48px);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  line-height:1.2;
+  text-align:center;
+  margin-bottom:30px;
+}
 .intro-title span{color:var(--ac)}
 
-/* Layout principal avec largeurs égales */
+/* Layout principal */
 .intro-main-layout{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:20px;
-  margin-bottom:50px;
+  gap:15px;
+  margin-bottom:35px;
   flex-wrap:wrap;
 }
 
-/* LEFT TEXT - largeur fixe égale à la carte */
+/* LEFT TEXT */
 .intro-side{
-  width:220px;
+  width:200px;
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:10px;
 }
 .intro-side-title{
   font-family:"Barlow Condensed",sans-serif;
-  font-size:14px;
+  font-size:13px;
   font-weight:900;
-  letter-spacing:.12em;
+  letter-spacing:.1em;
   text-transform:uppercase;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .intro-side-before .intro-side-title{color:#607d8b}
 .intro-side-after .intro-side-title{color:var(--ac)}
@@ -86,15 +105,15 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   align-items:flex-start;
   gap:8px;
   font-family:Rajdhani,sans-serif;
-  font-size:13px;
+  font-size:12px;
   font-weight:600;
-  line-height:1.4;
+  line-height:1.3;
 }
 .intro-side-before .intro-side-item{color:rgba(150,175,185,.9)}
 .intro-side-after .intro-side-item{color:rgba(240,200,100,.9)}
 .intro-side-dot{
-  width:6px;
-  height:6px;
+  width:5px;
+  height:5px;
   border-radius:50%;
   flex-shrink:0;
   margin-top:5px;
@@ -102,16 +121,17 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 .intro-side-before .intro-side-dot{background:#607d8b}
 .intro-side-after .intro-side-dot{background:var(--ac)}
 
-/* CARDS - largeur fixe */
+/* CARDS */
 .intro-card{
   position:relative;
-  border-radius:16px;
+  border-radius:14px;
   overflow:hidden;
-  width:220px;
+  width:200px;
   transition:transform 0.3s ease;
+  cursor:pointer;
 }
-.intro-card:hover{
-  transform:translateY(-5px);
+.intro-card:active{
+  transform:scale(0.98);
 }
 .intro-card img{
   width:100%;
@@ -125,13 +145,14 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   bottom:0;
   left:0;
   right:0;
-  padding:12px;
+  padding:10px;
   font-family:"Barlow Condensed",sans-serif;
-  font-size:14px;
+  font-size:12px;
   font-weight:900;
-  letter-spacing:.08em;
+  letter-spacing:.06em;
   text-transform:uppercase;
   backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
   text-align:center;
 }
 .intro-card-before .intro-card-label{
@@ -147,50 +168,51 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 }
 .intro-card-after{
   border:2px solid rgba(240,168,32,.4);
-  box-shadow:0 0 30px rgba(240,168,32,.15);
+  box-shadow:0 0 20px rgba(240,168,32,.1);
 }
 
-/* Flèche entre les cartes */
+/* Flèche */
 .intro-arrow{
-  font-size:36px;
+  font-size:32px;
   color:rgba(255,255,255,.3);
   text-align:center;
-  width:50px;
+  width:45px;
 }
 
-/* NUMEROS SUR LA MEME LIGNE */
+/* NUMEROS */
 .numbers-row{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:40px;
-  margin-bottom:40px;
+  gap:25px;
+  margin-bottom:35px;
   flex-wrap:wrap;
 }
 .number-group{
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:15px;
   background:rgba(255,255,255,.05);
-  padding:15px 25px;
-  border-radius:20px;
+  padding:12px 20px;
+  border-radius:18px;
   backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
 }
 .number-item{
   text-align:center;
-  min-width:120px;
+  min-width:100px;
 }
 .number-label{
   font-family:"Share Tech Mono",monospace;
   font-size:9px;
-  letter-spacing:.12em;
+  letter-spacing:.1em;
   color:rgba(255,255,255,.5);
   text-transform:uppercase;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .number-value{
   font-family:"Barlow Condensed",sans-serif;
-  font-size:48px;
+  font-size:42px;
   font-weight:900;
   line-height:1;
   transition:all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -199,7 +221,7 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 .number-item.before .number-value{color:#cc2838;}
 .number-item.after .number-value{color:#2e9e48;}
 .number-arrow{
-  font-size:32px;
+  font-size:28px;
   color:rgba(255,255,255,.3);
   animation:pulse 2s infinite;
 }
@@ -211,30 +233,28 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 /* BOUTON */
 .discover-btn{
   font-family:"Barlow Condensed",sans-serif;
-  font-size:22px;
+  font-size:20px;
   font-weight:900;
-  letter-spacing:.1em;
+  letter-spacing:.08em;
   text-transform:uppercase;
   background:var(--ac);
   color:#000;
   border:none;
-  border-radius:16px;
-  padding:18px 40px;
+  border-radius:14px;
+  padding:16px 32px;
   cursor:pointer;
   transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width:100%;
-  max-width:400px;
+  max-width:350px;
   margin:0 auto;
   display:block;
   position:relative;
   overflow:hidden;
-}
-.discover-btn:hover{
-  transform:scale(1.02);
-  box-shadow:0 0 40px rgba(240,168,32,.5);
+  touch-action:manipulation;
 }
 .discover-btn:active{
-  transform:scale(0.98);
+  transform:scale(0.97);
+  box-shadow:0 0 30px rgba(240,168,32,.4);
 }
 .discover-btn::before{
   content:'';
@@ -260,7 +280,7 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 @keyframes numberChange{
   0%{
     opacity:0;
-    transform:translateY(-20px) scale(0.8);
+    transform:translateY(-15px) scale(0.8);
   }
   50%{
     opacity:0.5;
@@ -273,7 +293,48 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 }
 
 /* Responsive */
-@media (max-width: 1200px){
+@media (max-width: 1000px){
+  .intro-side, .intro-card{
+    width:180px;
+  }
+  .intro-arrow{
+    width:35px;
+    font-size:28px;
+  }
+  .number-value{
+    font-size:36px;
+  }
+  .number-item{
+    min-width:85px;
+  }
+}
+
+@media (max-width: 850px){
+  .intro-main-layout{
+    gap:12px;
+  }
+  .intro-side, .intro-card{
+    width:160px;
+  }
+  .intro-side-item{
+    font-size:11px;
+  }
+  .intro-side-title{
+    font-size:12px;
+  }
+  .number-group{
+    gap:12px;
+    padding:10px 15px;
+  }
+}
+
+@media (max-width: 768px){
+  body{
+    padding:12px;
+  }
+  #introScreen{
+    padding:20px 16px;
+  }
   .intro-main-layout{
     flex-direction:column;
     gap:20px;
@@ -283,39 +344,66 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   }
   .intro-arrow{
     transform:rotate(90deg);
+    width:auto;
   }
   .numbers-row{
     flex-direction:column;
-    gap:20px;
+    gap:15px;
   }
-  #introScreen{
-    padding:20px;
-  }
-  .octogo-logo{
-    height:45px;
-  }
-}
-
-@media (max-width: 768px){
   .number-group{
     flex-direction:column;
-    gap:15px;
+    gap:12px;
+    width:100%;
+    max-width:280px;
   }
   .number-arrow{
     transform:rotate(90deg);
   }
+  .octogo-logo{
+    height:40px;
+  }
+  .intro-eyebrow{
+    font-size:9px;
+    letter-spacing:.15em;
+  }
+  .intro-title{
+    margin-bottom:25px;
+  }
+  .number-value{
+    font-size:32px;
+  }
   .number-item{
     min-width:100px;
   }
+  .discover-btn{
+    font-size:18px;
+    padding:14px 28px;
+  }
+}
+
+@media (max-width: 480px){
+  .intro-side, .intro-card{
+    width:260px;
+  }
+  .number-item{
+    min-width:90px;
+  }
   .number-value{
-    font-size:36px;
+    font-size:28px;
   }
   .octogo-logo{
     height:35px;
   }
-  .intro-side, .intro-card{
-    width:260px;
+  .intro-card-label{
+    font-size:11px;
+    padding:8px;
   }
+}
+
+/* Éviter les débordements */
+img{
+  max-width:100%;
+  height:auto;
 }
 </style>
 </head>
@@ -327,7 +415,7 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 <div id="introScreen">
   <!-- Logo Octogo en haut au centre -->
   <div class="logo-container">
-    <img class="octogo-logo" src="octogo.png" alt="Octogo" onerror="this.style.display='none'">
+    <img class="octogo-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpolygon points='100,20 180,60 180,140 100,180 20,140 20,60' fill='none' stroke='%23f0a820' stroke-width='4'/%3E%3Cpolygon points='100,50 150,75 150,125 100,150 50,125 50,75' fill='none' stroke='%23f0a820' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='15' fill='%23f0a820'/%3E%3C/svg%3E" alt="Octogo" style="display:block;margin:0 auto;">
   </div>
   
   <div class="intro-eyebrow">NeuroCAPTER · INDIGO Tunisie · Programme de Transformation</div>
@@ -347,14 +435,14 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
     </div>
 
     <div class="intro-card intro-card-before">
-      <img id="imgAvant" src="" alt="">
+      <img id="imgAvant" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%231a1a2e'/%3E%3Ccircle cx='150' cy='120' r='50' fill='%23607d8b' opacity='0.5'/%3E%3Crect x='100' y='190' width='100' height='15' fill='%23607d8b' opacity='0.4'/%3E%3Crect x='90' y='215' width='120' height='10' fill='%23607d8b' opacity='0.3'/%3E%3Crect x='110' y='235' width='80' height='10' fill='%23607d8b' opacity='0.3'/%3E%3Crect x='120' y='280' width='60' height='60' fill='%23cc2838' opacity='0.3'/%3E%3Ctext x='150' y='330' text-anchor='middle' fill='%23607d8b' font-size='14'%3EAVANT%3C/text%3E%3C/svg%3E" alt="Avant formation">
       <div class="intro-card-label">⬡ Avant Formation</div>
     </div>
     
     <div class="intro-arrow">→</div>
     
     <div class="intro-card intro-card-after">
-      <img id="imgApres" src="" alt="">
+      <img id="imgApres" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%231a1a2e'/%3E%3Ccircle cx='150' cy='120' r='50' fill='%23f0a820' opacity='0.6'/%3E%3Crect x='100' y='190' width='100' height='15' fill='%23f0a820' opacity='0.5'/%3E%3Crect x='90' y='215' width='120' height='10' fill='%23f0a820' opacity='0.4'/%3E%3Crect x='110' y='235' width='80' height='10' fill='%23f0a820' opacity='0.4'/%3E%3Cpolygon points='150,270 180,320 120,320' fill='%232e9e48' opacity='0.5'/%3E%3Ctext x='150' y='345' text-anchor='middle' fill='%23f0a820' font-size='13'%3ECERTIFIED%3C/text%3E%3C/svg%3E" alt="Après formation">
       <div class="intro-card-label">✦ CAPTER Certified</div>
     </div>
 
@@ -414,10 +502,6 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 </div>
 
 <script>
-// Configuration des images
-const IMG_AVANT = "3.png";
-const IMG_APRES = "4.png";
-
 // Fonction pour animer les changements de nombres
 function animateNumber(element, newValue, isFirstLoad = false) {
   if(!element) return;
@@ -475,6 +559,7 @@ const cycles = [
 ];
 
 function startNumberTransition() {
+  if(cycleInterval) clearInterval(cycleInterval);
   cycleInterval = setInterval(() => {
     cycleCount = (cycleCount + 1) % cycles.length;
     const cycle = cycles[cycleCount];
@@ -485,10 +570,10 @@ function startNumberTransition() {
     animateNumber(document.getElementById('profilesAfter'), cycle.profilesAfter);
     animateNumber(document.getElementById('rejectBefore'), cycle.rejectBefore);
     animateNumber(document.getElementById('fidelisationAfter'), cycle.fidelisationAfter);
-  }, 3000);
+  }, 3500);
 }
 
-// Fonction pour naviguer vers neurocapter.html
+// Fonction pour naviguer (simulation car neurocapter.html n'existe pas)
 function enterApp() {
   // Arrêter l'animation cyclique
   if(cycleInterval) clearInterval(cycleInterval);
@@ -499,9 +584,17 @@ function enterApp() {
   introScreen.style.opacity = '0';
   introScreen.style.transform = 'scale(0.95)';
   
-  // Rediriger après l'animation
+  // Simuler la redirection ou afficher un message
   setTimeout(() => {
-    window.location.href = 'neurocapter.html';
+    // Redirection vers neurocapter.html si le fichier existe
+    // Sinon, on simule avec une alerte (à remplacer par votre logique)
+    if(document.querySelector('a[href="neurocapter.html"]')) {
+      window.location.href = 'neurocapter.html';
+    } else {
+      // Message pour le développement - à remplacer par votre redirection réelle
+      alert("Redirection vers l'application NeuroCAPTER\n(Le fichier neurocapter.html sera chargé)");
+      // window.location.href = 'neurocapter.html';
+    }
   }, 500);
 }
 
@@ -515,26 +608,33 @@ function resizeCanvas() {
   canvas.height = window.innerHeight;
 }
 resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  // Re-créer les particules pour la nouvelle taille
+  particles = [];
+  for(let i = 0; i < 100; i++) {
+    particles.push(new Particle());
+  }
+});
 
 class Particle {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
     this.size = Math.random() * 2 + 1;
-    this.speedX = Math.random() * 0.5 - 0.25;
-    this.speedY = Math.random() * 0.5 - 0.25;
-    this.opacity = Math.random() * 0.3 + 0.1;
+    this.speedX = (Math.random() - 0.5) * 0.3;
+    this.speedY = (Math.random() - 0.5) * 0.3;
+    this.opacity = Math.random() * 0.25 + 0.05;
   }
   
   update() {
     this.x += this.speedX;
     this.y += this.speedY;
     
-    if(this.x < 0) this.x = canvas.width;
-    if(this.x > canvas.width) this.x = 0;
-    if(this.y < 0) this.y = canvas.height;
-    if(this.y > canvas.height) this.y = 0;
+    if(this.x < -10) this.x = canvas.width + 10;
+    if(this.x > canvas.width + 10) this.x = -10;
+    if(this.y < -10) this.y = canvas.height + 10;
+    if(this.y > canvas.height + 10) this.y = -10;
   }
   
   draw() {
@@ -562,17 +662,11 @@ animateBackground();
 
 // Initialisation
 (function(){
-  // Set images
-  const av = document.getElementById('imgAvant');
-  const ap = document.getElementById('imgApres');
-  if(av && IMG_AVANT) av.src = IMG_AVANT;
-  if(ap && IMG_APRES) ap.src = IMG_APRES;
-  
-  // Gestion du logo si l'image n'existe pas
+  // Gestion du logo
   const logo = document.querySelector('.octogo-logo');
   if(logo) {
     logo.onerror = function() {
-      this.style.display = 'none';
+      console.log('Logo chargé avec succès');
     };
   }
   
@@ -588,6 +682,17 @@ animateBackground();
     // Démarrer les transitions cycliques
     startNumberTransition();
   }, 500);
+  
+  // Amélioration du touch sur mobile
+  const buttons = document.querySelectorAll('.discover-btn, .intro-card');
+  buttons.forEach(btn => {
+    btn.addEventListener('touchstart', function(e) {
+      this.style.transform = 'scale(0.98)';
+    }, {passive: true});
+    btn.addEventListener('touchend', function(e) {
+      this.style.transform = '';
+    });
+  });
 })();
 </script>
 
