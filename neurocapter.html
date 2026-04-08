@@ -59,6 +59,7 @@
         display: flex;
         flex-direction: column;
         background: #050810;
+        overflow-y: auto;
       }
       .screen.active {
         opacity: 1;
@@ -106,387 +107,50 @@
         color: var(--gold);
       }
       .bn-icon {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1;
       }
       .bn-lbl {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 6px;
         letter-spacing: 0.07em;
         text-transform: uppercase;
         white-space: nowrap;
       }
 
-      /* BACK BUTTON */
-      .back-btn {
-        position: absolute;
-        top: max(env(safe-area-inset-top, 0px), 12px);
-        left: 12px;
-        z-index: 50;
-        background: rgba(5, 8, 16, 0.6);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 30px;
-        padding: 8px 14px;
-        color: #fff;
-        font-family: "Share Tech Mono", monospace;
-        font-size: 13px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transition: 0.2s;
-      }
-      .back-btn:active {
-        transform: scale(0.96);
-        background: rgba(5, 8, 16, 0.9);
-      }
-
-      /* ===== PROFILES SCREEN (REDESIGNED - 3 COLUMNS) ===== */
-      #s-profiles {
-        background: #050810;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
-      .profiles-container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-      }
-      .profiles-header {
+      /* Logo en haut */
+      .global-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 150;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: max(env(safe-area-inset-top, 0px), 14px) 16px 8px;
-        background: linear-gradient(
-          to bottom,
-          rgba(5, 8, 16, 0.95) 0%,
-          rgba(5, 8, 16, 0.8) 100%
-        );
-        z-index: 10;
-        flex-shrink: 0;
+        padding: 8px 16px;
+        background: rgba(5, 8, 16, 0.7);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       }
-      .profiles-title {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: 22px;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+      .global-header img {
+        height: 32px;
+        width: auto;
       }
-      .profiles-title span {
-        color: var(--gold);
-      }
-      .profiles-counter {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.4);
-      }
-      .profiles-counter b {
-        color: #fff;
-        font-size: 15px;
-      }
-
-      /* MAIN 3-COLUMN LAYOUT */
-      .profiles-main {
-        flex: 1;
-        display: grid;
-        grid-template-columns: 30% 40% 30%;
-        min-height: 0;
-        position: relative;
-      }
-
-      /* LEFT PANEL */
-      .profiles-left {
-        padding: 12px 8px 12px 12px;
-        overflow-y: auto;
-        background: linear-gradient(
-          to right,
-          rgba(5, 8, 16, 0.97) 60%,
-          rgba(5, 8, 16, 0.5) 100%
-        );
-        scrollbar-width: none;
-      }
-      .profiles-left::-webkit-scrollbar {
-        display: none;
-      }
-
-      /* CENTER PANEL - IMAGE */
-      .profiles-center {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-      .profiles-center-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 20%;
-        transition: opacity 0.4s;
-      }
-      .profiles-center-glow {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 80px;
-        background: radial-gradient(
-          ellipse at 50% 100%,
-          var(--phase-glow, rgba(232, 112, 26, 0.4)) 0%,
-          transparent 70%
-        );
-        pointer-events: none;
-        transition: background 0.4s;
-      }
-
-      /* RIGHT PANEL */
-      .profiles-right {
-        padding: 12px 12px 12px 8px;
-        overflow-y: auto;
-        background: linear-gradient(
-          to left,
-          rgba(5, 8, 16, 0.97) 60%,
-          rgba(5, 8, 16, 0.5) 100%
-        );
-        scrollbar-width: none;
-      }
-      .profiles-right::-webkit-scrollbar {
-        display: none;
-      }
-
-      /* BADGES */
-      .profiles-site-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+      .global-header span {
         font-family: "Share Tech Mono", monospace;
         font-size: 9px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        padding: 5px 12px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.09);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        margin-bottom: 8px;
-      }
-      .profiles-arch-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding: 5px 12px;
-        border-radius: 20px;
-        border: 1px solid;
-        margin-left: 6px;
-      }
-      .profiles-name {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(18px, 3.8vw, 26px);
-        font-weight: 900;
-        text-transform: uppercase;
-        margin: 8px 0 6px;
-        line-height: 1.1;
-      }
-      .profiles-tagline {
-        font-family: Rajdhani, sans-serif;
-        font-size: 12px;
-        font-style: italic;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.75);
-        border-left: 2px solid var(--gold);
-        padding-left: 10px;
-        margin: 8px 0;
-      }
-      .profiles-neurotype {
-        font-family: Rajdhani, sans-serif;
-        font-size: 13px;
-        font-weight: 700;
-        color: #fff;
-        margin: 8px 0;
-        line-height: 1.35;
-      }
-      .profiles-signal-item {
-        font-family: Rajdhani, sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-        padding: 4px 0;
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        color: rgba(255, 255, 255, 0.85);
-      }
-      .profiles-signal-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        margin-top: 5px;
-        flex-shrink: 0;
-      }
-      .profiles-erreur {
-        background: rgba(204, 40, 56, 0.1);
-        border-left: 3px solid #cc2838;
-        border-radius: 8px;
-        padding: 10px;
-        margin: 10px 0;
-      }
-      .profiles-erreur-lbl {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
-        color: #ff4d5e;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 4px;
-      }
-      .profiles-erreur-txt {
-        font-family: Rajdhani, sans-serif;
-        font-size: 12px;
-        font-weight: 700;
-        color: rgba(255, 140, 140, 0.95);
-        line-height: 1.4;
-      }
-      .profiles-capter-item {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        padding: 8px 10px;
-        margin-bottom: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-      }
-      .profiles-capter-letter {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: 22px;
-        font-weight: 900;
-        min-width: 20px;
-        line-height: 1;
-      }
-      .profiles-capter-name {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: 12px;
-        font-weight: 900;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-      .profiles-capter-time {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 7px;
-        color: rgba(255, 255, 255, 0.4);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      .profiles-capter-script {
-        font-family: Rajdhani, sans-serif;
-        font-size: 11px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.85);
-        margin-top: 2px;
-        line-height: 1.35;
-      }
-      .profiles-traffic {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        padding: 10px;
-        text-align: center;
-        margin-top: 8px;
-      }
-      .profiles-traffic-val {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: 26px;
-        font-weight: 900;
-        line-height: 1;
-      }
-      .profiles-mech {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        padding: 10px;
-        margin-top: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-      }
-      .profiles-mech-lbl {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 7px;
         letter-spacing: 0.12em;
         color: rgba(255, 255, 255, 0.4);
         text-transform: uppercase;
-        margin-bottom: 4px;
       }
-      .profiles-mech-txt {
-        font-family: Rajdhani, sans-serif;
-        font-size: 12px;
-        font-weight: 700;
-        color: #fff;
-        line-height: 1.4;
+      .screen {
+        padding-top: 48px;
       }
 
-      /* BOTTOM NAVIGATION */
-      .profiles-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 16px 12px;
-        background: rgba(5, 8, 16, 0.97);
-        border-top: 1px solid rgba(255, 255, 255, 0.07);
-        flex-shrink: 0;
-      }
-      .profiles-nav-btn {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: 28px;
-        font-weight: 900;
-        color: rgba(255, 255, 255, 0.4);
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px 12px;
-        transition: 0.15s;
-      }
-      .profiles-nav-btn:active {
-        color: #fff;
-      }
-      .profiles-nav-dots {
-        display: flex;
-        gap: 5px;
-        flex-wrap: wrap;
-        justify-content: center;
-        max-width: 200px;
-      }
-      .profiles-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.18);
-        cursor: pointer;
-        transition: 0.2s;
-      }
-      .profiles-dot.active {
-        background: var(--gold);
-        transform: scale(1.2);
-      }
-      .profiles-nav-name {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      /* HOME SCREEN (keep existing styles) */
+      /* ===== HOME SCREEN ===== */
       #s-home {
-        overflow-y: auto;
         padding: max(env(safe-area-inset-top, 0px), 20px) 20px 80px;
-      }
-      .home-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
       }
       .home-logo {
         font-family: "Share Tech Mono", monospace;
@@ -494,13 +158,15 @@
         letter-spacing: 0.2em;
         color: rgba(255, 255, 255, 0.28);
         text-transform: uppercase;
+        margin-bottom: 20px;
+        margin-top: 8px;
       }
       .home-logo b {
         color: var(--gold);
       }
       .home-h {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(34px, 8vw, 50px);
+        font-size: clamp(30px, 8vw, 44px);
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.03em;
@@ -509,7 +175,7 @@
       }
       .home-sub {
         font-family: Rajdhani, sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         color: rgba(255, 255, 255, 0.38);
         margin-bottom: 22px;
       }
@@ -520,13 +186,13 @@
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 12px;
-        padding: 13px 16px;
+        padding: 11px 14px;
         margin-bottom: 20px;
         cursor: pointer;
       }
       .home-ctx-lbl {
         font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-size: 8px;
         letter-spacing: 0.12em;
         color: rgba(255, 255, 255, 0.3);
         text-transform: uppercase;
@@ -534,7 +200,7 @@
       }
       .home-ctx-val {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 700;
         letter-spacing: 0.04em;
         text-transform: uppercase;
@@ -542,7 +208,7 @@
       .home-tiles {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
       }
       .htile {
         display: flex;
@@ -551,7 +217,7 @@
         background: rgba(255, 255, 255, 0.05);
         border: 1.5px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
-        padding: 18px 14px;
+        padding: 16px 14px;
         cursor: pointer;
         transition: 0.18s;
         text-align: left;
@@ -562,9 +228,9 @@
         background: rgba(255, 255, 255, 0.09);
       }
       .htile-icon {
-        font-size: 26px;
-        width: 48px;
-        height: 48px;
+        font-size: 22px;
+        width: 42px;
+        height: 42px;
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -576,7 +242,7 @@
       }
       .htile-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 22px;
+        font-size: 19px;
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -585,34 +251,18 @@
       }
       .htile-desc {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         color: rgba(255, 255, 255, 0.45);
         line-height: 1.3;
       }
       .htile-arr {
         color: rgba(255, 255, 255, 0.22);
-        font-size: 20px;
+        font-size: 18px;
         flex-shrink: 0;
       }
-      .site-logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .site-logo img {
-        height: 28px;
-        width: auto;
-      }
-      .site-logo span {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
-        letter-spacing: 0.12em;
-        color: rgba(255, 255, 255, 0.4);
-      }
 
-      /* Other screens (keep existing) */
+      /* ===== SETUP SCREEN ===== */
       #s-setup {
-        overflow-y: auto;
         padding: max(env(safe-area-inset-top, 0px), 32px) 22px 80px;
         align-items: flex-start;
       }
@@ -629,7 +279,7 @@
       }
       .setup-step-lbl {
         font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-size: 8px;
         letter-spacing: 0.18em;
         color: rgba(255, 255, 255, 0.4);
         text-transform: uppercase;
@@ -637,7 +287,7 @@
       }
       .setup-h {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(30px, 7vw, 42px);
+        font-size: clamp(26px, 7vw, 38px);
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.03em;
@@ -650,7 +300,7 @@
       .mall-grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 12px;
+        gap: 10px;
         width: 100%;
         margin-bottom: 24px;
       }
@@ -658,7 +308,7 @@
         background: rgba(255, 255, 255, 0.07);
         border: 1.5px solid rgba(255, 255, 255, 0.18);
         border-radius: 14px;
-        padding: 16px 10px;
+        padding: 14px 10px;
         cursor: pointer;
         transition: 0.18s;
         display: flex;
@@ -673,26 +323,29 @@
         background: rgba(240, 168, 32, 0.1);
       }
       .mall-icon {
-        font-size: 26px;
+        font-size: 22px;
       }
       .mall-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 900;
         text-transform: uppercase;
         color: #fff;
       }
       .mall-count {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 7px;
         letter-spacing: 0.1em;
         color: rgba(255, 255, 255, 0.4);
         text-transform: uppercase;
       }
+      .mall-card.sel .mall-count {
+        color: var(--gold);
+      }
       .brand-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        gap: 8px;
         width: 100%;
         margin-bottom: 14px;
       }
@@ -700,7 +353,7 @@
         background: rgba(255, 255, 255, 0.07);
         border: 1.5px solid rgba(255, 255, 255, 0.14);
         border-radius: 12px;
-        padding: 13px 8px;
+        padding: 11px 8px;
         cursor: pointer;
         transition: 0.18s;
         text-align: center;
@@ -714,7 +367,7 @@
       }
       .brand-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 900;
         text-transform: uppercase;
         color: #fff;
@@ -722,28 +375,32 @@
       }
       .brand-cnt {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 7px;
         color: rgba(255, 255, 255, 0.35);
         letter-spacing: 0.08em;
         margin-top: 3px;
       }
+      .brand-card.sel .brand-cnt {
+        color: var(--phase);
+      }
       .btn-see-all {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.45);
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 10px;
-        padding: 14px;
+        padding: 12px;
         width: 100%;
         cursor: pointer;
         margin-bottom: 12px;
+        transition: 0.2s;
       }
       .btn-confirm-setup {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 19px;
+        font-size: 17px;
         font-weight: 900;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -751,7 +408,7 @@
         color: #000;
         border: none;
         border-radius: 12px;
-        padding: 18px;
+        padding: 16px;
         width: 100%;
         cursor: pointer;
         transition: 0.15s;
@@ -760,58 +417,13 @@
       .btn-confirm-setup.vis {
         display: block;
       }
-      .setup-prof-thumb {
-        position: relative;
-        border-radius: 8px;
-        overflow: hidden;
-        aspect-ratio: 3/4;
-        cursor: pointer;
-        border: 2px solid transparent;
-        background: rgba(255, 255, 255, 0.05);
-      }
-      .setup-prof-thumb.selected {
-        border-color: var(--phase);
-      }
-      .setup-prof-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .setup-prof-thumb-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to top,
-          rgba(5, 8, 16, 0.85) 0%,
-          transparent 50%
-        );
-      }
-      .setup-prof-thumb-name {
-        position: absolute;
-        bottom: 2px;
-        left: 0;
-        right: 0;
-        font-family: "Share Tech Mono", monospace;
-        font-size: 6px;
-        color: rgba(255, 255, 255, 0.8);
-        text-align: center;
-      }
-      .setup-prof-thumb-site {
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
+      .btn-confirm-setup:active {
+        transform: scale(0.98);
       }
 
-      /* SELECT, TERRAIN, DECISION, COMPLETE, FORMATION screens */
-      #s-select,
-      #s-terrain,
-      #s-decision,
-      #s-complete,
-      .form-screen {
-        /* keep existing styles from original */
+      /* ===== SELECT SCREEN ===== */
+      #s-select {
+        background: #050810;
       }
       .sel-img {
         position: absolute;
@@ -851,14 +463,14 @@
       }
       .sel-ctx {
         font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-size: 8px;
         letter-spacing: 0.1em;
         color: rgba(255, 255, 255, 0.5);
         background: rgba(5, 8, 16, 0.55);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.09);
         border-radius: 20px;
-        padding: 6px 12px;
+        padding: 5px 10px;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -872,13 +484,13 @@
       }
       .sel-ctr {
         font-family: "Share Tech Mono", monospace;
-        font-size: 13px;
+        font-size: 11px;
         letter-spacing: 0.08em;
         color: rgba(255, 255, 255, 0.42);
         background: rgba(5, 8, 16, 0.5);
         backdrop-filter: blur(8px);
         border-radius: 20px;
-        padding: 5px 12px;
+        padding: 5px 10px;
       }
       .sel-ctr b {
         color: #fff;
@@ -897,15 +509,15 @@
       }
       .snb {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 40px;
+        font-size: 36px;
         font-weight: 900;
         color: rgba(255, 255, 255, 0.28);
         background: rgba(5, 8, 16, 0.25);
         backdrop-filter: blur(6px);
         border: none;
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 44px;
+        height: 44px;
         cursor: pointer;
         pointer-events: all;
         display: flex;
@@ -917,6 +529,41 @@
         color: #fff;
         background: rgba(5, 8, 16, 0.65);
       }
+      .sel-arch-strip {
+        position: absolute;
+        z-index: 2;
+        bottom: 134px;
+        left: 0;
+        right: 0;
+        display: flex;
+        gap: 6px;
+        padding: 0 18px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .sel-arch-strip::-webkit-scrollbar {
+        display: none;
+      }
+      .arch-tab {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(5, 8, 16, 0.6);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 5px 11px;
+        cursor: pointer;
+        white-space: nowrap;
+        color: rgba(255, 255, 255, 0.45);
+        transition: 0.15s;
+        flex-shrink: 0;
+      }
+      .arch-tab.on {
+        color: #000;
+        border-color: transparent;
+      }
       .sel-bot {
         position: absolute;
         bottom: 0;
@@ -927,7 +574,7 @@
       }
       .sel-arch-name {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.12em;
         color: var(--muted);
         text-transform: uppercase;
@@ -938,7 +585,7 @@
       }
       .sel-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(28px, 7vw, 40px);
+        font-size: clamp(24px, 7vw, 36px);
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.03em;
@@ -947,7 +594,7 @@
       }
       .btn-activate {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 19px;
+        font-size: 17px;
         font-weight: 900;
         letter-spacing: 0.09em;
         text-transform: uppercase;
@@ -955,10 +602,25 @@
         color: #000;
         border: none;
         border-radius: 12px;
-        padding: 17px;
+        padding: 15px;
         width: 100%;
         cursor: pointer;
+        transition: 0.15s;
       }
+      .btn-activate:active {
+        transform: scale(0.98);
+      }
+      .sel-hint {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.18);
+        text-align: center;
+        margin-top: 8px;
+        text-transform: uppercase;
+      }
+
+      /* ===== TERRAIN SCREEN ===== */
       #s-terrain {
         padding-top: max(env(safe-area-inset-top, 0px), 14px);
       }
@@ -970,7 +632,7 @@
         padding: 12px 18px 14px;
       }
       .t-back {
-        font-size: 24px;
+        font-size: 22px;
         color: var(--muted);
         background: none;
         border: none;
@@ -979,8 +641,8 @@
         padding: 4px;
       }
       .t-thumb {
-        width: 55px;
-        height: 55px;
+        width: 50px;
+        height: 50px;
         border-radius: 10px;
         overflow: hidden;
         flex-shrink: 0;
@@ -999,7 +661,7 @@
       }
       .t-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 19px;
+        font-size: 17px;
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.03em;
@@ -1010,7 +672,7 @@
       }
       .t-sub {
         font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-size: 8px;
         letter-spacing: 0.09em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1031,7 +693,7 @@
       }
       .t-letter {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(70px, 15vw, 100px);
+        font-size: clamp(60px, 15vw, 88px);
         font-weight: 900;
         line-height: 1;
         color: var(--phase);
@@ -1045,7 +707,7 @@
       }
       .t-phase-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -1053,12 +715,12 @@
       }
       .t-phase-time {
         font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-size: 8px;
         color: var(--muted);
       }
       .t-script {
         font-family: Rajdhani, sans-serif;
-        font-size: clamp(19px, 4.5vw, 24px);
+        font-size: clamp(17px, 4.5vw, 22px);
         font-weight: 600;
         line-height: 1.45;
         color: #fff;
@@ -1080,7 +742,6 @@
         border-radius: 2px;
         background: rgba(255, 255, 255, 0.15);
         transition: 0.3s;
-        width: 20px;
       }
       .t-dot.done {
         background: rgba(255, 255, 255, 0.4);
@@ -1089,6 +750,9 @@
       .t-dot.active {
         background: var(--phase);
         width: 30px;
+      }
+      .t-dot.todo {
+        width: 20px;
       }
       .t-bottom {
         flex-shrink: 0;
@@ -1099,7 +763,7 @@
       }
       .btn-next {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 900;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -1107,27 +771,37 @@
         color: #000;
         border: none;
         border-radius: 12px;
-        padding: 18px;
+        padding: 16px;
         width: 100%;
         cursor: pointer;
+        transition: 0.15s;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
       }
+      .btn-next:active {
+        transform: scale(0.98);
+      }
       .btn-erreur {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: rgba(200, 40, 40, 0.7);
         background: rgba(200, 40, 40, 0.07);
         border: 1px solid rgba(200, 40, 40, 0.18);
         border-radius: 10px;
-        padding: 13px;
+        padding: 11px;
         width: 100%;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
       }
+
+      /* ===== DECISION SCREEN ===== */
       #s-decision {
         padding: max(env(safe-area-inset-top, 0px), 44px) 24px 80px;
         justify-content: flex-start;
@@ -1141,21 +815,21 @@
       }
       .dec-badge {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 40px;
+        font-size: 36px;
         font-weight: 900;
         color: var(--T);
         text-shadow: 0 0 24px var(--T);
       }
       .dec-label {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--muted);
       }
       .dec-q {
         font-family: Rajdhani, sans-serif;
-        font-size: clamp(24px, 6vw, 34px);
+        font-size: clamp(22px, 6vw, 32px);
         font-weight: 700;
         line-height: 1.3;
         margin-bottom: 36px;
@@ -1163,21 +837,22 @@
       .dec-opts {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
       }
       .dec-opt {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(20px, 5vw, 26px);
+        font-size: clamp(18px, 5vw, 24px);
         font-weight: 700;
         letter-spacing: 0.04em;
         text-transform: uppercase;
         background: rgba(255, 255, 255, 0.05);
         border: 1.5px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
-        padding: 22px 22px;
+        padding: 20px 22px;
         cursor: pointer;
         text-align: left;
         color: #fff;
+        transition: 0.2s;
       }
       .dec-opt:active {
         background: rgba(30, 110, 216, 0.2);
@@ -1186,15 +861,16 @@
       .dec-opt small {
         display: block;
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
         color: var(--muted);
         text-transform: none;
+        letter-spacing: 0;
         margin-top: 3px;
       }
       .dec-back {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.1em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1202,8 +878,13 @@
         border: none;
         cursor: pointer;
         margin-top: 20px;
+        display: block;
+        width: 100%;
         padding: 10px;
+        text-align: center;
       }
+
+      /* ===== COMPLETE SCREEN ===== */
       #s-complete {
         align-items: center;
         justify-content: center;
@@ -1211,12 +892,13 @@
         text-align: center;
       }
       .cmp-icon {
-        font-size: 70px;
+        font-size: 60px;
         margin-bottom: 14px;
+        filter: drop-shadow(0 0 24px var(--R));
       }
       .cmp-tag {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.18em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1224,7 +906,7 @@
       }
       .cmp-title {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 38px;
+        font-size: 34px;
         font-weight: 900;
         letter-spacing: 0.04em;
         text-transform: uppercase;
@@ -1234,7 +916,7 @@
       }
       .cmp-text {
         font-family: Rajdhani, sans-serif;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 600;
         color: var(--muted);
         line-height: 1.5;
@@ -1243,15 +925,16 @@
       }
       .cmp-reinforce {
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
         color: rgba(216, 144, 32, 0.75);
         font-style: italic;
         margin-bottom: 28px;
+        max-width: 260px;
       }
       .btn-new {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 19px;
+        font-size: 17px;
         font-weight: 900;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -1259,14 +942,18 @@
         color: #000;
         border: none;
         border-radius: 12px;
-        padding: 18px 40px;
+        padding: 16px 40px;
         cursor: pointer;
+        transition: 0.15s;
         width: 100%;
         max-width: 280px;
       }
+      .btn-new:active {
+        transform: scale(0.97);
+      }
       .btn-fiche {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.1em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1276,6 +963,8 @@
         padding: 10px;
         margin-top: 6px;
       }
+
+      /* ===== FORMATION SCREENS ===== */
       .form-screen {
         background: #050810;
         overflow-y: auto;
@@ -1287,7 +976,7 @@
       }
       .form-eyebrow {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.2em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1295,17 +984,21 @@
       }
       .form-title {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(32px, 7vw, 44px);
+        font-size: clamp(28px, 7vw, 40px);
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.03em;
         line-height: 1;
         margin-bottom: 16px;
       }
+      .form-title em {
+        font-style: normal;
+      }
       .tabs {
         display: flex;
         border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         overflow-x: auto;
+        scrollbar-width: none;
         padding: 0 20px;
       }
       .tabs::-webkit-scrollbar {
@@ -1313,16 +1006,18 @@
       }
       .tab {
         font-family: "Share Tech Mono", monospace;
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.32);
         background: none;
         border: none;
         border-bottom: 2px solid transparent;
-        padding: 12px 16px;
+        padding: 12px 14px;
         cursor: pointer;
         white-space: nowrap;
+        flex-shrink: 0;
+        transition: 0.18s;
       }
       .tab.on {
         color: var(--phase);
@@ -1339,12 +1034,12 @@
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.09);
         border-radius: 14px;
-        padding: 16px;
-        margin-bottom: 12px;
+        padding: 15px;
+        margin-bottom: 11px;
       }
       .cb-lbl {
         font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-size: 8px;
         letter-spacing: 0.14em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1352,7 +1047,7 @@
       }
       .cb-title {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 900;
         letter-spacing: 0.05em;
         text-transform: uppercase;
@@ -1360,7 +1055,7 @@
       }
       .cb-text {
         font-family: Rajdhani, sans-serif;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         color: rgba(255, 255, 255, 0.65);
         line-height: 1.55;
@@ -1368,25 +1063,25 @@
       .kpi-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 14px;
       }
       .kpi-card {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
-        padding: 16px;
+        padding: 14px;
         text-align: center;
       }
       .kpi-val {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 34px;
+        font-size: 30px;
         font-weight: 900;
         line-height: 1;
       }
       .kpi-lbl {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 7px;
         letter-spacing: 0.1em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1395,22 +1090,22 @@
       .arch-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 14px;
       }
       .arch-block {
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 14px;
-        padding: 16px;
+        padding: 14px;
       }
       .arch-block-icon {
-        font-size: 22px;
+        font-size: 18px;
         margin-bottom: 6px;
       }
       .arch-block-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -1418,26 +1113,34 @@
       }
       .arch-block-desc {
         font-family: Rajdhani, sans-serif;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 500;
         color: rgba(255, 255, 255, 0.5);
         line-height: 1.4;
       }
+      .arch-block-profs {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        text-transform: uppercase;
+        margin-top: 5px;
+      }
       .capter-card {
         border-radius: 12px;
-        padding: 16px;
-        margin-bottom: 10px;
+        padding: 14px;
+        margin-bottom: 9px;
       }
       .capter-letter {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 34px;
+        font-size: 30px;
         font-weight: 900;
         line-height: 1;
         margin-bottom: 5px;
       }
       .capter-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -1445,25 +1148,26 @@
       }
       .capter-desc {
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
         color: rgba(255, 255, 255, 0.68);
         line-height: 1.45;
       }
       .capter-dont {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
-        padding: 8px 10px;
+        font-size: 12px;
+        padding: 7px 9px;
         background: rgba(204, 40, 56, 0.08);
         border-radius: 6px;
         color: rgba(255, 110, 110, 0.78);
         margin-top: 7px;
+        line-height: 1.35;
       }
       .prof-card {
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.09);
         border-radius: 14px;
-        margin-bottom: 10px;
+        margin-bottom: 9px;
         overflow: hidden;
         cursor: pointer;
       }
@@ -1471,11 +1175,11 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        padding: 14px;
+        padding: 13px;
       }
       .prof-card-thumb {
-        width: 48px;
-        height: 48px;
+        width: 42px;
+        height: 42px;
         border-radius: 8px;
         overflow: hidden;
         flex-shrink: 0;
@@ -1484,34 +1188,38 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top 15%;
       }
       .prof-card-info {
         flex: 1;
       }
       .prof-card-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 900;
         text-transform: uppercase;
+        letter-spacing: 0.03em;
       }
       .prof-card-sub {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 7px;
         letter-spacing: 0.09em;
         color: var(--muted);
+        text-transform: uppercase;
         margin-top: 2px;
       }
       .prof-card-arr {
         color: rgba(255, 255, 255, 0.28);
-        font-size: 19px;
+        font-size: 17px;
         transition: 0.2s;
+        flex-shrink: 0;
       }
       .prof-card.exp .prof-card-arr {
         transform: rotate(90deg);
       }
       .prof-card-body {
         display: none;
-        padding: 0 14px 14px;
+        padding: 0 13px 13px;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
       .prof-card.exp .prof-card-body {
@@ -1519,7 +1227,7 @@
       }
       .pf-lbl {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 7px;
         letter-spacing: 0.13em;
         color: var(--muted);
         text-transform: uppercase;
@@ -1527,44 +1235,51 @@
       }
       .pf-val {
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         line-height: 1.4;
         color: rgba(255, 255, 255, 0.75);
       }
       .pf-sig {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         color: rgba(255, 255, 255, 0.55);
         padding: 3px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       }
+      .pf-sig::before {
+        content: "· ";
+        color: var(--phase);
+      }
       .pf-err {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         color: rgba(255, 100, 100, 0.78);
         padding: 8px;
         background: rgba(204, 40, 56, 0.07);
         border-radius: 6px;
         margin-top: 2px;
+        line-height: 1.35;
       }
       .pf-capter-row {
         display: flex;
-        gap: 10px;
+        gap: 9px;
         align-items: flex-start;
         padding: 6px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.04);
       }
       .pf-c-letter {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 900;
-        min-width: 16px;
+        min-width: 14px;
+        line-height: 1;
       }
       .pf-c-text {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 600;
+        line-height: 1.3;
         color: rgba(255, 255, 255, 0.68);
       }
       .relaa-step {
@@ -1578,13 +1293,14 @@
       }
       .relaa-letter {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 900;
-        min-width: 24px;
+        min-width: 22px;
+        line-height: 1;
       }
       .relaa-name {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -1592,90 +1308,98 @@
       }
       .relaa-desc {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 500;
         color: rgba(255, 255, 255, 0.6);
         line-height: 1.4;
       }
       .obs-row {
         display: grid;
-        grid-template-columns: 120px 1fr;
+        grid-template-columns: 110px 1fr;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .obs-row:last-child {
+        border-bottom: none;
       }
       .obs-lbl {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 7px;
         letter-spacing: 0.1em;
         color: var(--muted);
         text-transform: uppercase;
-        padding: 12px;
+        padding: 10px;
         background: rgba(255, 255, 255, 0.03);
         border-right: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
       }
       .obs-val {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 600;
-        padding: 12px;
+        padding: 10px;
+        line-height: 1.35;
         color: rgba(255, 255, 255, 0.72);
       }
       .stat-row {
-        margin-bottom: 10px;
+        margin-bottom: 9px;
       }
       .stat-lbl-row {
         display: flex;
         justify-content: space-between;
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         margin-bottom: 5px;
       }
       .stat-sub {
         font-family: "Share Tech Mono", monospace;
-        font-size: 8px;
+        font-size: 7px;
         color: rgba(255, 255, 255, 0.28);
         margin-bottom: 4px;
       }
       .stat-track {
         background: rgba(255, 255, 255, 0.08);
         border-radius: 4px;
-        height: 6px;
+        height: 5px;
         overflow: hidden;
       }
       .stat-fill {
         height: 100%;
         border-radius: 4px;
+        transition: width 1s ease;
       }
       .quiz-card {
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 14px;
-        padding: 16px;
-        margin-bottom: 12px;
+        padding: 15px;
+        margin-bottom: 11px;
       }
       .quiz-q {
         font-family: Rajdhani, sans-serif;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 700;
         line-height: 1.35;
-        margin-bottom: 14px;
+        margin-bottom: 13px;
       }
       .quiz-opts {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 7px;
       }
       .quiz-opt {
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         background: rgba(255, 255, 255, 0.05);
         border: 1.5px solid rgba(255, 255, 255, 0.1);
         border-radius: 10px;
-        padding: 12px 14px;
+        padding: 11px 13px;
         cursor: pointer;
         text-align: left;
         color: #fff;
+        transition: 0.2s;
       }
       .quiz-opt.correct {
         background: rgba(46, 158, 72, 0.15);
@@ -1692,10 +1416,10 @@
       }
       .quiz-fb {
         font-family: Rajdhani, sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 600;
         margin-top: 9px;
-        padding: 10px;
+        padding: 9px;
         border-radius: 8px;
         display: none;
         line-height: 1.4;
@@ -1705,26 +1429,16 @@
       }
       .prof-filter {
         display: flex;
-        gap: 8px;
+        gap: 7px;
         margin-bottom: 14px;
         overflow-x: auto;
+        scrollbar-width: none;
       }
-      .prof-filter .arch-tab {
-        font-size: 10px;
-        padding: 6px 12px;
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 20px;
-        color: rgba(255, 255, 255, 0.6);
-        font-family: "Share Tech Mono", monospace;
-        text-transform: uppercase;
-        cursor: pointer;
+      .prof-filter::-webkit-scrollbar {
+        display: none;
       }
-      .prof-filter .arch-tab.on {
-        background: var(--gold);
-        color: #000;
-        border-color: var(--gold);
-      }
+
+      /* SHEETS */
       .backdrop {
         position: fixed;
         inset: 0;
@@ -1746,12 +1460,12 @@
         right: 0;
         z-index: 51;
         background: rgba(10, 14, 28, 0.92);
-        backdrop-filter: blur(30px);
+        backdrop-filter: blur(30px) saturate(180%);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 24px 24px 0 0;
         padding: 16px 22px max(env(safe-area-inset-bottom, 0px), 20px);
         transform: translateY(100%);
-        transition: transform 0.35s;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .sheet.open {
         transform: translateY(0);
@@ -1763,15 +1477,24 @@
         border-radius: 2px;
         margin: 0 auto 14px;
       }
+      .sh-lbl {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        color: var(--muted);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
       .erreur-box {
         background: rgba(204, 40, 56, 0.07);
+        border: 1px solid rgba(204, 40, 56, 0.2);
         border-left: 3px solid #cc2838;
         border-radius: 10px;
         padding: 14px;
       }
       .erreur-title {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -1780,11 +1503,46 @@
       }
       .erreur-txt {
         font-family: Rajdhani, sans-serif;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         color: rgba(255, 110, 110, 0.8);
         line-height: 1.4;
       }
+      .sig-list {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .sig-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        padding: 11px 12px;
+      }
+      .sig-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 4px;
+      }
+      .sig-txt {
+        font-family: Rajdhani, sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .form-grid-sh {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        max-height: 55vh;
+        overflow-y: auto;
+      }
+
       #ficheOverlay.open {
         opacity: 1 !important;
         pointer-events: all !important;
@@ -1793,12 +1551,66 @@
       #ficheOverlay.open > div:first-child {
         transform: translateY(0) !important;
       }
+      .setup-prof-thumb {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: 0.18s;
+      }
+      .setup-prof-thumb:active {
+        transform: scale(0.94);
+      }
+      .setup-prof-thumb.selected {
+        border-color: var(--phase);
+      }
+      .setup-prof-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      .setup-prof-thumb-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(5, 8, 16, 0.85) 0%,
+          transparent 50%
+        );
+      }
+      .setup-prof-thumb-name {
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        font-family:
+          Share Tech Mono,
+          monospace;
+        font-size: 5px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        text-transform: uppercase;
+        padding: 0 2px;
+      }
+      .setup-prof-thumb-site {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+      }
       .fiche-tagline {
         font-family: Rajdhani, sans-serif;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         font-style: italic;
         color: rgba(255, 255, 255, 0.65);
+        line-height: 1.4;
         border-left: 3px solid var(--phase);
         padding-left: 12px;
         margin-bottom: 18px;
@@ -1807,8 +1619,10 @@
         margin-bottom: 18px;
       }
       .fiche-section-lbl {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-family:
+          Share Tech Mono,
+          monospace;
+        font-size: 8px;
         letter-spacing: 0.18em;
         color: rgba(255, 255, 255, 0.3);
         text-transform: uppercase;
@@ -1816,7 +1630,7 @@
       }
       .fiche-section-val {
         font-family: Rajdhani, sans-serif;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
         color: rgba(255, 255, 255, 0.85);
         line-height: 1.5;
@@ -1844,20 +1658,23 @@
       }
       .fiche-signal-txt {
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         line-height: 1.35;
       }
       .fiche-erreur-box {
         background: rgba(204, 40, 56, 0.08);
+        border: 1px solid rgba(204, 40, 56, 0.2);
         border-left: 3px solid #cc2838;
         border-radius: 10px;
         padding: 12px;
         margin-bottom: 18px;
       }
       .fiche-erreur-lbl {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-family:
+          Share Tech Mono,
+          monospace;
+        font-size: 8px;
         letter-spacing: 0.15em;
         color: #cc2838;
         text-transform: uppercase;
@@ -1865,7 +1682,7 @@
       }
       .fiche-erreur-txt {
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         color: rgba(255, 100, 100, 0.85);
         line-height: 1.4;
@@ -1885,41 +1702,242 @@
         border: 1px solid rgba(255, 255, 255, 0.06);
       }
       .fiche-capter-letter {
-        font-family: "Barlow Condensed", sans-serif;
-        font-size: 24px;
+        font-family:
+          Barlow Condensed,
+          sans-serif;
+        font-size: 22px;
         font-weight: 900;
-        min-width: 20px;
+        min-width: 18px;
+        line-height: 1;
+        flex-shrink: 0;
       }
       .fiche-capter-phase {
-        font-family: "Share Tech Mono", monospace;
-        font-size: 9px;
+        font-family:
+          Share Tech Mono,
+          monospace;
+        font-size: 8px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         margin-bottom: 3px;
       }
       .fiche-capter-script {
         font-family: Rajdhani, sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         color: rgba(255, 255, 255, 0.75);
         line-height: 1.35;
+      }
+      .form-screen {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      /* PROFILS SCREEN (nouvel onglet) */
+      #s-profil {
+        background: #050810;
+        padding: 0;
+        overflow: hidden;
+      }
+      .profil-stage {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+      }
+      .profil-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        background: linear-gradient(
+          to bottom,
+          rgba(5, 8, 16, 0.95) 0%,
+          transparent 100%
+        );
+        z-index: 10;
+      }
+      .profil-brand {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .profil-brand span {
+        color: var(--gold);
+      }
+      .profil-counter {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .profil-counter b {
+        color: #fff;
+        font-size: 15px;
+      }
+      .profil-3col {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+        overflow: hidden;
+        min-height: 0;
+      }
+      .profil-left {
+        padding: 10px 8px 10px 12px;
+        overflow-y: auto;
+        background: linear-gradient(
+          to right,
+          rgba(5, 8, 16, 0.97) 60%,
+          rgba(5, 8, 16, 0.5) 100%
+        );
+      }
+      .profil-center {
+        position: relative;
+        overflow: hidden;
+      }
+      .profil-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+      .profil-img.visible {
+        opacity: 1;
+      }
+      .profil-right {
+        padding: 10px 12px 10px 8px;
+        overflow-y: auto;
+        background: linear-gradient(
+          to left,
+          rgba(5, 8, 16, 0.97) 60%,
+          rgba(5, 8, 16, 0.5) 100%
+        );
+      }
+      .profil-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 16px 12px;
+        background: rgba(5, 8, 16, 0.97);
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .profil-nav-btn {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 24px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.4);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px 12px;
+      }
+      .profil-nav-dots {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .profil-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+      }
+      .profil-dot.active {
+        background: var(--gold);
+        transform: scale(1.2);
+      }
+      .profil-nav-name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 4px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .site-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: "Share Tech Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: fit-content;
+        margin-bottom: 8px;
+      }
+      .arch-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: "Share Tech Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid;
+        width: fit-content;
+        margin-bottom: 12px;
+      }
+      .profil-tagline {
+        font-family: Rajdhani, sans-serif;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.75);
+        border-left: 2px solid var(--gold);
+        padding-left: 8px;
+        margin: 8px 0;
+      }
+      .cp-item {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 7px 9px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        margin-bottom: 6px;
+      }
+      .cp-letter {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        min-width: 18px;
       }
     </style>
   </head>
   <body>
     <div id="phaseBg"></div>
+    <div class="global-header">
+      <img
+        src="octogo.png"
+        alt="Octogo"
+        onerror="this.style.display = 'none'"
+      />
+      <span>INDIGO TUNISIE · NEUROCAPTER</span>
+    </div>
 
     <!-- ===== HOME ===== -->
     <div class="screen active" id="s-home">
-      <div class="home-header">
-        <div class="home-logo"><b>NeuroCAPTER</b> · INDIGO TUNISIE</div>
-        <div class="site-logo">
-          <img
-            src="octogo.png"
-            alt="OCTOGO"
-            onerror="this.style.display = 'none'"
-          /><span>V2</span>
-        </div>
+      <div class="home-logo">
+        <b>NeuroCAPTER</b> ·
+        <span style="color: #00aaff; font-weight: 700; letter-spacing: 0.15em"
+          >INDIGO TUNISIE</span
+        >
+        · <span style="color: rgba(255, 255, 255, 0.4)">V2</span>
       </div>
       <div class="home-h">
         Choisissez<br /><span style="color: var(--gold)">votre module</span>
@@ -1928,8 +1946,10 @@
       <div style="margin-bottom: 10px">
         <div
           style="
-            font-family: &quot;Share Tech Mono&quot;, monospace;
-            font-size: 9px;
+            font-family:
+              Share Tech Mono,
+              monospace;
+            font-size: 8px;
             letter-spacing: 0.18em;
             color: rgba(255, 255, 255, 0.3);
             text-transform: uppercase;
@@ -1940,8 +1960,10 @@
         </div>
         <div
           style="
-            font-family: &quot;Barlow Condensed&quot;, sans-serif;
-            font-size: 20px;
+            font-family:
+              Barlow Condensed,
+              sans-serif;
+            font-size: 18px;
             font-weight: 900;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -1993,7 +2015,9 @@
               left: 0;
               right: 0;
               padding: 8px 10px;
-              font-family: &quot;Barlow Condensed&quot;, sans-serif;
+              font-family:
+                Barlow Condensed,
+                sans-serif;
               font-size: 12px;
               font-weight: 900;
               text-transform: uppercase;
@@ -2042,7 +2066,9 @@
               left: 0;
               right: 0;
               padding: 8px 10px;
-              font-family: &quot;Barlow Condensed&quot;, sans-serif;
+              font-family:
+                Barlow Condensed,
+                sans-serif;
               font-size: 12px;
               font-weight: 900;
               text-transform: uppercase;
@@ -2055,6 +2081,7 @@
           </div>
         </div>
       </div>
+
       <div class="home-ctx" onclick="goSetup()">
         <div>
           <div class="home-ctx-lbl">Contexte actuel</div>
@@ -2066,7 +2093,7 @@
             Configurer mall + enseigne →
           </div>
         </div>
-        <span style="color: rgba(255, 255, 255, 0.28); font-size: 18px">⚙</span>
+        <span style="color: rgba(255, 255, 255, 0.28); font-size: 16px">⚙</span>
       </div>
       <div class="home-tiles">
         <button
@@ -2147,19 +2174,19 @@
         </button>
         <button
           class="htile"
-          onclick="goProfiles()"
-          style="border-color: rgba(139, 92, 246, 0.35)"
+          onclick="goProfil()"
+          style="border-color: rgba(216, 144, 32, 0.35)"
         >
           <div
             class="htile-icon"
-            style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6"
+            style="background: rgba(216, 144, 32, 0.15); color: #d89020"
           >
-            👥
+            👤
           </div>
           <div class="htile-body">
-            <div class="htile-name" style="color: #8b5cf6">18 Profils</div>
+            <div class="htile-name" style="color: #d89020">Profils Clients</div>
             <div class="htile-desc">
-              Découvrez tous les archétypes · Swipe · Fiches détaillées
+              18 archétypes · Signaux · Scripts CAPTER
             </div>
           </div>
           <div class="htile-arr">›</div>
@@ -2169,16 +2196,20 @@
 
     <!-- ===== SETUP ===== -->
     <div class="screen" id="s-setup">
-      <button class="back-btn" onclick="goHome()">← Retour</button>
-      <div class="setup-logo"><b>NeuroCAPTER</b> · INDIGO TUNISIE</div>
+      <div class="setup-logo">
+        <b>NeuroCAPTER</b> ·
+        <span style="color: #00aaff; font-weight: 700">INDIGO TUNISIE</span>
+      </div>
       <div id="ss1">
         <div class="setup-step-lbl">Étape 1 · Votre mall</div>
         <div class="setup-h">Votre <span>mall</span></div>
         <div class="mall-grid" id="mallGrid"></div>
         <div
           style="
-            font-family: &quot;Share Tech Mono&quot;, monospace;
-            font-size: 10px;
+            font-family:
+              Share Tech Mono,
+              monospace;
+            font-size: 9px;
             letter-spacing: 0.18em;
             color: rgba(255, 255, 255, 0.35);
             text-transform: uppercase;
@@ -2192,7 +2223,7 @@
           style="
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
+            gap: 6px;
             width: 100%;
             margin-bottom: 16px;
           "
@@ -2201,8 +2232,10 @@
           id="setupProfCta"
           onclick="activateSelectedProfile()"
           style="
-            font-family: &quot;Barlow Condensed&quot;, sans-serif;
-            font-size: 19px;
+            font-family:
+              Barlow Condensed,
+              sans-serif;
+            font-size: 17px;
             font-weight: 900;
             letter-spacing: 0.09em;
             text-transform: uppercase;
@@ -2210,7 +2243,7 @@
             color: #000;
             border: none;
             border-radius: 12px;
-            padding: 17px;
+            padding: 15px;
             width: 100%;
             cursor: pointer;
             display: none;
@@ -2239,7 +2272,6 @@
 
     <!-- ===== SELECT ===== -->
     <div class="screen" id="s-select">
-      <button class="back-btn" onclick="goHome()">← Retour</button>
       <div
         class="sel-img"
         onclick="
@@ -2260,9 +2292,10 @@
         </div>
       </div>
       <div class="sel-nav">
-        <button class="snb" onclick="selNav(-1)">‹</button
-        ><button class="snb" onclick="selNav(1)">›</button>
+        <button class="snb" onclick="selNav(-1)">‹</button>
+        <button class="snb" onclick="selNav(1)">›</button>
       </div>
+      <div class="sel-arch-strip" id="archStrip"></div>
       <div class="sel-bot">
         <div class="sel-arch-name">
           <span id="selArch">⚡ L'Efficace</span> ·
@@ -2272,13 +2305,40 @@
         <button class="btn-activate" id="btnAct" onclick="activateTerrain()">
           Activer CAPTER →
         </button>
+        <div class="sel-hint">Swipe gauche / droite · Tap pour activer</div>
+        <button
+          id="voirTousBtn"
+          onclick="toggleVoirTous()"
+          style="
+            margin-top: 8px;
+            width: 100%;
+            font-family:
+              Share Tech Mono,
+              monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            padding: 11px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+          "
+        >
+          <span>☰</span><span id="voirTousTxt">Voir les 18 profils</span>
+        </button>
       </div>
     </div>
 
     <!-- ===== TERRAIN ===== -->
     <div class="screen" id="s-terrain">
-      <button class="back-btn" onclick="exitTerrain()">← Retour</button>
       <div class="t-top">
+        <button class="t-back" onclick="exitTerrain()">←</button>
         <div
           class="t-thumb"
           onclick="
@@ -2305,11 +2365,12 @@
       </div>
       <div class="t-bottom">
         <button class="btn-next" id="btnNext" onclick="nextPhase()">
-          <span id="btnNextTxt">Phase suivante</span
-          ><span id="btnNextPrev" style="opacity: 0.55; font-size: 14px"
+          <span id="btnNextTxt">Phase suivante</span>
+          <span id="btnNextPrev" style="opacity: 0.55; font-size: 13px"
             >→ A</span
-          ></button
-        ><button class="btn-erreur" onclick="openSheet('shErr')">
+          >
+        </button>
+        <button class="btn-erreur" onclick="openSheet('shErr')">
           ⚠ Erreur fatale
         </button>
       </div>
@@ -2317,20 +2378,19 @@
 
     <!-- ===== DECISION ===== -->
     <div class="screen" id="s-decision">
-      <button class="back-btn" onclick="showScreen('s-terrain')">
-        ← Retour
-      </button>
       <div class="dec-header">
         <div class="dec-badge">T</div>
         <div class="dec-label">Tri · Réduire la décision</div>
       </div>
       <div class="dec-q" id="decQ">—</div>
       <div class="dec-opts" id="decOpts"></div>
+      <button class="dec-back" onclick="showScreen('s-terrain')">
+        ← Revenir
+      </button>
     </div>
 
     <!-- ===== COMPLETE ===== -->
     <div class="screen" id="s-complete">
-      <button class="back-btn" onclick="newClient()">← Retour</button>
       <div class="cmp-icon">✓</div>
       <div class="cmp-tag">R · Renforcement</div>
       <div class="cmp-title">Protocole Complété</div>
@@ -2342,66 +2402,55 @@
       </button>
     </div>
 
-    <!-- ===== PROFILES SCREEN (REDESIGNED - 3 COLUMNS) ===== -->
-    <div class="screen" id="s-profiles">
-      <button class="back-btn" onclick="goHome()">← Retour</button>
-      <div class="profiles-container">
-        <div class="profiles-header">
-          <div class="profiles-title">Les <span>18 Profils</span></div>
-          <div class="profiles-counter"><b id="profCurr">01</b>/18</div>
-        </div>
-        <div class="profiles-main">
-          <div class="profiles-left" id="profilesLeft"></div>
-          <div class="profiles-center" id="profilesCenter">
-            <img class="profiles-center-img" id="profilesImg" src="" alt="" />
-            <div class="profiles-center-glow" id="centerGlow"></div>
-          </div>
-          <div class="profiles-right" id="profilesRight"></div>
-        </div>
-        <div class="profiles-nav">
-          <button class="profiles-nav-btn" onclick="profilesNav(-1)">‹</button>
-          <div class="profiles-nav-dots" id="profilesDots"></div>
-          <button class="profiles-nav-btn" onclick="profilesNav(1)">›</button>
-        </div>
-        <div class="profiles-nav-name" id="profilesNavName"></div>
-      </div>
-    </div>
-
     <!-- ===== FORMATION VENDEURS ===== -->
     <div class="screen form-screen" id="s-vendeurs">
-      <button class="back-btn" onclick="goHome()">← Retour</button>
       <div class="form-header">
-        <div class="form-eyebrow">NeuroCAPTER · INDIGO Tunisie</div>
+        <div class="form-eyebrow">
+          NeuroCAPTER · <span style="color: #00aaff">INDIGO Tunisie</span>
+        </div>
         <div class="form-title">
           <em style="color: var(--C)">Formation</em> Vendeurs
         </div>
       </div>
       <div class="tabs">
         <button class="tab on" onclick="switchTab('vend', 0, this)">
-          CAPTER</button
-        ><button class="tab" onclick="switchTab('vend', 1, this)">
-          18 Profils</button
-        ><button class="tab" onclick="switchTab('vend', 2, this)">Quiz</button
-        ><button class="tab" onclick="switchTab('vend', 3, this)">
+          CAPTER
+        </button>
+        <button class="tab" onclick="switchTab('vend', 1, this)">
+          18 Profils
+        </button>
+        <button class="tab" onclick="switchTab('vend', 2, this)">Quiz</button>
+        <button class="tab" onclick="switchTab('vend', 3, this)">
           Archétypes
         </button>
       </div>
-      <div class="tab-panel on" data-g="vend"><div id="capter-list"></div></div>
+      <div class="tab-panel on" data-g="vend">
+        <div id="capter-list"></div>
+      </div>
       <div class="tab-panel" data-g="vend">
         <div class="prof-filter" id="profFilter">
-          <button class="arch-tab on" onclick="filterProf('all', this)">
-            Tous</button
-          ><button class="arch-tab" onclick="filterProf('sousse', this)">
-            🌊 Sousse</button
-          ><button class="arch-tab" onclick="filterProf('sfax', this)">
-            ⚙️ Sfax</button
-          ><button class="arch-tab" onclick="filterProf('tunis', this)">
+          <button
+            class="arch-tab on"
+            onclick="filterProf('all', this)"
+            style="background: var(--gold); color: #000"
+          >
+            Tous
+          </button>
+          <button class="arch-tab" onclick="filterProf('sousse', this)">
+            🌊 Sousse
+          </button>
+          <button class="arch-tab" onclick="filterProf('sfax', this)">
+            ⚙️ Sfax
+          </button>
+          <button class="arch-tab" onclick="filterProf('tunis', this)">
             🏙️ Tunis
           </button>
         </div>
         <div id="prof-list"></div>
       </div>
-      <div class="tab-panel" data-g="vend"><div id="quiz-list"></div></div>
+      <div class="tab-panel" data-g="vend">
+        <div id="quiz-list"></div>
+      </div>
       <div class="tab-panel" data-g="vend">
         <div class="arch-grid" id="vend-archs"></div>
         <div class="cb" style="border-left: 3px solid var(--A)">
@@ -2420,20 +2469,23 @@
 
     <!-- ===== FORMATION CADRES ===== -->
     <div class="screen form-screen" id="s-cadres">
-      <button class="back-btn" onclick="goHome()">← Retour</button>
       <div class="form-header">
-        <div class="form-eyebrow">NeuroCAPTER · INDIGO Tunisie</div>
+        <div class="form-eyebrow">
+          NeuroCAPTER · <span style="color: #00aaff">INDIGO Tunisie</span>
+        </div>
         <div class="form-title">
           <em style="color: var(--T)">Formation</em> Cadres
         </div>
       </div>
       <div class="tabs">
         <button class="tab on" onclick="switchTab('cad', 0, this)">
-          Rôle cadre</button
-        ><button class="tab" onclick="switchTab('cad', 1, this)">
-          Observation</button
-        ><button class="tab" onclick="switchTab('cad', 2, this)">RELAA</button
-        ><button class="tab" onclick="switchTab('cad', 3, this)">KPIs</button>
+          Rôle cadre
+        </button>
+        <button class="tab" onclick="switchTab('cad', 1, this)">
+          Observation
+        </button>
+        <button class="tab" onclick="switchTab('cad', 2, this)">RELAA</button>
+        <button class="tab" onclick="switchTab('cad', 3, this)">KPIs</button>
       </div>
       <div class="tab-panel on" data-g="cad">
         <div class="cb" style="border-left: 3px solid var(--T)">
@@ -2455,135 +2507,91 @@
             immédiatement après.
           </div>
         </div>
+        <div class="cb" style="border-left: 3px solid var(--P)">
+          <div class="cb-lbl">Erreur critique du cadre</div>
+          <div class="cb-title">Critiquer devant le client</div>
+          <div class="cb-text">
+            Toute intervention en présence du client génère une réponse de
+            menace chez le vendeur. Le débrief = après, en privé, sur des faits
+            observables.
+          </div>
+        </div>
       </div>
       <div class="tab-panel" data-g="cad">
         <div class="cb">
           <div class="cb-lbl">Grille d'observation terrain</div>
+          <div class="cb-title">Ce que le cadre observe</div>
         </div>
         <div class="cb" style="padding: 0; overflow: hidden">
           <div id="obs-grid"></div>
+        </div>
+        <div class="cb" style="border-left: 3px solid var(--C)">
+          <div class="cb-lbl">Signal d'alarme</div>
+          <div class="cb-title">Le vendeur qui parle plus que le client</div>
+          <div class="cb-text">
+            Si le vendeur parle plus que le client pendant les phases C et A, le
+            protocole est compromis. Signal : client croise les bras, recule, ou
+            répond par monosyllabes.
+          </div>
         </div>
       </div>
       <div class="tab-panel" data-g="cad">
         <div class="cb" style="border-left: 3px solid var(--A)">
           <div class="cb-lbl">Protocole d'intervention</div>
           <div class="cb-title">RELAA · 5 phases · 2 à 4 minutes</div>
+          <div class="cb-text">
+            Débrief post-interaction. Corrige une dérive sans générer de
+            résistance ni perte de confiance.
+          </div>
         </div>
         <div id="relaa-list"></div>
+        <div class="cb" style="border-left: 3px solid var(--P)">
+          <div class="cb-lbl">Ce que RELAA n'est pas</div>
+          <div class="cb-title">Pas un entretien disciplinaire</div>
+          <div class="cb-text">
+            Pas d'évaluation, pas de notation, pas de sanction. RELAA corrige un
+            comportement, pas une personne.
+          </div>
+        </div>
       </div>
       <div class="tab-panel" data-g="cad">
         <div class="kpi-row">
           <div class="kpi-card">
             <div class="kpi-val" style="color: var(--gold)">&lt;1</div>
-            <div class="kpi-lbl">Erreur fatale / vendeur / semaine</div>
+            <div class="kpi-lbl">Erreur fatale / vendeur / semaine (cible)</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-val" style="color: var(--A)">85%</div>
-            <div class="kpi-lbl">Taux identification profil 3s</div>
+            <div class="kpi-lbl">Taux identification profil 3s (cible)</div>
           </div>
         </div>
+        <div class="cb">
+          <div class="cb-lbl">Suivi hebdomadaire</div>
+          <div class="cb-title">Indicateurs de performance</div>
+        </div>
         <div id="kpi-bars"></div>
+        <div class="cb">
+          <div class="cb-lbl">Fréquence des débriefs</div>
+          <div class="cb-title">Minimum 2 RELAA par vendeur par semaine</div>
+          <div class="cb-text">
+            Sem. 1-2 : quotidien · Sem. 3-4 : 3x/semaine · Sem. 5+ : 2x/semaine
+            ou sur déclenchement (erreur fatale observée).
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- ===== MASTERCLASS ===== -->
     <div class="screen form-screen" id="s-masterclass">
-      <button class="back-btn" onclick="goHome()">← Retour</button>
       <div class="form-header">
-        <div class="form-eyebrow">NeuroCAPTER · INDIGO Tunisie</div>
+        <div class="form-eyebrow">
+          NeuroCAPTER · <span style="color: #00aaff">INDIGO Tunisie</span>
+        </div>
         <div class="form-title" style="color: var(--gold)">
           Master<em style="color: #fff">class</em>
         </div>
       </div>
       <div style="overflow-y: auto; padding: 0 0 90px; flex: 1">
-        <div style="padding: 14px 16px 0">
-          <img
-            src="1.png"
-            alt="NeuroCAPTER Affiche"
-            style="
-              width: 100%;
-              border-radius: 14px;
-              display: block;
-              box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
-            "
-          />
-        </div>
-        <div style="padding: 20px 16px 0">
-          <div
-            style="
-              border-left: 3px solid #cc2838;
-              padding: 12px 14px;
-              background: rgba(204, 40, 56, 0.08);
-              border-radius: 0 10px 10px 0;
-              margin-bottom: 16px;
-            "
-          >
-            <div
-              style="
-                font-family: &quot;Share Tech Mono&quot;, monospace;
-                font-size: 9px;
-                letter-spacing: 0.18em;
-                color: rgba(255, 255, 255, 0.4);
-                text-transform: uppercase;
-                margin-bottom: 6px;
-              "
-            >
-              MASTERCLASS · NEURO-DYNAMIQUE DE LA VENTE
-            </div>
-            <div
-              style="
-                font-family: &quot;Barlow Condensed&quot;, sans-serif;
-                font-size: 22px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.04em;
-                color: var(--gold);
-                margin-bottom: 4px;
-              "
-            >
-              Maîtriser le Tiers de Seconde : Levier de Performance Indigo
-            </div>
-          </div>
-          <div
-            style="
-              background: rgba(255, 255, 255, 0.05);
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 12px;
-              padding: 14px 16px;
-              margin-bottom: 14px;
-            "
-          >
-            <div
-              style="
-                font-family: &quot;Barlow Condensed&quot;, sans-serif;
-                font-size: 16px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: #cc2838;
-                margin-bottom: 8px;
-              "
-            >
-              ⚡ L'ENJEU : HACKER LE SYSTÈME PRÉDICTIF
-            </div>
-            <div
-              style="
-                font-family: Rajdhani, sans-serif;
-                font-size: 14px;
-                line-height: 1.55;
-                color: rgba(255, 255, 255, 0.75);
-              "
-            >
-              La vente n'est pas une simple discussion, c'est une
-              <strong style="color: #fff"
-                >collision entre deux systèmes neuro-biologiques</strong
-              >. Chez Indigo, nous ne formons plus à l'argumentaire classique,
-              mais à la maîtrise des
-              <strong style="color: var(--gold)">signaux faibles</strong> qui
-              déclenchent ou bloquent l'achat en un éclair.
-            </div>
-          </div>
-        </div>
         <div style="padding: 0 16px 4px">
           <div
             style="
@@ -2604,6 +2612,507 @@
             />
           </div>
         </div>
+        <div style="padding: 20px 16px 0">
+          <div
+            style="
+              border-left: 3px solid #cc2838;
+              padding: 12px 14px;
+              background: rgba(204, 40, 56, 0.08);
+              border-radius: 0 10px 10px 0;
+              margin-bottom: 16px;
+            "
+          >
+            <div
+              style="
+                font-family:
+                  Share Tech Mono,
+                  monospace;
+                font-size: 8px;
+                letter-spacing: 0.18em;
+                color: rgba(255, 255, 255, 0.4);
+                text-transform: uppercase;
+                margin-bottom: 6px;
+              "
+            >
+              MASTERCLASS &middot; NEURO-DYNAMIQUE DE LA VENTE
+            </div>
+            <div
+              style="
+                font-family:
+                  Barlow Condensed,
+                  sans-serif;
+                font-size: 20px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                color: var(--gold);
+                margin-bottom: 4px;
+              "
+            >
+              Ma&icirc;triser le Tiers de Seconde&nbsp;: Levier de Performance
+              Indigo
+            </div>
+          </div>
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 12px;
+              padding: 14px 16px;
+              margin-bottom: 14px;
+            "
+          >
+            <div
+              style="
+                font-family:
+                  Barlow Condensed,
+                  sans-serif;
+                font-size: 15px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: #cc2838;
+                margin-bottom: 8px;
+              "
+            >
+              &#9889; L&apos;ENJEU&nbsp;: HACKER LE SYST&Egrave;ME
+              PR&Eacute;DICTIF
+            </div>
+            <div
+              style="
+                font-family: Rajdhani, sans-serif;
+                font-size: 13.5px;
+                line-height: 1.55;
+                color: rgba(255, 255, 255, 0.75);
+              "
+            >
+              La vente n&apos;est pas une simple discussion, c&apos;est une
+              <strong style="color: #fff"
+                >collision entre deux syst&egrave;mes neuro-biologiques</strong
+              >. Chez Indigo, nous ne formons plus &agrave; l&apos;argumentaire
+              classique, mais &agrave; la ma&icirc;trise des
+              <strong style="color: var(--gold)">signaux faibles</strong> qui
+              d&eacute;clenchent ou bloquent l&apos;achat en un &eacute;clair.
+            </div>
+          </div>
+          <div style="margin-bottom: 12px">
+            <div
+              style="
+                font-family:
+                  Barlow Condensed,
+                  sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--gold);
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              <span
+                style="
+                  background: var(--gold);
+                  color: #000;
+                  border-radius: 50%;
+                  width: 22px;
+                  height: 22px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 11px;
+                  flex-shrink: 0;
+                "
+                >1</span
+              >Le Diagnostic&nbsp;: Le Temps Fant&ocirc;me
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                padding-left: 30px;
+              "
+            >
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(240, 168, 32, 0.4);
+                "
+              >
+                <span style="color: var(--gold); font-weight: 700"
+                  >Le Concept&nbsp;: </span
+                >L&apos;inconscient traite les informations avec
+                <strong style="color: #fff"
+                  >1/3 de seconde d&apos;avance</strong
+                >
+                sur la pens&eacute;e consciente.
+              </div>
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(240, 168, 32, 0.4);
+                "
+              >
+                <span style="color: var(--gold); font-weight: 700"
+                  >Le Choc&nbsp;: </span
+                >Ce &laquo;&nbsp;pilotage automatique&nbsp;&raquo;
+                repr&eacute;sente
+                <strong style="color: #fff">4 heures par jour</strong>, soit
+                <strong style="color: #cc2838">1 an et 8 mois</strong> de
+                d&eacute;cisions invisibles tous les 10 ans.
+              </div>
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(240, 168, 32, 0.4);
+                "
+              >
+                <span style="color: var(--gold); font-weight: 700"
+                  >L&apos;Impact&nbsp;: </span
+                >C&apos;est dans cette zone que se scelle la
+                <strong style="color: #fff">confiance du client</strong> avant
+                m&ecirc;me qu&apos;il ne formule son besoin.
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom: 12px">
+            <div
+              style="
+                font-family:
+                  Barlow Condensed,
+                  sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--gold);
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              <span
+                style="
+                  background: var(--gold);
+                  color: #000;
+                  border-radius: 50%;
+                  width: 22px;
+                  height: 22px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 11px;
+                  flex-shrink: 0;
+                "
+                >2</span
+              >L&apos;Outil&nbsp;: Les 18 Syst&egrave;mes Pr&eacute;dictifs
+              (NeuroCAPTER)
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                padding-left: 30px;
+              "
+            >
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(46, 158, 72, 0.5);
+                "
+              >
+                <span style="color: #2e9e48; font-weight: 700"
+                  >La Cartographie&nbsp;: </span
+                >Fruit de plus de
+                <strong style="color: #fff"
+                  >3&nbsp;200 observations r&eacute;elles</strong
+                >
+                sur le terrain tunisien (2024-2025), nous avons identifi&eacute;
+                18 arch&eacute;types comportementaux.
+              </div>
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(46, 158, 72, 0.5);
+                "
+              >
+                <span style="color: #2e9e48; font-weight: 700"
+                  >Anticipation du V&eacute;to&nbsp;: </span
+                >D&egrave;s le seuil (0-10s), le vendeur identifie le
+                &laquo;&nbsp;syst&egrave;me d&apos;exploitation&nbsp;&raquo; du
+                client (ex&nbsp;:
+                <em>L&apos;Ex&eacute;cutif Press&eacute;</em> ou
+                <em>Le Jeune Tendance</em>) pour &eacute;viter le
+                <strong style="color: #cc2838">V&eacute;to Neurologique</strong
+                >.
+              </div>
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(46, 158, 72, 0.5);
+                "
+              >
+                <span style="color: #2e9e48; font-weight: 700"
+                  >La Fen&ecirc;tre Vicary&nbsp;: </span
+                >En identifiant le profil, le vendeur synchronise son approche
+                avec la
+                <strong style="color: #fff"
+                  >fen&ecirc;tre de d&eacute;cision ultra-rapide</strong
+                >
+                de l&apos;inconscient.
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom: 16px">
+            <div
+              style="
+                font-family:
+                  Barlow Condensed,
+                  sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--gold);
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              <span
+                style="
+                  background: var(--gold);
+                  color: #000;
+                  border-radius: 50%;
+                  width: 22px;
+                  height: 22px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 11px;
+                  flex-shrink: 0;
+                "
+                >3</span
+              >La M&eacute;thode&nbsp;: La Collision Biom&eacute;trique
+              (Pareto&sup2;)
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                padding-left: 30px;
+              "
+            >
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(30, 110, 216, 0.5);
+                "
+              >
+                <span style="color: #1e6ed8; font-weight: 700"
+                  >La Loi de Pareto&sup2;&nbsp;: </span
+                >Les
+                <strong style="color: #fff"
+                  >20% d&apos;&eacute;tat interne du vendeur</strong
+                >
+                (sa neuro-signature) dictent
+                <strong style="color: var(--gold)"
+                  >80% du climat de la vente</strong
+                >.
+              </div>
+              <div
+                style="
+                  font-family: Rajdhani, sans-serif;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.8);
+                  line-height: 1.45;
+                  padding: 8px 12px;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 8px;
+                  border-left: 2px solid rgba(30, 110, 216, 0.5);
+                "
+              >
+                <span style="color: #1e6ed8; font-weight: 700"
+                  >La Solution Op&eacute;rationnelle&nbsp;: </span
+                >Le
+                <strong style="color: #fff">RESET Manager Kit</strong> stabilise
+                l&apos;&eacute;tat &eacute;motionnel du vendeur, tandis que
+                l&apos;application
+                <strong style="color: var(--gold)">NeuroCAPTER V2</strong>
+                permet une synchronisation chirurgicale selon le site (Tunis,
+                Sfax, Sousse) et la marque.
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(240, 168, 32, 0.15),
+                rgba(204, 40, 56, 0.1)
+              );
+              border: 1px solid rgba(240, 168, 32, 0.35);
+              border-radius: 14px;
+              padding: 16px;
+              margin-bottom: 18px;
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                font-family:
+                  Share Tech Mono,
+                  monospace;
+                font-size: 8px;
+                letter-spacing: 0.2em;
+                color: rgba(255, 255, 255, 0.4);
+                text-transform: uppercase;
+                margin-bottom: 10px;
+              "
+            >
+              &mdash; CONCLUSION SIGNATURE &mdash;
+            </div>
+            <div
+              style="
+                font-family: Rajdhani, sans-serif;
+                font-size: 14px;
+                font-style: italic;
+                color: rgba(255, 255, 255, 0.9);
+                line-height: 1.6;
+              "
+            >
+              &laquo;&nbsp;Messieurs, un vendeur qui ne ma&icirc;trise pas les
+              <strong style="color: var(--gold)"
+                >18 syst&egrave;mes pr&eacute;dictifs</strong
+              >
+              de ses clients <em>subit</em> la vente. Celui qui les
+              d&eacute;code
+              <strong style="color: #fff"
+                >poss&egrave;de les cl&eacute;s du tiers de seconde</strong
+              >.&nbsp;&raquo;
+            </div>
+            <div
+              style="
+                margin-top: 10px;
+                font-family:
+                  Barlow Condensed,
+                  sans-serif;
+                font-size: 13px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--gold);
+              "
+            >
+              Bienvenue dans l&apos;&egrave;re du Neuro-Management Indigo.
+            </div>
+          </div>
+        </div>
+        <div style="padding: 0 16px 4px">
+          <img
+            src="2.png"
+            alt="Infographie Masterclass"
+            style="
+              width: 100%;
+              min-width: 480px;
+              display: block;
+              border-radius: 12px;
+            "
+          />
+          <div
+            style="
+              font-family:
+                Share Tech Mono,
+                monospace;
+              font-size: 8px;
+              letter-spacing: 0.18em;
+              color: rgba(255, 255, 255, 0.35);
+              text-transform: uppercase;
+              margin-bottom: 10px;
+              text-align: center;
+            "
+          >
+            Infographie &middot; Neuro-Dynamique de la Vente
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PROFIL SCREEN (nouvel onglet) ===== -->
+    <div class="screen" id="s-profil">
+      <div class="profil-stage">
+        <div class="profil-top-bar">
+          <div class="profil-brand">
+            Neuro<span>CAPTER</span> · INDIGO Tunisie
+          </div>
+          <div class="profil-counter">
+            <b id="profilCurr">01</b> / 18 Profils
+          </div>
+        </div>
+        <div class="profil-3col">
+          <div class="profil-left" id="profilLeft"></div>
+          <div class="profil-center" id="profilCenter">
+            <img id="profilImg" class="profil-img" src="" alt="" />
+          </div>
+          <div class="profil-right" id="profilRight"></div>
+        </div>
+        <div class="profil-nav">
+          <button class="profil-nav-btn" onclick="profilNav(-1)">‹</button>
+          <div>
+            <div class="profil-nav-dots" id="profilDots"></div>
+            <div class="profil-nav-name" id="profilNavName">—</div>
+          </div>
+          <button class="profil-nav-btn" onclick="profilNav(1)">›</button>
+        </div>
       </div>
     </div>
 
@@ -2615,7 +3124,6 @@
         onclick="
           showScreen('s-home');
           bnActive('bnHome');
-          setPhase('#e8701a');
         "
       >
         <div class="bn-icon">⌂</div>
@@ -2633,31 +3141,16 @@
         <div class="bn-icon">◉</div>
         <div class="bn-lbl">Cadres</div>
       </button>
-      <button class="bn" id="bnProfiles" onclick="goProfiles()">
-        <div class="bn-icon">👥</div>
-        <div class="bn-lbl">Profils</div>
-      </button>
       <button class="bn" id="bnMC" onclick="goMasterclass()">
         <div class="bn-icon">★</div>
-        <div class="bn-lbl">Master</div>
+        <div class="bn-lbl">MasterClass</div>
+      </button>
+      <button class="bn" id="bnProfil" onclick="goProfil()">
+        <div class="bn-icon">👤</div>
+        <div class="bn-lbl">Profils</div>
       </button>
     </div>
 
-    <!-- SHEETS -->
-    <div class="backdrop" id="bd" onclick="closeSheets()"></div>
-    <div class="sheet" id="shErr">
-      <div class="sh-handle"></div>
-      <div class="erreur-box">
-        <div class="erreur-title">⚠ ERREUR FATALE</div>
-        <div class="erreur-txt" id="shErrTxt">—</div>
-      </div>
-    </div>
-    <div class="sheet" id="shFiche">
-      <div class="sh-handle"></div>
-      <div id="shFicheContent"></div>
-    </div>
-
-    <!-- FICHE OVERLAY -->
     <div
       id="ficheOverlay"
       style="
@@ -2678,7 +3171,7 @@
           display: flex;
           flex-direction: column;
           transform: translateY(30px);
-          transition: transform 0.35s;
+          transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
           overflow: hidden;
         "
       >
@@ -2729,16 +3222,19 @@
             <button
               onclick="closeFiche()"
               style="
-                font-size: 26px;
+                font-size: 24px;
                 font-weight: 900;
                 color: rgba(255, 255, 255, 0.8);
                 background: rgba(5, 8, 16, 0.5);
                 backdrop-filter: blur(8px);
                 border: none;
                 border-radius: 50%;
-                width: 42px;
-                height: 42px;
+                width: 38px;
+                height: 38px;
                 cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
               "
             >
               ✕
@@ -2746,11 +3242,13 @@
             <div
               id="ficheArchBadge"
               style="
-                font-family: &quot;Share Tech Mono&quot;, monospace;
-                font-size: 9px;
+                font-family:
+                  Share Tech Mono,
+                  monospace;
+                font-size: 8px;
                 letter-spacing: 0.12em;
                 text-transform: uppercase;
-                padding: 5px 12px;
+                padding: 5px 10px;
                 border-radius: 20px;
                 background: rgba(5, 8, 16, 0.5);
                 backdrop-filter: blur(8px);
@@ -2772,8 +3270,10 @@
             <div
               id="ficheProfNum"
               style="
-                font-family: &quot;Share Tech Mono&quot;, monospace;
-                font-size: 10px;
+                font-family:
+                  Share Tech Mono,
+                  monospace;
+                font-size: 9px;
                 letter-spacing: 0.15em;
                 color: rgba(255, 255, 255, 0.4);
                 text-transform: uppercase;
@@ -2785,8 +3285,10 @@
             <div
               id="ficheProfName"
               style="
-                font-family: &quot;Barlow Condensed&quot;, sans-serif;
-                font-size: clamp(26px, 7vw, 40px);
+                font-family:
+                  Barlow Condensed,
+                  sans-serif;
+                font-size: clamp(24px, 7vw, 36px);
                 font-weight: 900;
                 text-transform: uppercase;
                 color: #fff;
@@ -2797,8 +3299,10 @@
             <div
               id="ficheProfSite"
               style="
-                font-family: &quot;Share Tech Mono&quot;, monospace;
-                font-size: 10px;
+                font-family:
+                  Share Tech Mono,
+                  monospace;
+                font-size: 9px;
                 color: rgba(255, 255, 255, 0.5);
                 text-transform: uppercase;
                 margin-top: 4px;
@@ -2825,7 +3329,7 @@
           left: 0;
           right: 0;
           z-index: 301;
-          padding: 12px 18px;
+          padding: 12px 18px 12px;
           background: linear-gradient(
             to top,
             rgba(5, 8, 16, 1) 70%,
@@ -2837,15 +3341,17 @@
           id="ficheCta"
           onclick="activateFicheCapter()"
           style="
-            font-family: &quot;Barlow Condensed&quot;, sans-serif;
-            font-size: 19px;
+            font-family:
+              Barlow Condensed,
+              sans-serif;
+            font-size: 18px;
             font-weight: 900;
             text-transform: uppercase;
             background: var(--phase);
             color: #000;
             border: none;
             border-radius: 12px;
-            padding: 18px;
+            padding: 16px;
             width: 100%;
             cursor: pointer;
           "
@@ -2856,7 +3362,7 @@
     </div>
 
     <script>
-      /* ===== DATA ===== */
+      // ========== DONNÉES (18 PROFILS) ==========
       const PROFILE_IMAGES = {
         1: "pi/p1.png",
         2: "pi/p2.png",
@@ -3012,7 +3518,7 @@
           dc: {
             C: "Switch arabe/français = bienvenue.",
             A: '"Vous n\'avez plus besoin de Paris."',
-            P: "Pour soi ou offrir ?",
+            P: "Pour soi ou cadeau ?",
             T: '"Qu\'est-ce qui ferait plaisir à votre mère ?"',
             E: '"Vous montrez une Tunisie qui bouge."',
             R: "Prochain passage.",
@@ -3245,7 +3751,8 @@
             "Budget non problématique",
             "Accompagnant tunisien possible",
           ],
-          error: "Prendre sa fidélité structurelle pour acquise.",
+          error:
+            "Prendre sa fidélité structurelle pour acquise. L'absence d'alternative ne crée pas la loyauté.",
           dc: {
             C: "Langue immédiate = confiance.",
             A: '"Même stock qu\'en Europe."',
@@ -3351,9 +3858,9 @@
             "Vient avec un ami",
           ],
           error:
-            "Toute variation dans la qualité d'accueil — délai, ton, contact visuel.",
+            "Toute variation dans la qualité d'accueil — délai, ton, contact visuel. Le biais n'est pas chez le client. Il est dans le vendeur.",
           dc: {
-            C: "Calibrer avant d'approcher.",
+            C: "Calibrer avant d'approcher. Même bonjour, même ton, même timing.",
             A: '"Beaucoup de jeunes prennent ce modèle."',
             P: "Observer l'attirance naturelle.",
             T: "2 options budget.",
@@ -3366,7 +3873,7 @@
       const ARCH_DATA = {
         efficace: { icon: "⚡", name: "L'Efficace", color: "#e8701a" },
         social: { icon: "👥", name: "Le Social", color: "#cc2838" },
-        collectif: { icon: "👨‍👩‍👧‍👦", name: "Le Collectif", color: "#2e9e48" },
+        collectif: { icon: "Fam", name: "Le Collectif", color: "#2e9e48" },
         rationnel: { icon: "🔍", name: "Le Rationnel", color: "#1e6ed8" },
         identitaire: { icon: "🏆", name: "L'Identitaire", color: "#8b5cf6" },
         explorateur: { icon: "🧭", name: "L'Explorateur", color: "#d89020" },
@@ -3382,14 +3889,6 @@
         tunis: "#cc2838",
       };
       const PHASE_ORDER = ["C", "A", "P", "T", "E", "R"];
-      const PHASE_COLORS = {
-        C: "#e8701a",
-        A: "#2e9e48",
-        P: "#cc2838",
-        T: "#1e6ed8",
-        E: "#0d4fa3",
-        R: "#d89020",
-      };
       const PHASE_NAMES = {
         C: "Confiance",
         A: "Attention",
@@ -3406,34 +3905,16 @@
         E: "2mn+",
         R: "5mn+",
       };
-      const BRANDS = [
-        { id: "zara", name: "Zara", profIds: [1, 2, 5, 13, 15, 16, 17] },
-        { id: "bershka", name: "Bershka", profIds: [2, 8, 16, 18] },
-        { id: "pull_bear", name: "Pull & Bear", profIds: [2, 8, 16, 17, 18] },
-        {
-          id: "massimo",
-          name: "Massimo Dutti",
-          profIds: [7, 10, 12, 13, 14, 15],
-        },
-        { id: "mango", name: "Mango", profIds: [1, 12, 15] },
-        { id: "lefties", name: "Lefties", profIds: [6, 18] },
-        { id: "stradivarius", name: "Stradivarius", profIds: [12, 15, 16] },
-        { id: "jennyfer", name: "Jennyfer", profIds: [2, 8, 16] },
-        { id: "celio", name: "Celio", profIds: [7, 10] },
-        { id: "oysho", name: "Oysho", profIds: [12, 15] },
-        { id: "lc_waikiki", name: "LC Waikiki", profIds: [3, 9] },
-        { id: "zara_home", name: "Zara Home", profIds: [5, 13, 14] },
-      ];
-      const REINFORCE = {
-        efficace: "Elle reviendra parce qu'on l'a respectée.",
-        social: "Le post arrive. La vente est faite.",
-        collectif: "Un enfant heureux = une famille fidèle.",
-        rationnel: "La raison a été donnée. La permission accordée.",
-        identitaire: "La reconnaissance était là. La fidélité suit.",
-        explorateur: "La première expérience positive crée la carte mentale.",
+      const PHASE_COLORS = {
+        C: "#e8701a",
+        A: "#2e9e48",
+        P: "#cc2838",
+        T: "#1e6ed8",
+        E: "#0d4fa3",
+        R: "#d89020",
       };
 
-      /* ===== STATE ===== */
+      // ========== ÉTAT ==========
       const ST = {
         site: localStorage.getItem("nc_site") || "",
         brand: localStorage.getItem("nc_brand") || "",
@@ -3442,15 +3923,12 @@
         archFilter: "all",
         filteredProfiles: [],
         usageCount: parseInt(localStorage.getItem("nc_usage") || "0"),
-        profilesIdx: 0,
       };
       let selectedMall = "",
         selectedBrand = "";
-      const p = () => {
-        if (ST.filteredProfiles.length === 0) return PROFILES[0];
-        return ST.filteredProfiles[ST.profileIdx] || PROFILES[0];
-      };
+      const p = () => ST.filteredProfiles[ST.profileIdx] || PROFILES[0];
       const ph = () => PHASE_ORDER[ST.phaseIdx];
+      const img = (id) => PROFILE_IMAGES[id] || "";
       function setPhase(c) {
         document.documentElement.style.setProperty("--phase", c);
         document.getElementById("phaseBg").style.background = c + "10";
@@ -3465,6 +3943,13 @@
           .querySelectorAll(".bn")
           .forEach((b) => b.classList.toggle("on", b.id === id));
       }
+      function goTo(screenId, bnId, phaseColor) {
+        showScreen(screenId);
+        if (bnId) bnActive(bnId);
+        if (phaseColor) setPhase(phaseColor);
+      }
+
+      // ========== NAVIGATION ==========
       function goHome() {
         showScreen("s-home");
         bnActive("bnHome");
@@ -3480,7 +3965,9 @@
             ST.site;
           const el = document.getElementById("homeCtx");
           if (el) {
-            el.innerHTML = `<div><div class="home-ctx-lbl">Contexte actuel</div><div class="home-ctx-val">${sn} · ${bn} · ${ST.filteredProfiles.length} profils</div></div>`;
+            el.textContent =
+              sn + " · " + bn + " · " + ST.filteredProfiles.length + " profils";
+            el.style.color = "#fff";
           }
         }
       }
@@ -3488,98 +3975,34 @@
         document.getElementById("ss1").style.display = "flex";
         document.getElementById("ss1").style.flexDirection = "column";
         document.getElementById("ss2").style.display = "none";
-        showScreen("s-setup");
-        bnActive("bnHome");
-        setPhase("#e8701a");
+        goTo("s-setup", "bnHome", "#e8701a");
       }
       function toTerrain() {
         if (!ST.site) {
           goSetup();
           return;
         }
-        if (ST.filteredProfiles.length === 0) buildFilteredProfiles();
+        if (!ST.filteredProfiles.length) {
+          buildFilteredProfiles();
+        }
         renderSelect();
-        showScreen("s-select");
-        bnActive("bnTerrain");
+        goTo("s-select", "bnTerrain", null);
       }
       function goVendeurs() {
-        showScreen("s-vendeurs");
-        bnActive("bnVend");
-        setPhase(PHASE_COLORS.C);
+        goTo("s-vendeurs", "bnVend", PHASE_COLORS.C);
       }
       function goCadres() {
-        showScreen("s-cadres");
-        bnActive("bnCad");
-        setPhase(PHASE_COLORS.T);
+        goTo("s-cadres", "bnCad", PHASE_COLORS.T);
       }
       function goMasterclass() {
-        showScreen("s-masterclass");
-        bnActive("bnMC");
-        setPhase(PHASE_COLORS.R);
+        goTo("s-masterclass", "bnMC", PHASE_COLORS.R);
       }
-      function goProfiles() {
-        ST.profilesIdx = 0;
-        renderProfilesScreen();
-        showScreen("s-profiles");
-        bnActive("bnProfiles");
-        setPhase("#8b5cf6");
+      function goProfil() {
+        renderProfilScreen();
+        goTo("s-profil", "bnProfil", "#d89020");
       }
 
-      /* ===== PROFILES SCREEN (REDESIGNED) ===== */
-      let profilesAnimating = false;
-      function renderProfilesScreen() {
-        if (profilesAnimating) return;
-        profilesAnimating = true;
-        const prof = PROFILES[ST.profilesIdx];
-        if (!prof) {
-          ST.profilesIdx = 0;
-          profilesAnimating = false;
-          return;
-        }
-        const ac = ARCH_DATA[prof.arch] || {
-          color: "#f0a820",
-          icon: "⚡",
-          name: prof.arch,
-        };
-        const archColor = ac.color;
-        setPhase(archColor);
-        document.getElementById("profCurr").textContent = String(
-          prof.id,
-        ).padStart(2, "0");
-        const img = document.getElementById("profilesImg");
-        img.style.opacity = "0";
-        setTimeout(() => {
-          img.src = PROFILE_IMAGES[prof.id] || "";
-          img.style.opacity = "1";
-        }, 80);
-        const glow = document.getElementById("centerGlow");
-        if (glow)
-          glow.style.background = `radial-gradient(ellipse at 50% 100%, ${archColor}60 0%, transparent 70%)`;
-        const left = document.getElementById("profilesLeft");
-        left.innerHTML = `<div style="display:flex;gap:6px;flex-wrap:wrap"><div class="profiles-site-badge" style="border-color:${SITE_COLORS[prof.site]}50;color:${SITE_COLORS[prof.site]}">${SITE_LABELS[prof.site]}</div><div class="profiles-arch-badge" style="border-color:${ac.color}60;color:${ac.color};background:${ac.color}12">${ac.icon} ${ac.name}</div></div><div class="profiles-name">${prof.name}</div><div class="profiles-tagline" style="border-left-color:${ac.color}">${prof.tagline || ""}</div><div class="profiles-neurotype">${prof.neurotype || "—"}</div><div class="profiles-signal-list">${(prof.signals || []).map((s) => `<div class="profiles-signal-item"><div class="profiles-signal-dot" style="background:${ac.color}"></div>${s}</div>`).join("")}</div><div class="profiles-erreur"><div class="profiles-erreur-lbl">⚠ ERREUR FATALE</div><div class="profiles-erreur-txt">${prof.error || "—"}</div></div>`;
-        const right = document.getElementById("profilesRight");
-        right.innerHTML = `<div class="profiles-capter-list">${["C", "A", "P", "T", "E", "R"].map((ph) => `<div class="profiles-capter-item"><div class="profiles-capter-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div><div class="profiles-capter-name" style="color:${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]}</div><div class="profiles-capter-time">${PHASE_TIMES[ph]}</div><div class="profiles-capter-script">${prof.dc?.[ph] || "—"}</div></div></div>`).join("")}</div><div class="profiles-traffic"><div class="profiles-traffic-val" style="color:${ac.color}">${prof.traffic || "—"}</div><div class="traffic-lbl" style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.12em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-top:3px">du trafic mall</div></div><div class="profiles-mech"><div class="profiles-mech-lbl">MÉCANISME</div><div class="profiles-mech-txt">${prof.mechanism || "—"}</div></div>`;
-        const dots = document.getElementById("profilesDots");
-        dots.innerHTML = PROFILES.map(
-          (_, i) =>
-            `<div class="profiles-dot${i === ST.profilesIdx ? " active" : ""}" onclick="goToProfile(${i})"></div>`,
-        ).join("");
-        document.getElementById("profilesNavName").textContent = prof.name;
-        setTimeout(() => {
-          profilesAnimating = false;
-        }, 200);
-      }
-      function profilesNav(dir) {
-        const next = (ST.profilesIdx + dir + PROFILES.length) % PROFILES.length;
-        goToProfile(next);
-      }
-      function goToProfile(idx) {
-        if (idx === ST.profilesIdx) return;
-        ST.profilesIdx = idx;
-        renderProfilesScreen();
-      }
-
-      /* ===== SETUP FUNCTIONS ===== */
+      // ========== SETUP ==========
       function initSetup() {
         buildSetupProfilesGrid();
         const counts = {
@@ -3624,6 +4047,9 @@
           .join("");
         selectedBrand = "";
         document.getElementById("btnConfirm").classList.remove("vis");
+        document
+          .getElementById("ss2")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
       }
       function selBrand(el, id) {
         document
@@ -3644,8 +4070,7 @@
         localStorage.setItem("nc_brand", ST.brand);
         buildFilteredProfiles();
         renderSelect();
-        showScreen("s-select");
-        bnActive("bnTerrain");
+        goTo("s-select", "bnTerrain", null);
       }
       function buildFilteredProfiles() {
         let profs = PROFILES.filter((p) => p.site === ST.site);
@@ -3653,79 +4078,13 @@
           const b = BRANDS.find((b) => b.id === ST.brand);
           if (b) profs = profs.filter((p) => b.profIds.includes(p.id));
         }
-        if (profs.length === 0)
-          profs = PROFILES.filter((p) => p.site === ST.site);
+        if (ST.archFilter !== "all")
+          profs = profs.filter((p) => p.arch === ST.archFilter);
+        if (!profs.length) profs = PROFILES.filter((p) => p.site === ST.site);
         ST.filteredProfiles = profs;
         ST.profileIdx = 0;
       }
-      function buildSetupProfilesGrid() {
-        const grid = document.getElementById("setupProfilesGrid");
-        if (!grid) return;
-        const SC = { sousse: "#2e9e48", sfax: "#1e6ed8", tunis: "#cc2838" };
-        grid.innerHTML = "";
-        PROFILES.forEach((prof) => {
-          const div = document.createElement("div");
-          div.className = "setup-prof-thumb";
-          div.id = "spt-" + prof.id;
-          div.onclick = () => selectSetupProfile(prof.id, prof.arch);
-          div.ondblclick = () => openFiche(prof.id);
-          const img = document.createElement("img");
-          img.src = PROFILE_IMAGES[prof.id] || "";
-          img.onerror = () => {
-            img.style.backgroundColor = "rgba(255,255,255,.1)";
-          };
-          const ov = document.createElement("div");
-          ov.className = "setup-prof-thumb-overlay";
-          const dot = document.createElement("div");
-          dot.className = "setup-prof-thumb-site";
-          dot.style.background = SC[prof.site] || "#fff";
-          const nm = document.createElement("div");
-          nm.className = "setup-prof-thumb-name";
-          nm.textContent = prof.name
-            .replace("L'", "")
-            .replace("Le ", "")
-            .replace("La ", "")
-            .split(" ")
-            .slice(0, 2)
-            .join(" ");
-          div.appendChild(img);
-          div.appendChild(ov);
-          div.appendChild(dot);
-          div.appendChild(nm);
-          grid.appendChild(div);
-        });
-      }
-      let selectedSetupProfId = null;
-      function selectSetupProfile(id, arch) {
-        document
-          .querySelectorAll(".setup-prof-thumb")
-          .forEach((t) => t.classList.remove("selected"));
-        const t = document.getElementById("spt-" + id);
-        if (t) t.classList.add("selected");
-        selectedSetupProfId = id;
-        const ac = ARCH_DATA[arch] || { color: "#f0a820" };
-        setPhase(ac.color);
-        const cta = document.getElementById("setupProfCta");
-        if (cta) cta.style.display = "block";
-      }
-      function activateSelectedProfile() {
-        if (!selectedSetupProfId) return;
-        if (!ST.site) {
-          const pr = PROFILES.find((p) => p.id === selectedSetupProfId);
-          ST.site = pr ? pr.site : "sousse";
-        }
-        ST.filteredProfiles = PROFILES.slice();
-        ST.profileIdx = Math.max(
-          0,
-          PROFILES.findIndex((p) => p.id === selectedSetupProfId),
-        );
-        renderSelect();
-        activateTerrain();
-      }
-
-      /* ===== SELECT/TERRAIN FUNCTIONS ===== */
       function renderSelect() {
-        if (ST.filteredProfiles.length === 0) buildFilteredProfiles();
         const prof = p();
         const ac = ARCH_DATA[prof.arch] || {
           color: "#f0a820",
@@ -3736,7 +4095,7 @@
         const iEl = document.getElementById("selImg");
         iEl.style.opacity = "0";
         setTimeout(() => {
-          iEl.src = PROFILE_IMAGES[prof.id] || "";
+          iEl.src = img(prof.id);
           iEl.style.opacity = "1";
         }, 80);
         document.getElementById("selIdx").textContent = String(
@@ -3748,34 +4107,55 @@
         document.getElementById("selArch").textContent =
           ac.icon + " " + ac.name;
         document.getElementById("selSite").textContent =
-          SITE_LABELS[prof.site] || prof.site;
+          { sousse: "Sousse", sfax: "Sfax", tunis: "Tunis" }[prof.site] ||
+          prof.site;
         document.getElementById("btnAct").style.background = ac.color;
         const bn =
           ST.brand && ST.brand !== "all"
             ? (BRANDS.find((b) => b.id === ST.brand) || { name: "Toutes" }).name
             : "Toutes enseignes";
-        const sn = SITE_LABELS[ST.site] || "—";
-        document.getElementById("ctxLbl").innerHTML = sn + " · " + bn;
-        const errBox = document.getElementById("shErrTxt");
-        if (errBox) errBox.textContent = prof.error || "—";
+        const sn =
+          { sousse: "Sousse", sfax: "Sfax", tunis: "Tunis" }[ST.site] || "—";
+        document.getElementById("ctxLbl").textContent = sn + " · " + bn;
+        document.getElementById("shErrTxt").textContent = prof.error || "—";
+        buildArchStrip();
+      }
+      function buildArchStrip() {
+        const sp = PROFILES.filter((p) => p.site === ST.site);
+        const archs = [...new Set(sp.map((p) => p.arch))];
+        document.getElementById("archStrip").innerHTML =
+          `<div class="arch-tab${ST.archFilter === "all" ? " on" : ""}" onclick="filterArch('all')" style="${ST.archFilter === "all" ? "background:var(--gold);color:#000" : ""}">Tous (${ST.filteredProfiles.length})</div>` +
+          archs
+            .map((a) => {
+              const ad = ARCH_DATA[a] || { icon: "", name: a, color: "#fff" };
+              const on = ST.archFilter === a;
+              const cnt = sp.filter((p) => p.arch === a).length;
+              return `<div class="arch-tab${on ? " on" : ""}" onclick="filterArch('${a}')" style="${on ? "background:" + ad.color + ";color:#000" : ""}">${ad.icon} ${cnt}</div>`;
+            })
+            .join("");
+      }
+      function filterArch(arch) {
+        ST.archFilter = arch;
+        buildFilteredProfiles();
+        renderSelect();
       }
       function selNav(dir) {
         const l = ST.filteredProfiles.length;
-        if (l === 0) return;
         ST.profileIdx = (ST.profileIdx + dir + l) % l;
         renderSelect();
       }
+
+      // ========== TERRAIN ==========
       function activateTerrain() {
         ST.phaseIdx = 0;
         renderTerrain();
-        showScreen("s-terrain");
-        bnActive("bnTerrain");
+        goTo("s-terrain", "bnTerrain", null);
       }
       function renderTerrain() {
         const prof = p();
         const c = PHASE_COLORS[ph()];
         setPhase(c);
-        document.getElementById("tThumb").src = PROFILE_IMAGES[prof.id] || "";
+        document.getElementById("tThumb").src = img(prof.id);
         document.getElementById("tName").textContent = prof.name;
         const lEl = document.getElementById("tLetter");
         lEl.textContent = ph();
@@ -3786,10 +4166,21 @@
         document.getElementById("tPhaseTime").textContent = PHASE_TIMES[ph()];
         const sc = document.getElementById("tScript");
         sc.style.borderLeftColor = c;
-        let scTxt = prof.dc?.[ph()] || "—";
+        var scTxt = prof.dc?.[ph()] || "—";
         if (ph() === "T")
           scTxt = "Proposez <em>2 options maximum</em> — jamais plus.";
         sc.innerHTML = scTxt.replace(/"([^"]+)"/g, '<em>"$1"</em>');
+        document.getElementById("tDots").innerHTML = PHASE_ORDER.map((l, i) => {
+          const cl =
+            i < ST.phaseIdx ? "done" : i === ST.phaseIdx ? "active" : "todo";
+          const bg =
+            i === ST.phaseIdx
+              ? c
+              : i < ST.phaseIdx
+                ? "rgba(255,255,255,.4)"
+                : "rgba(255,255,255,.15)";
+          return `<div class="t-dot ${cl}" style="background:${bg}"></div>`;
+        }).join("");
         const isLast = ST.phaseIdx === 5;
         document.getElementById("btnNext").style.background = c;
         document.getElementById("btnNextTxt").textContent = isLast
@@ -3814,8 +4205,7 @@
       function exitTerrain() {
         ST.phaseIdx = 0;
         renderSelect();
-        showScreen("s-select");
-        bnActive("bnTerrain");
+        goTo("s-select", "bnTerrain", null);
       }
       function openDecision() {
         const prof = p();
@@ -3849,12 +4239,12 @@
               `<button class="dec-opt" onclick="selDecOpt(${i})">${o.label}<small>${o.hint}</small></button>`,
           )
           .join("");
-        showScreen("s-decision");
+        goTo("s-decision", "bnTerrain", null);
       }
       function selDecOpt(i) {
         ST.phaseIdx = 4;
         renderTerrain();
-        showScreen("s-terrain");
+        goTo("s-terrain", "bnTerrain", null);
       }
       function completeProtocol() {
         const prof = p();
@@ -3863,36 +4253,52 @@
         document.getElementById("cmpText").textContent =
           prof.dc?.R || "Protocole complété.";
         document.getElementById("cmpReinforce").textContent =
-          REINFORCE[prof.arch] || "La relation est construite.";
+          {
+            efficace: "Elle reviendra parce qu'on l'a respectée.",
+            social: "Le post arrive. La vente est faite.",
+            collectif: "Un enfant heureux = une famille fidèle.",
+            rationnel: "La raison a été donnée. La permission accordée.",
+            identitaire: "La reconnaissance était là. La fidélité suit.",
+            explorateur:
+              "La première expérience positive crée la carte mentale.",
+          }[prof.arch] || "La relation est construite.";
         buildFicheSheet();
-        showScreen("s-complete");
-        setPhase(PHASE_COLORS.R);
+        goTo("s-complete", "bnTerrain", PHASE_COLORS.R);
       }
       function newClient() {
         ST.phaseIdx = 0;
         renderSelect();
-        showScreen("s-select");
-        bnActive("bnTerrain");
+        goTo("s-select", "bnTerrain", null);
       }
 
-      /* ===== FORMATION BUILDERS ===== */
-      function switchTab(group, idx, el) {
-        document
-          .querySelectorAll('[data-g="' + group + '"]')
-          .forEach((p, i) => p.classList.toggle("on", i === idx));
-        document
-          .querySelectorAll(
-            "#s-" + { vend: "vendeurs", cad: "cadres" }[group] + " .tab",
-          )
-          .forEach((t, i) => t.classList.toggle("on", i === idx));
+      // ========== SHEETS ==========
+      function openSheet(id) {
+        if (id === "shFiche") buildFicheSheet();
+        document.getElementById("bd").classList.add("open");
+        document.getElementById(id).classList.add("open");
       }
+      function closeSheets() {
+        document.getElementById("bd").classList.remove("open");
+        document
+          .querySelectorAll(".sheet")
+          .forEach((s) => s.classList.remove("open"));
+      }
+      function buildFicheSheet() {
+        const prof = p();
+        const c =
+          PHASE_COLORS[ph()] || ARCH_DATA[prof.arch]?.color || "#f0a820";
+        document.getElementById("shFicheContent").innerHTML =
+          `<div class="cb"><div class="cb-lbl">Neurotype</div><div class="cb-text">${prof.neurotype || "-"}</div></div><div class="cb"><div class="cb-lbl">Mécanisme dominant</div><div class="cb-text">${prof.mechanism || "-"}</div></div><div class="cb"><div class="cb-lbl">Signaux terrain</div>${(prof.signals || []).map((s) => `<div class="pf-sig" style="--phase:${c}">${s}</div>`).join("")}</div><div class="cb"><div class="cb-lbl">Erreur fatale</div><div class="pf-err">${prof.error || "-"}</div></div><div class="cb"><div class="cb-lbl">Protocole CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="pf-capter-row"><div class="pf-c-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div class="pf-c-text">${prof.dc?.[ph] || "-"}</div></div>`).join("")}</div>`;
+      }
+
+      // ========== FORMATION CONTENT ==========
       function buildArchGrid(id) {
         const el = document.getElementById(id);
         if (!el) return;
         el.innerHTML = Object.entries(ARCH_DATA)
           .map(
             ([k, a]) =>
-              `<div class="arch-block" style="border-left:3px solid ${a.color}"><div class="arch-block-icon">${a.icon}</div><div class="arch-block-name" style="color:${a.color}">${a.name}</div><div class="arch-block-desc">${a.desc || ""}</div></div>`,
+              `<div class="arch-block" style="border-left:3px solid ${a.color}"><div class="arch-block-icon">${a.icon}</div><div class="arch-block-name" style="color:${a.color}">${a.name}</div><div class="arch-block-desc">${a.desc || ""}</div><div class="arch-block-profs">${a.profs || ""}</div></div>`,
           )
           .join("");
       }
@@ -3905,11 +4311,11 @@
             dont: "Toute énergie excessive, tout enthousiasme forcé, toute approche trop rapide.",
           },
           A: {
-            desc: "Capturer le focus attentionnel. Une seule information formulée pour activer la curiosité.",
+            desc: "Capturer le focus attentionnel. Une seule information formulée pour activer la curiosité. L'information doit être inattendue ou exclusive.",
             dont: "Trop d'information simultanée. Le cerveau sature et décroche.",
           },
           P: {
-            desc: "Activer la dopamine par l'anticipation. Une question qui projette le client dans la possession imaginée.",
+            desc: "Activer la dopamine par l'anticipation. Une question qui projette le client dans la possession imaginée. Le plaisir précède l'achat.",
             dont: "Projeter une vision qui ne correspond pas au profil du client.",
           },
           T: {
@@ -3921,7 +4327,7 @@
             dont: "Parler pendant l'hésitation. Remplir le silence avec des arguments.",
           },
           R: {
-            desc: "Consolider la décision et programmer le retour. Une phrase de renforcement spécifique au profil.",
+            desc: "Consolider la décision et programmer le retour. Une phrase de renforcement spécifique au profil. Pas de généricité.",
             dont: "Remercier de manière générique. Oublier de créer le prétexte du retour.",
           },
         };
@@ -3942,7 +4348,7 @@
         el.innerHTML = profs
           .map((prof) => {
             const ac = ARCH_DATA[prof.arch] || { color: "#f0a820" };
-            return `<div class="prof-card" id="pc${prof.id}"><div class="prof-card-h" onclick="togglePC(${prof.id})"><div class="prof-card-thumb"><img src="${PROFILE_IMAGES[prof.id] || ""}" alt="" loading="lazy"></div><div class="prof-card-info"><div class="prof-card-name" style="color:${ac.color}">${prof.name}</div><div class="prof-card-sub">#${String(prof.id).padStart(2, "0")} · ${SITE_LABELS[prof.site] || prof.site}</div></div><div class="prof-card-arr">›</div></div><div class="prof-card-body"><div class="pf-lbl">Neurotype</div><div class="pf-val">${prof.neurotype || "-"}</div><div class="pf-lbl">Signaux</div>${(prof.signals || []).map((s) => `<div class="pf-sig">${s}</div>`).join("")}<div class="pf-lbl">Erreur fatale</div><div class="pf-err">${prof.error || "-"}</div><div class="pf-lbl">CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="pf-capter-row"><div class="pf-c-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div class="pf-c-text">${prof.dc?.[ph] || "-"}</div></div>`).join("")}</div></div>`;
+            return `<div class="prof-card" id="pc${prof.id}"><div class="prof-card-h" onclick="togglePC(${prof.id})"><div class="prof-card-thumb"><img src="${img(prof.id)}" alt="" loading="lazy"></div><div class="prof-card-info"><div class="prof-card-name" style="color:${ac.color}">${prof.name}</div><div class="prof-card-sub">#${String(prof.id).padStart(2, "0")} · ${SITE_LABELS[prof.site] || prof.site}</div></div><div class="prof-card-arr">›</div></div><div class="prof-card-body"><div class="pf-lbl">Neurotype</div><div class="pf-val">${prof.neurotype || "-"}</div><div class="pf-lbl">Signaux</div>${(prof.signals || []).map((s) => `<div class="pf-sig" style="--phase:${ac.color}">${s}</div>`).join("")}<div class="pf-lbl">Erreur fatale</div><div class="pf-err">${prof.error || "-"}</div><div class="pf-lbl">CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="pf-capter-row"><div class="pf-c-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div class="pf-c-text">${prof.dc?.[ph] || "-"}</div></div>`).join("")}</div></div>`;
           })
           .join("");
       }
@@ -3959,8 +4365,9 @@
         });
         if (el) {
           el.classList.add("on");
-          el.style.background = "var(--gold)";
-          el.style.color = "#000";
+          el.style.background =
+            f === "all" ? "var(--gold)" : "rgba(255,255,255,.1)";
+          el.style.color = f === "all" ? "#000" : "rgba(255,255,255,.6)";
         }
         buildProfList();
       }
@@ -3972,31 +4379,31 @@
             l: "R",
             name: "Reconnaître",
             color: "#e8701a",
-            desc: "Nommer un comportement positif observé.",
+            desc: "Nommer un comportement positif observé. Commence toujours par un point fort.",
           },
           {
             l: "E",
             name: "Écouter",
             color: "#2e9e48",
-            desc: "Laisser le vendeur s'exprimer.",
+            desc: "Laisser le vendeur s'exprimer sur l'interaction. Pas d'interruption. Écoute active visible.",
           },
           {
             l: "L",
             name: "Libérer",
             color: "#1e6ed8",
-            desc: "Identifier où le protocole a décroché.",
+            desc: "Identifier avec le vendeur le moment où le protocole a décroché. Question ouverte.",
           },
           {
             l: "A",
             name: "Accompagner",
             color: "#8b5cf6",
-            desc: "Reformuler le bon comportement.",
+            desc: "Reformuler le bon comportement avec le script CAPTER adapté. Montrer, pas expliquer.",
           },
           {
             l: "A",
             name: "Aligner",
             color: "#d89020",
-            desc: "Valider l'engagement du vendeur.",
+            desc: "Valider l'engagement du vendeur sur le comportement cible. Futur positif, pas correctif.",
           },
         ];
         el.innerHTML = steps
@@ -4010,12 +4417,14 @@
         const el = document.getElementById("obs-grid");
         if (!el) return;
         const rows = [
-          ["Phase C", "Délai avant approche · Ton de voix"],
-          ["Phase A", "Information proposée · Réaction client"],
-          ["Phase P", "Question personnalisation posée"],
-          ["Phase T", "Nombre d'options proposées"],
-          ["Phase E", "Durée du silence"],
-          ["Phase R", "Phrase de renforcement"],
+          ["Phase C", "Délai avant approche · Ton de voix · Distance"],
+          ["Phase A", "Information proposée · Réaction client · Durée"],
+          ["Phase P", "Question personnalisation posée · Réponse client"],
+          ["Phase T", "Nombre d'options proposées · Délai décision"],
+          ["Phase E", "Durée du silence · Signal d'engagement détecté"],
+          ["Phase R", "Phrase de renforcement · Prétexte de retour créé"],
+          ["Erreur fatale", "Comportement hors protocole observé"],
+          ["Profil identifié", "Archétype assigné · Justification"],
         ];
         el.innerHTML = rows
           .map(
@@ -4030,27 +4439,37 @@
         const kpis = [
           {
             label: "Taux d'identification profil",
+            sub: "% interactions correctement lues en 3s",
             target: 85,
             unit: "%",
             color: "#2e9e48",
           },
           {
             label: "Taux de complétion CAPTER",
+            sub: "% interactions avec 6 phases complétées",
             target: 70,
             unit: "%",
             color: "#e8701a",
           },
           {
-            label: "Erreurs fatales (cible <1)",
+            label: "Erreurs fatales (cible: 0)",
+            sub: "Nombre par vendeur par semaine",
             target: 15,
             unit: "",
             color: "#cc2838",
+          },
+          {
+            label: "Score débrief RELAA",
+            sub: "Qualité des débriefs cadre",
+            target: 80,
+            unit: "%",
+            color: "#1e6ed8",
           },
         ];
         el.innerHTML = kpis
           .map(
             (k) =>
-              `<div class="cb"><div class="stat-row"><div class="stat-lbl-row"><span>${k.label}</span><span style="color:${k.color}">${k.target}${k.unit}</span></div><div class="stat-track"><div class="stat-fill" style="width:${k.target}%;background:${k.color}"></div></div></div></div>`,
+              `<div class="cb" style="padding:12px"><div class="stat-row"><div class="stat-lbl-row"><span>${k.label}</span><span style="color:${k.color}">${k.target}${k.unit}</span></div><div class="stat-sub">${k.sub}</div><div class="stat-track"><div class="stat-fill" style="width:${k.target}%;background:${k.color}"></div></div></div></div>`,
           )
           .join("");
       }
@@ -4059,32 +4478,54 @@
         if (!el) return;
         const qs = [
           {
-            q: "Une femme entre rapidement, consulte son téléphone. Première action ?",
+            q: "Une femme entre rapidement, consulte son téléphone et se dirige vers un portant précis. Première action ?",
             opts: [
-              "Accueillir chaleureusement",
-              "Laisser 30s puis approcher",
+              "Accueillir chaleureusement avec sourire",
+              "Laisser 30s puis approcher brièvement",
               "Présenter la nouvelle collection",
               "Demander si elle cherche quelque chose",
             ],
             ans: 1,
-            exp: "Phase C — L'Efficace a déjà décidé.",
+            exp: "Phase C — L'Efficace a déjà décidé. 30 secondes d'espace puis une phrase courte.",
           },
           {
-            q: "Un jeune homme entre avec un ami, prend des photos. Quel archétype ?",
+            q: "Un jeune homme entre avec un ami, prend des photos et regarde toute la boutique. Quel archétype ?",
             opts: ["L'Efficace", "Le Social", "Le Rationnel", "L'Explorateur"],
             ans: 1,
-            exp: "Le Social — téléphone, groupe, regard global.",
+            exp: "Le Social — téléphone, groupe, regard global. Son ami est le jury de la décision.",
           },
           {
-            q: "En phase T, combien d'options proposer ?",
+            q: "En phase T, vous avez identifié le bon article. Que proposez-vous ?",
             opts: [
-              "3 options",
+              "3 options pour laisser le choix",
               "2 options maximum",
               "1 seule option",
-              "Demander au client",
+              "Demandez au client ce qu'il préfère",
             ],
             ans: 1,
-            exp: "Phase T — 2 options maximum.",
+            exp: "Phase T — 2 options maximum. 3+ options = paradoxe du choix = abandon.",
+          },
+          {
+            q: "Le client hésite, regarde l'article en silence. Quelle est la bonne action ?",
+            opts: [
+              "Ajouter des arguments",
+              "Se taire et attendre",
+              "Proposer une alternative",
+              "Demander son avis",
+            ],
+            ans: 1,
+            exp: "Phase E — Le silence actif est l'outil le plus puissant. Parler détruit le momentum.",
+          },
+          {
+            q: "Homme 45 ans corpulent, marche vite, téléphone en main, blazer sur le bras. Quel profil ?",
+            opts: [
+              "Le Chasseur de Valeur",
+              "Le Calculateur Rationnel",
+              "L'Exécutif Pressé",
+              "L'Étudiant Identitaire",
+            ],
+            ans: 2,
+            exp: "L'Exécutif Pressé (#10) — Age, corpulence, marche rapide, téléphone pro, blazer sur le bras.",
           },
         ];
         el.innerHTML = qs
@@ -4107,99 +4548,73 @@
             (chosen === correct ? "✓ Correct — " : "✗ Incorrect — ") + exp;
           fb.style.background =
             chosen === correct ? "rgba(46,158,72,.1)" : "rgba(204,40,56,.1)";
+          fb.style.color =
+            chosen === correct ? "#7ed8a0" : "rgba(255,110,110,.8)";
+          fb.style.borderLeft =
+            "3px solid " + (chosen === correct ? "#2e9e48" : "#cc2838");
           fb.classList.add("show");
         }
       }
-
-      /* ===== SHEETS ===== */
-      function openSheet(id) {
-        document.getElementById("bd").classList.add("open");
-        document.getElementById(id).classList.add("open");
-      }
-      function closeSheets() {
-        document.getElementById("bd").classList.remove("open");
+      function switchTab(group, idx, el) {
         document
-          .querySelectorAll(".sheet")
-          .forEach((s) => s.classList.remove("open"));
-      }
-      function buildFicheSheet() {
-        const prof = p();
-        const ac = ARCH_DATA[prof.arch] || { color: "#f0a820" };
-        document.getElementById("shFicheContent").innerHTML =
-          `<div class="cb"><div class="cb-lbl">Neurotype</div><div class="cb-text">${prof.neurotype || "-"}</div></div><div class="cb"><div class="cb-lbl">Mécanisme dominant</div><div class="cb-text">${prof.mechanism || "-"}</div></div><div class="cb"><div class="cb-lbl">Signaux terrain</div>${(prof.signals || []).map((s) => `<div class="pf-sig">${s}</div>`).join("")}</div><div class="cb"><div class="cb-lbl">Erreur fatale</div><div class="pf-err">${prof.error || "-"}</div></div><div class="cb"><div class="cb-lbl">Protocole CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="pf-capter-row"><div class="pf-c-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div class="pf-c-text">${prof.dc?.[ph] || "-"}</div></div>`).join("")}</div>`;
-      }
-      function openFiche(profId) {
-        const prof = PROFILES.find((p) => p.id === profId);
-        if (!prof) return;
-        const ac = ARCH_DATA[prof.arch] || {
-          color: "#f0a820",
-          icon: "",
-          name: "",
-        };
-        ficheProfileId = profId;
-        setPhase(ac.color);
-        const hi = document.getElementById("ficheHeroImg");
-        if (hi) hi.src = PROFILE_IMAGES[prof.id] || "";
-        const ab = document.getElementById("ficheArchBadge");
-        if (ab) {
-          ab.textContent = ac.icon + " " + ac.name;
-          ab.style.color = ac.color;
-        }
-        document.getElementById("ficheProfNum").textContent =
-          "#" + String(prof.id).padStart(2, "0");
-        document.getElementById("ficheProfName").textContent = prof.name;
-        document.getElementById("ficheProfSite").textContent =
-          SITE_LABELS[prof.site] || prof.site;
-        const ct = document.getElementById("ficheCta");
-        if (ct) ct.style.background = ac.color;
-        const co = document.getElementById("ficheContent");
-        if (co) {
-          co.innerHTML =
-            (prof.tagline
-              ? `<div class="fiche-tagline" style="border-color:${ac.color}">${prof.tagline}</div>`
-              : "") +
-            '<div class="fiche-section"><div class="fiche-section-lbl">Neurotype</div><div class="fiche-section-val">' +
-            (prof.neurotype || "—") +
-            '</div></div><div class="fiche-section"><div class="fiche-section-lbl">👁 Signaux en 3 secondes</div><div class="fiche-signal-list">' +
-            (prof.signals || [])
-              .map(
-                (s) =>
-                  `<div class="fiche-signal-row"><div class="fiche-signal-dot" style="background:${ac.color}"></div><div class="fiche-signal-txt">${s}</div></div>`,
-              )
-              .join("") +
-            '</div></div><div class="fiche-erreur-box"><div class="fiche-erreur-lbl">⚠ Erreur fatale</div><div class="fiche-erreur-txt">' +
-            (prof.error || "—") +
-            '</div></div><div class="fiche-section"><div class="fiche-section-lbl">◈ Protocole CAPTER</div><div class="fiche-capter-list">' +
-            ["C", "A", "P", "T", "E", "R"]
-              .map(
-                (ph) =>
-                  `<div class="fiche-capter-row"><div class="fiche-capter-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div><div class="fiche-capter-phase" style="color:${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]} · ${PHASE_TIMES[ph]}</div><div class="fiche-capter-script">${prof.dc && prof.dc[ph] ? prof.dc[ph] : "—"}</div></div></div>`,
-              )
-              .join("") +
-            "</div></div>";
-        }
-        const ov = document.getElementById("ficheOverlay");
-        if (ov) ov.classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
-      let ficheProfileId = null;
-      function closeFiche() {
-        const ov = document.getElementById("ficheOverlay");
-        if (ov) ov.classList.remove("open");
-        document.body.style.overflow = "";
-        ficheProfileId = null;
-      }
-      function activateFicheCapter() {
-        if (!ficheProfileId) return;
-        const idx = PROFILES.findIndex((p) => p.id === ficheProfileId);
-        closeFiche();
-        ST.filteredProfiles = PROFILES.slice();
-        ST.profileIdx = idx >= 0 ? idx : 0;
-        renderSelect();
-        activateTerrain();
+          .querySelectorAll('[data-g="' + group + '"]')
+          .forEach((p, i) => p.classList.toggle("on", i === idx));
+        document
+          .querySelectorAll(
+            "#s-" +
+              { vend: "vendeurs", cad: "cadres", mc: "masterclass" }[group] +
+              " .tab",
+          )
+          .forEach((t, i) => t.classList.toggle("on", i === idx));
       }
 
-      /* ===== TOUCH GESTURES ===== */
+      // ========== PROFIL SCREEN ==========
+      let profilCurrent = 0;
+      function renderProfilScreen() {
+        const p = PROFILES[profilCurrent];
+        const ac = ARCH_DATA[p.arch] || {
+          color: "#f0a820",
+          icon: "⚡",
+          name: p.arch,
+        };
+        const siteColor = SITE_COLORS[p.site] || "#f0a820";
+        document.documentElement.style.setProperty("--ac", ac.color);
+        setPhase(ac.color);
+        document.getElementById("profilCurr").textContent = String(
+          p.id,
+        ).padStart(2, "0");
+        const imgEl = document.getElementById("profilImg");
+        imgEl.classList.remove("visible");
+        setTimeout(() => {
+          imgEl.src = PROFILE_IMAGES[p.id] || "";
+          imgEl.onload = () => {
+            imgEl.classList.add("visible");
+          };
+          if (imgEl.complete && imgEl.naturalWidth > 0)
+            imgEl.classList.add("visible");
+        }, 50);
+        document.getElementById("profilNavName").textContent = p.name;
+        let dotsHtml = "";
+        PROFILES.forEach((_, i) => {
+          dotsHtml += `<div class="profil-dot ${i === profilCurrent ? "active" : ""}" onclick="profilGoTo(${i})"></div>`;
+        });
+        document.getElementById("profilDots").innerHTML = dotsHtml;
+        document.getElementById("profilLeft").innerHTML =
+          `<div class="site-badge" style="border-color:${siteColor}50;color:${siteColor}">${SITE_LABELS[p.site]}</div><div class="arch-badge" style="border-color:${ac.color}60;color:${ac.color};background:${ac.color}12">${ac.icon} ${ac.name}</div><div class="prof-num">#${String(p.id).padStart(2, "0")}</div><div class="prof-name" style="color:#fff">${p.name}</div><div class="profil-tagline" style="border-left-color:${ac.color}">${p.tagline || ""}</div><div class="block-lbl">Neurotype</div><div class="neurotype">${p.neurotype || "-"}</div><div class="block-lbl">Signaux en 3s</div>${(p.signals || []).map((s) => `<div class="signal-item"><div class="signal-dot" style="background:${ac.color}"></div>${s}</div>`).join("")}<div class="erreur-box"><div class="erreur-lbl">⚠ Erreur fatale</div><div class="erreur-txt">${p.error || "-"}</div></div>`;
+        document.getElementById("profilRight").innerHTML =
+          `<div class="capter-lbl">Protocole CAPTER</div>${PHASE_ORDER.map((ph) => `<div class="cp-item"><div class="cp-letter" style="color:${PHASE_COLORS[ph]}">${ph}</div><div><div class="cp-time">${PHASE_TIMES[ph]}</div><div class="cp-name" style="color:${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]}</div><div class="cp-script">${p.dc?.[ph] || "—"}</div></div></div>`).join("")}<div class="block-lbl" style="margin-top:6px">Mécanisme</div><div class="mech-box"><div class="mech-txt">${p.mechanism || "-"}</div></div><div class="block-lbl" style="margin-top:6px">Trafic estimé</div><div class="traffic-box"><div class="traffic-val" style="color:${ac.color}">${p.traffic || "—"}</div><div class="traffic-lbl">du trafic mall</div></div>`;
+      }
+      function profilNav(dir) {
+        const next = (profilCurrent + dir + PROFILES.length) % PROFILES.length;
+        profilGoTo(next);
+      }
+      function profilGoTo(idx) {
+        if (idx === profilCurrent) return;
+        profilCurrent = idx;
+        renderProfilScreen();
+      }
+
+      // ========== GESTURES ==========
       let tx = 0,
         ty = 0,
         tt = 0;
@@ -4227,16 +4642,249 @@
             if (dx > 60 && ax > ay * 1.5) exitTerrain();
             if (dx < -60 && ax > ay * 1.5) nextPhase();
           }
-          if (cur === "s-profiles" && ax > 50 && ax > ay * 1.5)
-            profilesNav(dx < 0 ? 1 : -1);
+          if (cur === "s-profil" && ax > 50 && ax > ay * 1.5)
+            profilNav(dx < 0 ? 1 : -1);
         },
         { passive: true },
       );
+      document.addEventListener("keydown", (e) => {
+        const cur = document.querySelector(".screen.active")?.id;
+        if (cur === "s-select") {
+          if (e.key === "ArrowRight") selNav(1);
+          if (e.key === "ArrowLeft") selNav(-1);
+          if (e.key === "Enter") activateTerrain();
+          if (e.key === "Escape") closeSheets();
+        }
+        if (cur === "s-terrain") {
+          if (e.key === "ArrowRight" || e.key === "Enter") nextPhase();
+          if (e.key === "Escape" || e.key === "ArrowLeft") exitTerrain();
+        }
+        if (cur === "s-profil") {
+          if (e.key === "ArrowRight") profilNav(1);
+          if (e.key === "ArrowLeft") profilNav(-1);
+        }
+      });
 
-      /* ===== INIT ===== */
+      // ========== EXTRA ==========
+      var voirTousMode = false;
+      function toggleVoirTous() {
+        var btn = document.getElementById("voirTousBtn"),
+          txt = document.getElementById("voirTousTxt");
+        if (!voirTousMode) {
+          voirTousMode = true;
+          ST.archFilter = "all";
+          ST.filteredProfiles = PROFILES.slice();
+          ST.profileIdx = 0;
+          renderSelect();
+          if (btn) {
+            btn.style.color = "var(--gold)";
+            btn.style.borderColor = "rgba(240,168,32,.5)";
+            btn.style.background = "rgba(240,168,32,.1)";
+          }
+          if (txt) txt.textContent = "Filtrer par enseigne ✕";
+        } else {
+          voirTousMode = false;
+          ST.archFilter = "all";
+          if (ST.site) buildFilteredProfiles();
+          else ST.filteredProfiles = PROFILES.slice();
+          ST.profileIdx = 0;
+          renderSelect();
+          if (btn) {
+            btn.style.color = "rgba(255,255,255,.7)";
+            btn.style.borderColor = "rgba(255,255,255,.25)";
+            btn.style.background = "rgba(255,255,255,.08)";
+          }
+          if (txt) txt.textContent = "Voir les 18 profils";
+        }
+      }
+      var selectedSetupProfId = null;
+      function buildSetupProfilesGrid() {
+        var grid = document.getElementById("setupProfilesGrid");
+        if (!grid) return;
+        var SC = { sousse: "#2e9e48", sfax: "#1e6ed8", tunis: "#cc2838" };
+        grid.innerHTML = "";
+        PROFILES.forEach(function (prof) {
+          var div = document.createElement("div");
+          div.className = "setup-prof-thumb";
+          div.id = "spt-" + prof.id;
+          div.onclick = (function (id, arch) {
+            return function () {
+              selectSetupProfile(id, arch);
+            };
+          })(prof.id, prof.arch);
+          div.ondblclick = (function (id) {
+            return function () {
+              openFiche(id);
+            };
+          })(prof.id);
+          var img = document.createElement("img");
+          img.src = PROFILE_IMAGES[prof.id] || "";
+          img.alt = "";
+          var ov = document.createElement("div");
+          ov.className = "setup-prof-thumb-overlay";
+          var dot = document.createElement("div");
+          dot.className = "setup-prof-thumb-site";
+          dot.style.background = SC[prof.site] || "#fff";
+          var nm = document.createElement("div");
+          nm.className = "setup-prof-thumb-name";
+          nm.textContent = prof.name
+            .replace("L'", "")
+            .replace("Le ", "")
+            .replace("La ", "")
+            .split(" ")
+            .slice(0, 2)
+            .join(" ");
+          div.appendChild(img);
+          div.appendChild(ov);
+          div.appendChild(dot);
+          div.appendChild(nm);
+          grid.appendChild(div);
+        });
+      }
+      function selectSetupProfile(id, arch) {
+        document
+          .querySelectorAll(".setup-prof-thumb")
+          .forEach((t) => t.classList.remove("selected"));
+        var t = document.getElementById("spt-" + id);
+        if (t) t.classList.add("selected");
+        selectedSetupProfId = id;
+        var ac = ARCH_DATA[arch] || { color: "#f0a820" };
+        setPhase(ac.color);
+        var cta = document.getElementById("setupProfCta");
+        if (cta) cta.style.display = "block";
+      }
+      function activateSelectedProfile() {
+        if (!selectedSetupProfId) return;
+        if (!ST.site) {
+          var pr = PROFILES.find((p) => p.id === selectedSetupProfId);
+          ST.site = pr ? pr.site : "sousse";
+        }
+        ST.filteredProfiles = PROFILES.slice();
+        ST.profileIdx = Math.max(
+          0,
+          PROFILES.findIndex((p) => p.id === selectedSetupProfId),
+        );
+        renderSelect();
+        activateTerrain();
+      }
+      var ficheProfileId = null;
+      function openFiche(profId) {
+        var prof = PROFILES.find((p) => p.id === profId);
+        if (!prof) return;
+        var ac = ARCH_DATA[prof.arch] || {
+          color: "#f0a820",
+          icon: "",
+          name: "",
+        };
+        ficheProfileId = profId;
+        setPhase(ac.color);
+        var hi = document.getElementById("ficheHeroImg");
+        if (hi) hi.src = PROFILE_IMAGES[prof.id] || "";
+        var ab = document.getElementById("ficheArchBadge");
+        if (ab) {
+          ab.textContent = ac.icon + " " + ac.name;
+          ab.style.color = ac.color;
+        }
+        var pn = document.getElementById("ficheProfNum");
+        if (pn) pn.textContent = "#" + String(prof.id).padStart(2, "0");
+        var nm = document.getElementById("ficheProfName");
+        if (nm) nm.textContent = prof.name;
+        var ps = document.getElementById("ficheProfSite");
+        if (ps) ps.textContent = SITE_LABELS[prof.site] || prof.site;
+        var ct = document.getElementById("ficheCta");
+        if (ct) ct.style.background = ac.color;
+        var co = document.getElementById("ficheContent");
+        if (!co) return;
+        co.scrollTop = 0;
+        co.innerHTML =
+          (prof.tagline
+            ? '<div class="fiche-tagline" style="border-color:' +
+              ac.color +
+              '">' +
+              prof.tagline +
+              "</div>"
+            : "") +
+          '<div class="fiche-section"><div class="fiche-section-lbl">Neurotype</div><div class="fiche-section-val">' +
+          (prof.neurotype || "—") +
+          '</div></div><div class="fiche-section"><div class="fiche-section-lbl">👁 Signaux en 3 secondes</div><div class="fiche-signal-list">' +
+          (prof.signals || [])
+            .map(
+              (s) =>
+                '<div class="fiche-signal-row"><div class="fiche-signal-dot" style="background:' +
+                ac.color +
+                '"></div><div class="fiche-signal-txt">' +
+                s +
+                "</div></div>",
+            )
+            .join("") +
+          '</div></div><div class="fiche-erreur-box"><div class="fiche-erreur-lbl">⚠ Erreur fatale</div><div class="fiche-erreur-txt">' +
+          (prof.error || "—") +
+          '</div></div><div class="fiche-section"><div class="fiche-section-lbl">◈ Protocole CAPTER</div><div class="fiche-capter-list">' +
+          PHASE_ORDER.map(
+            (ph) =>
+              '<div class="fiche-capter-row"><div class="fiche-capter-letter" style="color:' +
+              PHASE_COLORS[ph] +
+              '">' +
+              ph +
+              '</div><div><div class="fiche-capter-phase" style="color:' +
+              PHASE_COLORS[ph] +
+              '">' +
+              PHASE_NAMES[ph] +
+              " · " +
+              PHASE_TIMES[ph] +
+              '</div><div class="fiche-capter-script">' +
+              (prof.dc && prof.dc[ph] ? prof.dc[ph] : "—") +
+              "</div></div></div>",
+          ).join("") +
+          "</div></div>";
+        var ov = document.getElementById("ficheOverlay");
+        if (ov) ov.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeFiche() {
+        var ov = document.getElementById("ficheOverlay");
+        if (ov) ov.classList.remove("open");
+        document.body.style.overflow = "";
+        ficheProfileId = null;
+      }
+      function activateFicheCapter() {
+        if (!ficheProfileId) return;
+        var idx = PROFILES.findIndex((p) => p.id === ficheProfileId);
+        closeFiche();
+        ST.filteredProfiles = PROFILES.slice();
+        ST.profileIdx = idx >= 0 ? idx : 0;
+        renderSelect();
+        activateTerrain();
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeFiche();
+      });
+
+      // ========== BRANDS ==========
+      const BRANDS = [
+        { id: "zara", name: "Zara", profIds: [1, 2, 5, 13, 15, 16, 17] },
+        { id: "bershka", name: "Bershka", profIds: [2, 8, 16, 18] },
+        { id: "pull_bear", name: "Pull & Bear", profIds: [2, 8, 16, 17, 18] },
+        {
+          id: "massimo",
+          name: "Massimo Dutti",
+          profIds: [7, 10, 12, 13, 14, 15],
+        },
+        { id: "mango", name: "Mango", profIds: [1, 12, 15] },
+        { id: "lefties", name: "Lefties", profIds: [6, 18] },
+        { id: "stradivarius", name: "Stradivarius", profIds: [12, 15, 16] },
+        { id: "jennyfer", name: "Jennyfer", profIds: [2, 8, 16] },
+        { id: "celio", name: "Celio", profIds: [7, 10] },
+        { id: "oysho", name: "Oysho", profIds: [12, 15] },
+        { id: "lc_waikiki", name: "LC Waikiki", profIds: [3, 9] },
+        { id: "zara_home", name: "Zara Home", profIds: [5, 13, 14] },
+      ];
+
+      // ========== INIT ==========
       (function () {
         initSetup();
         buildArchGrid("vend-archs");
+        buildArchGrid("mc-archs");
         buildCapterList();
         buildProfList();
         buildRelaaList();
