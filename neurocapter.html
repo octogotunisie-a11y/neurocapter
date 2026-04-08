@@ -1714,6 +1714,401 @@
         flex-direction: column;
         height: 100%;
       }
+      /* ===== PROFIL SCREEN FIXES ===== */
+#s-profil {
+  background: #050810;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 !important;
+}
+
+.profil-stage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #050810;
+}
+
+.profil-top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(5, 8, 16, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Layout 3 colonnes responsive */
+.profil-3col {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 8px;
+  padding: 16px 12px;
+  min-height: 60vh;
+}
+
+/* Colonne gauche */
+.profil-left {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 12px 10px;
+  overflow-y: auto;
+  max-height: 55vh;
+}
+
+/* Colonne centre (image) */
+.profil-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.profil-img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  object-position: top 20%;
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+
+.profil-img.visible {
+  opacity: 1;
+}
+
+/* Colonne droite */
+.profil-right {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 12px 10px;
+  overflow-y: auto;
+  max-height: 55vh;
+}
+
+/* Éléments dans les colonnes */
+.site-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: fit-content;
+  margin-bottom: 12px;
+}
+
+.arch-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+
+.prof-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 4px;
+}
+
+.prof-name {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.profil-tagline {
+  font-family: Rajdhani, sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  border-left: 2px solid var(--gold);
+  padding-left: 8px;
+  margin: 10px 0;
+}
+
+.block-lbl {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  margin: 12px 0 6px 0;
+}
+
+.neurotype {
+  font-family: Rajdhani, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.signal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: Rajdhani, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.signal-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.erreur-box {
+  background: rgba(204, 40, 56, 0.08);
+  border: 1px solid rgba(204, 40, 56, 0.2);
+  border-left: 3px solid #cc2838;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.erreur-lbl {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  color: #cc2838;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.erreur-txt {
+  font-family: Rajdhani, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 100, 100, 0.8);
+  line-height: 1.35;
+}
+
+.capter-lbl {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.cp-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  margin-bottom: 6px;
+}
+
+.cp-letter {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  min-width: 22px;
+  line-height: 1;
+}
+
+.cp-time {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 6px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.cp-name {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cp-script {
+  font-family: Rajdhani, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.3;
+  margin-top: 3px;
+}
+
+.mech-box {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mech-txt {
+  font-family: Rajdhani, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+}
+
+.traffic-box {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.traffic-val {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.traffic-lbl {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+/* Navigation */
+.profil-nav {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px 20px;
+  background: rgba(5, 8, 16, 0.96);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profil-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 28px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.profil-nav-btn:active {
+  transform: scale(0.94);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.profil-nav-dots {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.profil-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.profil-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+.profil-nav-name {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Scrollbars */
+.profil-left::-webkit-scrollbar,
+.profil-right::-webkit-scrollbar {
+  width: 2px;
+}
+
+.profil-left::-webkit-scrollbar-track,
+.profil-right::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.profil-left::-webkit-scrollbar-thumb,
+.profil-right::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profil-3col {
+    grid-template-columns: 1fr 1.1fr 1fr;
+    gap: 6px;
+    padding: 12px 10px;
+  }
+  
+  .profil-left, .profil-right {
+    padding: 8px 6px;
+  }
+  
+  .prof-name {
+    font-size: 14px;
+  }
+  
+  .cp-letter {
+    font-size: 14px;
+    min-width: 18px;
+  }
+}
       #s-profil {
         background: #050810;
         padding: 0;
@@ -4897,7 +5292,151 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeFiche();
       });
+       // ===== PROFIL SCREEN VARIABLES =====
+let profilCurrentIndex = 0;
+let profilTouchStartX = 0;
+let profilTouchStartY = 0;
 
+// ===== PROFIL SCREEN FUNCTIONS =====
+function goProfil() {
+  profilCurrentIndex = 0;
+  renderProfilScreen();
+  showScreen("s-profil");
+  bnActive("bnProfil");
+  setPhase("#d89020");
+}
+
+function renderProfilScreen() {
+  const prof = PROFILES[profilCurrentIndex];
+  if (!prof) return;
+
+  const ac = ARCH_DATA[prof.arch] || { color: "#f0a820", icon: "⚡", name: "Efficace" };
+  const siteColor = SITE_COLORS[prof.site] || "#f0a820";
+
+  setPhase(ac.color);
+
+  // Mise à jour compteur
+  document.getElementById("profilCurr").textContent = String(profilCurrentIndex + 1).padStart(2, "0");
+
+  // Image
+  const imgEl = document.getElementById("profilImg");
+  if (imgEl) {
+    imgEl.classList.remove("visible");
+    setTimeout(() => {
+      imgEl.src = PROFILE_IMAGES[prof.id] || "";
+      imgEl.onload = () => imgEl.classList.add("visible");
+      if (imgEl.complete && imgEl.naturalWidth > 0) imgEl.classList.add("visible");
+    }, 30);
+  }
+
+  // Nom dans la navigation
+  const navName = document.getElementById("profilNavName");
+  if (navName) navName.textContent = prof.name;
+
+  // Construction colonne gauche
+  const leftCol = document.getElementById("profilLeft");
+  if (leftCol) {
+    leftCol.innerHTML = `
+      <div class="site-badge" style="border-color: ${siteColor}50; color: ${siteColor}">
+        ${SITE_LABELS[prof.site] || prof.site}
+      </div>
+      <div class="arch-badge" style="border-color: ${ac.color}60; color: ${ac.color}; background: ${ac.color}12">
+        ${ac.icon} ${ac.name}
+      </div>
+      <div class="prof-num">#${String(prof.id).padStart(2, "0")}</div>
+      <div class="prof-name">${prof.name}</div>
+      <div class="profil-tagline" style="border-left-color: ${ac.color}">${prof.tagline || ""}</div>
+      <div class="block-lbl">🧠 Neurotype</div>
+      <div class="neurotype">${prof.neurotype || "—"}</div>
+      <div class="block-lbl">👁 Signaux en 3 secondes</div>
+      ${(prof.signals || []).map(s => `
+        <div class="signal-item">
+          <div class="signal-dot" style="background: ${ac.color}"></div>
+          ${s}
+        </div>
+      `).join("")}
+      <div class="erreur-box">
+        <div class="erreur-lbl">⚠ Erreur fatale</div>
+        <div class="erreur-txt">${prof.error || "—"}</div>
+      </div>
+    `;
+  }
+
+  // Construction colonne droite (CAPTER)
+  const rightCol = document.getElementById("profilRight");
+  if (rightCol) {
+    rightCol.innerHTML = `
+      <div class="capter-lbl">◈ Protocole CAPTER</div>
+      ${PHASE_ORDER.map(ph => `
+        <div class="cp-item">
+          <div class="cp-letter" style="color: ${PHASE_COLORS[ph]}">${ph}</div>
+          <div>
+            <div class="cp-time">${PHASE_TIMES[ph]}</div>
+            <div class="cp-name" style="color: ${PHASE_COLORS[ph]}">${PHASE_NAMES[ph]}</div>
+            <div class="cp-script">${prof.dc?.[ph] || "—"}</div>
+          </div>
+        </div>
+      `).join("")}
+      <div class="block-lbl" style="margin-top: 8px">📊 Mécanisme dominant</div>
+      <div class="mech-box">
+        <div class="mech-txt">${prof.mechanism || "—"}</div>
+      </div>
+      <div class="block-lbl" style="margin-top: 8px">📈 Trafic estimé</div>
+      <div class="traffic-box">
+        <div class="traffic-val" style="color: ${ac.color}">${prof.traffic || "—"}</div>
+        <div class="traffic-lbl">du trafic mall</div>
+      </div>
+    `;
+  }
+
+  // Dots de navigation
+  const dotsContainer = document.getElementById("profilDots");
+  if (dotsContainer) {
+    dotsContainer.innerHTML = PROFILES.map((_, i) => `
+      <div class="profil-dot ${i === profilCurrentIndex ? "active" : ""}" 
+           onclick="profilGoTo(${i})"></div>
+    `).join("");
+  }
+}
+
+function profilNav(direction) {
+  let newIndex = profilCurrentIndex + direction;
+  if (newIndex < 0) newIndex = PROFILES.length - 1;
+  if (newIndex >= PROFILES.length) newIndex = 0;
+  profilGoTo(newIndex);
+}
+
+function profilGoTo(index) {
+  if (index === profilCurrentIndex) return;
+  profilCurrentIndex = index;
+  renderProfilScreen();
+}
+
+// Swipe pour mobile
+function initProfilSwipe() {
+  const profilScreen = document.getElementById("s-profil");
+  if (!profilScreen) return;
+
+  profilScreen.addEventListener("touchstart", (e) => {
+    profilTouchStartX = e.touches[0].clientX;
+    profilTouchStartY = e.touches[0].clientY;
+  });
+
+  profilScreen.addEventListener("touchend", (e) => {
+    if (!profilTouchStartX) return;
+    const diffX = e.changedTouches[0].clientX - profilTouchStartX;
+    const diffY = e.changedTouches[0].clientY - profilTouchStartY;
+    if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+      if (diffX < 0) profilNav(1);
+      else profilNav(-1);
+    }
+  });
+}
+
+// Initialisation au chargement
+setTimeout(() => {
+  initProfilSwipe();
+}, 100);
       (function () {
         initSetup();
         buildArchGrid("vend-archs");
