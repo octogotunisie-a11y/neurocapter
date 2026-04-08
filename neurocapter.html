@@ -2087,7 +2087,192 @@
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
 }
+/* ===== MASTERCLASS MOBILE FIXES ===== */
+#s-masterclass .masterclass-scroll {
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: 90px;
+}
 
+.masterclass-image-container {
+  padding: 0 12px;
+  margin-bottom: 8px;
+}
+
+.masterclass-image {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.masterclass-content {
+  padding: 0 16px;
+}
+
+.masterclass-hero {
+  border-left: 3px solid #cc2838;
+  padding: 14px 14px;
+  background: rgba(204, 40, 56, 0.08);
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 16px;
+}
+
+.masterclass-hero-eyebrow {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.masterclass-hero-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.masterclass-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.masterclass-box-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.masterclass-box-text {
+  font-family: Rajdhani, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.masterclass-section {
+  margin-bottom: 16px;
+}
+
+.masterclass-section-header {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.masterclass-num-badge {
+  background: var(--gold);
+  color: #000;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.masterclass-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 32px;
+}
+
+.masterclass-item {
+  font-family: Rajdhani, sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.45;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  border-left: 2px solid rgba(240, 168, 32, 0.4);
+}
+
+.masterclass-item strong {
+  color: #fff;
+}
+
+.masterclass-conclusion {
+  background: linear-gradient(135deg, rgba(240, 168, 32, 0.15), rgba(204, 40, 56, 0.1));
+  border: 1px solid rgba(240, 168, 32, 0.35);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.masterclass-conclusion-eyebrow {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masterclass-conclusion-text {
+  font-family: Rajdhani, sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+.masterclass-conclusion-signature {
+  margin-top: 10px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.masterclass-image-bottom {
+  padding: 0 16px 20px;
+}
+
+.masterclass-image-bottom img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.masterclass-caption {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Suppression des anciens styles problématiques */
+#s-masterclass .form-header {
+  display: none;
+}
 /* Responsive */
 @media (max-width: 600px) {
   .profil-3col {
@@ -2967,524 +3152,94 @@
       </div>
     </div>
 
-    <!-- ===== MASTERCLASS ===== -->
-    <div class="screen form-screen" id="s-masterclass">
-      <div class="form-header">
-        <div class="form-eyebrow">
-          NeuroCAPTER · <span style="color: #00aaff">INDIGO Tunisie</span>
-        </div>
-        <div class="form-title" style="color: var(--gold)">
-          Master<em style="color: #fff">class</em>
-        </div>
+  <!-- ===== MASTERCLASS ===== -->
+<div class="screen" id="s-masterclass">
+  <div style="height: 100%; display: flex; flex-direction: column; overflow: hidden;">
+    <!-- Header compact -->
+    <div style="flex-shrink: 0; padding: 12px 16px 4px;">
+      <div style="font-family: 'Share Tech Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: rgba(255,255,255,0.35); text-transform: uppercase;">
+        NeuroCAPTER · <span style="color: #00aaff">INDIGO Tunisie</span>
       </div>
-      <div style="overflow-y: auto; padding: 0 0 90px; flex: 1">
-        <div style="padding: 0 16px 4px">
-          <div
-            style="
-              overflow-x: auto;
-              border-radius: 12px;
-              box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
-            "
-          >
-            <img
-              src="2.png"
-              alt="Infographie Masterclass"
-              style="
-                width: 100%;
-                min-width: 480px;
-                display: block;
-                border-radius: 12px;
-              "
-            />
-          </div>
-        </div>
-        <div style="padding: 20px 16px 0">
-          <div
-            style="
-              border-left: 3px solid #cc2838;
-              padding: 12px 14px;
-              background: rgba(204, 40, 56, 0.08);
-              border-radius: 0 10px 10px 0;
-              margin-bottom: 16px;
-            "
-          >
-            <div
-              style="
-                font-family:
-                  Share Tech Mono,
-                  monospace;
-                font-size: 8px;
-                letter-spacing: 0.18em;
-                color: rgba(255, 255, 255, 0.4);
-                text-transform: uppercase;
-                margin-bottom: 6px;
-              "
-            >
-              MASTERCLASS · NEURO-DYNAMIQUE DE LA VENTE
-            </div>
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 20px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.04em;
-                color: var(--gold);
-                margin-bottom: 4px;
-              "
-            >
-              Maîtriser le Tiers de Seconde : Levier de Performance Indigo
-            </div>
-          </div>
-          <div
-            style="
-              background: rgba(255, 255, 255, 0.05);
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 12px;
-              padding: 14px 16px;
-              margin-bottom: 14px;
-            "
-          >
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 15px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: #cc2838;
-                margin-bottom: 8px;
-              "
-            >
-              ⚡ L'ENJEU : HACKER LE SYSTÈME PRÉDICTIF
-            </div>
-            <div
-              style="
-                font-family: Rajdhani, sans-serif;
-                font-size: 13.5px;
-                line-height: 1.55;
-                color: rgba(255, 255, 255, 0.75);
-              "
-            >
-              La vente n'est pas une simple discussion, c'est une
-              <strong style="color: #fff"
-                >collision entre deux systèmes neuro-biologiques</strong
-              >. Chez Indigo, nous ne formons plus à l'argumentaire classique,
-              mais à la maîtrise des
-              <strong style="color: var(--gold)">signaux faibles</strong> qui
-              déclenchent ou bloquent l'achat en un éclair.
-            </div>
-          </div>
-          <div style="margin-bottom: 12px">
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 14px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--gold);
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-              "
-            >
-              <span
-                style="
-                  background: var(--gold);
-                  color: #000;
-                  border-radius: 50%;
-                  width: 22px;
-                  height: 22px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 11px;
-                  flex-shrink: 0;
-                "
-                >1</span
-              >Le Diagnostic : Le Temps Fantôme
-            </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                padding-left: 30px;
-              "
-            >
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(240, 168, 32, 0.4);
-                "
-              >
-                <span style="color: var(--gold); font-weight: 700"
-                  >Le Concept : </span
-                >L'inconscient traite les informations avec
-                <strong style="color: #fff">1/3 de seconde d'avance</strong> sur
-                la pensée consciente.
-              </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(240, 168, 32, 0.4);
-                "
-              >
-                <span style="color: var(--gold); font-weight: 700"
-                  >Le Choc : </span
-                >Ce « pilotage automatique » représente
-                <strong style="color: #fff">4 heures par jour</strong>, soit
-                <strong style="color: #cc2838">1 an et 8 mois</strong> de
-                décisions invisibles tous les 10 ans.
-              </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(240, 168, 32, 0.4);
-                "
-              >
-                <span style="color: var(--gold); font-weight: 700"
-                  >L'Impact : </span
-                >C'est dans cette zone que se scelle la
-                <strong style="color: #fff">confiance du client</strong> avant
-                même qu'il ne formule son besoin.
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom: 12px">
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 14px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--gold);
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-              "
-            >
-              <span
-                style="
-                  background: var(--gold);
-                  color: #000;
-                  border-radius: 50%;
-                  width: 22px;
-                  height: 22px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 11px;
-                  flex-shrink: 0;
-                "
-                >2</span
-              >L'Outil : Les 18 Systèmes Prédictifs (NeuroCAPTER)
-            </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                padding-left: 30px;
-              "
-            >
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(46, 158, 72, 0.5);
-                "
-              >
-                <span style="color: #2e9e48; font-weight: 700"
-                  >La Cartographie : </span
-                >Fruit de plus de
-                <strong style="color: #fff">3 200 observations réelles</strong>
-                sur le terrain tunisien (2024-2025), nous avons identifié 18
-                archétypes comportementaux.
-              </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(46, 158, 72, 0.5);
-                "
-              >
-                <span style="color: #2e9e48; font-weight: 700"
-                  >Anticipation du Véto : </span
-                >Dès le seuil (0-10s), le vendeur identifie le « système
-                d'exploitation » du client (ex : <em>L'Exécutif Pressé</em> ou
-                <em>Le Jeune Tendance</em>) pour éviter le
-                <strong style="color: #cc2838">Véto Neurologique</strong>.
-              </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(46, 158, 72, 0.5);
-                "
-              >
-                <span style="color: #2e9e48; font-weight: 700"
-                  >La Fenêtre Vicary : </span
-                >En identifiant le profil, le vendeur synchronise son approche
-                avec la
-                <strong style="color: #fff"
-                  >fenêtre de décision ultra-rapide</strong
-                >
-                de l'inconscient.
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom: 16px">
-            <div
-              style="
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 14px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--gold);
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-              "
-            >
-              <span
-                style="
-                  background: var(--gold);
-                  color: #000;
-                  border-radius: 50%;
-                  width: 22px;
-                  height: 22px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 11px;
-                  flex-shrink: 0;
-                "
-                >3</span
-              >La Méthode : La Collision Biométrique (Pareto²)
-            </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                padding-left: 30px;
-              "
-            >
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(30, 110, 216, 0.5);
-                "
-              >
-                <span style="color: #1e6ed8; font-weight: 700"
-                  >La Loi de Pareto² : </span
-                >Les
-                <strong style="color: #fff"
-                  >20% d'état interne du vendeur</strong
-                >
-                (sa neuro-signature) dictent
-                <strong style="color: var(--gold)"
-                  >80% du climat de la vente</strong
-                >.
-              </div>
-              <div
-                style="
-                  font-family: Rajdhani, sans-serif;
-                  font-size: 13px;
-                  color: rgba(255, 255, 255, 0.8);
-                  line-height: 1.45;
-                  padding: 8px 12px;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 8px;
-                  border-left: 2px solid rgba(30, 110, 216, 0.5);
-                "
-              >
-                <span style="color: #1e6ed8; font-weight: 700"
-                  >La Solution Opérationnelle : </span
-                >Le
-                <strong style="color: #fff">RESET Manager Kit</strong> stabilise
-                l'état émotionnel du vendeur, tandis que l'application
-                <strong style="color: var(--gold)">NeuroCAPTER V2</strong>
-                permet une synchronisation chirurgicale selon le site (Tunis,
-                Sfax, Sousse) et la marque.
-              </div>
-            </div>
-          </div>
-          <div
-            style="
-              background: linear-gradient(
-                135deg,
-                rgba(240, 168, 32, 0.15),
-                rgba(204, 40, 56, 0.1)
-              );
-              border: 1px solid rgba(240, 168, 32, 0.35);
-              border-radius: 14px;
-              padding: 16px;
-              margin-bottom: 18px;
-              text-align: center;
-            "
-          >
-            <div
-              style="
-                font-family:
-                  Share Tech Mono,
-                  monospace;
-                font-size: 8px;
-                letter-spacing: 0.2em;
-                color: rgba(255, 255, 255, 0.4);
-                text-transform: uppercase;
-                margin-bottom: 10px;
-              "
-            >
-              — CONCLUSION SIGNATURE —
-            </div>
-            <div
-              style="
-                font-family: Rajdhani, sans-serif;
-                font-size: 14px;
-                font-style: italic;
-                color: rgba(255, 255, 255, 0.9);
-                line-height: 1.6;
-              "
-            >
-              « Messieurs, un vendeur qui ne maîtrise pas les
-              <strong style="color: var(--gold)">18 systèmes prédictifs</strong>
-              de ses clients <em>subit</em> la vente. Celui qui les décode
-              <strong style="color: #fff"
-                >possède les clés du tiers de seconde</strong
-              >. »
-            </div>
-            <div
-              style="
-                margin-top: 10px;
-                font-family:
-                  Barlow Condensed,
-                  sans-serif;
-                font-size: 13px;
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                color: var(--gold);
-              "
-            >
-              Bienvenue dans l'ère du Neuro-Management Indigo.
-            </div>
-          </div>
-        </div>
-        <div style="padding: 0 16px 4px">
-          <img
-            src="2.png"
-            alt="Infographie Masterclass"
-            style="
-              width: 100%;
-              min-width: 480px;
-              display: block;
-              border-radius: 12px;
-            "
-          />
-          <div
-            style="
-              font-family:
-                Share Tech Mono,
-                monospace;
-              font-size: 8px;
-              letter-spacing: 0.18em;
-              color: rgba(255, 255, 255, 0.35);
-              text-transform: uppercase;
-              margin-bottom: 10px;
-              text-align: center;
-            "
-          >
-            Infographie · Neuro-Dynamique de la Vente
-          </div>
-        </div>
+      <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 900; text-transform: uppercase; color: var(--gold);">
+        Master<span style="color: #fff">class</span>
       </div>
     </div>
 
-    <!-- ===== PROFIL SCREEN ===== -->
-    <div class="screen" id="s-profil">
-      <div class="profil-stage">
-        <div class="profil-top-bar">
-          <div class="profil-brand">
-            Neuro<span>CAPTER</span> · INDIGO Tunisie
-          </div>
-          <div class="profil-counter">
-            <b id="profilCurr">01</b> / 18 Profils
+    <!-- Contenu scrollable -->
+    <div class="masterclass-scroll">
+      <!-- Image 1 -->
+      <div class="masterclass-image-container">
+        <img src="2.png" alt="Infographie Masterclass" class="masterclass-image" />
+      </div>
+
+      <!-- Hero -->
+      <div class="masterclass-content">
+        <div class="masterclass-hero">
+          <div class="masterclass-hero-eyebrow">MASTERCLASS · NEURO-DYNAMIQUE DE LA VENTE</div>
+          <div class="masterclass-hero-title">Maîtriser le Tiers de Seconde : Levier de Performance Indigo</div>
+        </div>
+
+        <!-- Enjeu -->
+        <div class="masterclass-box">
+          <div class="masterclass-box-title" style="color: #cc2838">⚡ L'ENJEU : HACKER LE SYSTÈME PRÉDICTIF</div>
+          <div class="masterclass-box-text">
+            La vente n'est pas une simple discussion, c'est une <strong style="color:#fff">collision entre deux systèmes neuro-biologiques</strong>. Chez Indigo, nous ne formons plus à l'argumentaire classique, mais à la maîtrise des <strong style="color:var(--gold)">signaux faibles</strong> qui déclenchent ou bloquent l'achat en un éclair.
           </div>
         </div>
-        <div class="profil-3col">
-          <div class="profil-left" id="profilLeft"></div>
-          <div class="profil-center" id="profilCenter">
-            <img id="profilImg" class="profil-img" src="" />
+
+        <!-- Section 1 -->
+        <div class="masterclass-section">
+          <div class="masterclass-section-header">
+            <span class="masterclass-num-badge">1</span>Le Diagnostic : Le Temps Fantôme
           </div>
-          <div class="profil-right" id="profilRight"></div>
+          <div class="masterclass-items">
+            <div class="masterclass-item"><span style="color:var(--gold);font-weight:700">Le Concept :</span> L'inconscient traite les informations avec <strong>1/3 de seconde d'avance</strong> sur la pensée consciente.</div>
+            <div class="masterclass-item"><span style="color:var(--gold);font-weight:700">Le Choc :</span> Ce « pilotage automatique » représente <strong>4 heures par jour</strong>, soit <strong style="color:#cc2838">1 an et 8 mois</strong> de décisions invisibles tous les 10 ans.</div>
+            <div class="masterclass-item"><span style="color:var(--gold);font-weight:700">L'Impact :</span> C'est dans cette zone que se scelle la <strong>confiance du client</strong> avant même qu'il ne formule son besoin.</div>
+          </div>
         </div>
-        <div class="profil-nav">
-          <button class="profil-nav-btn" onclick="profilNav(-1)">‹</button>
-          <div>
-            <div class="profil-nav-dots" id="profilDots"></div>
-            <div class="profil-nav-name" id="profilNavName">—</div>
+
+        <!-- Section 2 -->
+        <div class="masterclass-section">
+          <div class="masterclass-section-header">
+            <span class="masterclass-num-badge">2</span>L'Outil : Les 18 Systèmes Prédictifs
           </div>
-          <button class="profil-nav-btn" onclick="profilNav(1)">›</button>
+          <div class="masterclass-items">
+            <div class="masterclass-item"><span style="color:#2e9e48;font-weight:700">La Cartographie :</span> Fruit de plus de <strong>3 200 observations réelles</strong> sur le terrain tunisien (2024-2025), nous avons identifié 18 archétypes comportementaux.</div>
+            <div class="masterclass-item"><span style="color:#2e9e48;font-weight:700">Anticipation du Véto :</span> Dès le seuil (0-10s), le vendeur identifie le « système d'exploitation » du client pour éviter le <strong style="color:#cc2838">Véto Neurologique</strong>.</div>
+            <div class="masterclass-item"><span style="color:#2e9e48;font-weight:700">La Fenêtre Vicary :</span> En identifiant le profil, le vendeur synchronise son approche avec la <strong>fenêtre de décision ultra-rapide</strong> de l'inconscient.</div>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="masterclass-section">
+          <div class="masterclass-section-header">
+            <span class="masterclass-num-badge">3</span>La Méthode : La Collision Biométrique
+          </div>
+          <div class="masterclass-items">
+            <div class="masterclass-item"><span style="color:#1e6ed8;font-weight:700">La Loi de Pareto² :</span> Les <strong>20% d'état interne du vendeur</strong> dictent <strong style="color:var(--gold)">80% du climat de la vente</strong>.</div>
+            <div class="masterclass-item"><span style="color:#1e6ed8;font-weight:700">La Solution Opérationnelle :</span> Le <strong>RESET Manager Kit</strong> stabilise l'état émotionnel du vendeur, tandis que l'application <strong style="color:var(--gold)">NeuroCAPTER V2</strong> permet une synchronisation chirurgicale selon le site (Tunis, Sfax, Sousse) et la marque.</div>
+          </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="masterclass-conclusion">
+          <div class="masterclass-conclusion-eyebrow">— CONCLUSION SIGNATURE —</div>
+          <div class="masterclass-conclusion-text">
+            « Messieurs, un vendeur qui ne maîtrise pas les <strong style="color:var(--gold)">18 systèmes prédictifs</strong> de ses clients <em>subit</em> la vente. Celui qui les décode <strong style="color:#fff">possède les clés du tiers de seconde</strong>. »
+          </div>
+          <div class="masterclass-conclusion-signature">Bienvenue dans l'ère du Neuro-Management Indigo.</div>
         </div>
       </div>
+
+      <!-- Image 2 -->
+      <div class="masterclass-image-bottom">
+        <img src="2.png" alt="Infographie Masterclass" />
+        <div class="masterclass-caption">Infographie · Neuro-Dynamique de la Vente</div>
+      </div>
     </div>
+  </div>
+</div>
 
     <!-- BOTTOM NAV -->
     <div id="bottomBar">
@@ -4360,10 +4115,10 @@
         setPhase(PHASE_COLORS.T);
       }
       function goMasterclass() {
-        showScreen("s-masterclass");
-        bnActive("bnMC");
-        setPhase(PHASE_COLORS.R);
-      }
+  showScreen("s-masterclass");
+  bnActive("bnMC");
+  setPhase(PHASE_COLORS.R);
+}
       function goProfil() {
         renderProfilScreen();
         showScreen("s-profil");
